@@ -1,0 +1,73 @@
+{
+  "name": "react-ui-components",
+  "version": "0.1.0",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@rebass/forms": "^4.0.6",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/theming": "^5.3.19",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rebass": "^4.0.7"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "scripts": {
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "lint": "eslint 'src/**/*.js'"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^5.3.19",
+    "cross-env": "^7.0.2",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.8"
+  },
+  "description": "React UI Components",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Phineas Kibbey <pkibbey@liveperson.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pkibbey/react-ui-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pkibbey/react-ui-components/issues"
+  },
+  "homepage": "https://github.com/pkibbey/react-ui-components#readme"
+}
