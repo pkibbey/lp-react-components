@@ -1,8 +1,6 @@
-import InputField from './InputField';
-import Loader from './Loader';
-import LoadingDots from './LoadingDots';
-import SelectField from './SelectField';
+import React from 'react'
+import styles from './styles.module.css'
 
-export {
-  InputField, Loader, LoadingDots, SelectField,
-};
+export const ExampleComponent = ({ text }) => {
+  return <div className={styles.test}>Example Component: {text}</div>
+}
