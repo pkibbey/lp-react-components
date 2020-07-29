@@ -1,14 +1,14 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import ErrorRequirements from '../components/ErrorRequirements';
+import React from 'react'
+import { render } from '@testing-library/react'
+import ErrorRequirements from './ErrorRequirements'
 
 test('renders error requirements when input is focused', () => {
-  render(<ErrorRequirements focused error={{}} />);
-});
+  render(<ErrorRequirements focused error={{}} />)
+})
 
 test('renders error requirements when input is not focused', () => {
-  render(<ErrorRequirements focused={false} error={{}} />);
-});
+  render(<ErrorRequirements focused={false} error={{}} />)
+})
 
 test('renders error requirements when it has an object of requirements', () => {
   render(
@@ -19,14 +19,14 @@ test('renders error requirements when it has an object of requirements', () => {
         requirements: {
           data: [
             { name: 'test1', isError: true, shouldIndent: true },
-            { name: 'test2', isError: false, shouldIndent: false },
+            { name: 'test2', isError: false, shouldIndent: false }
           ],
-          name: '',
-        },
+          name: ''
+        }
       }}
-    />,
-  );
-});
+    />
+  )
+})
 
 test('renders error requirements when it is not valid and it has a string of requirements', () => {
   render(
@@ -34,8 +34,8 @@ test('renders error requirements when it is not valid and it has a string of req
       focused={false}
       error={{
         isError: true,
-        requirements: 'test',
+        requirements: 'test'
       }}
-    />,
-  );
-});
+    />
+  )
+})

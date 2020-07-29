@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box } from 'rebass';
-import { keyframes } from '@emotion/core';
+import React from 'react'
+import { Box } from 'rebass'
+import { keyframes } from '@emotion/core'
 
 const bounce = keyframes`
   from, 10%, 27%, 40%, to {
@@ -15,11 +15,11 @@ const bounce = keyframes`
   45% {
     transform: translate3d(0,-1px,0);
   }
-`;
+`
 
 const LoadingDot = ({ delay }) => (
   <Box
-    as="span"
+    as='span'
     sx={{
       backgroundColor: 'white',
       width: '3px',
@@ -29,14 +29,14 @@ const LoadingDot = ({ delay }) => (
       animationDuration: '1.5s',
       animationTimingFunction: 'linear',
       animationIterationCount: '3',
-      animationDelay: `${delay}s`,
+      animationDelay: `${delay}s`
     }}
   />
-);
+)
 
 const LoadingDots = () => (
   <Box
-    as="span"
+    as='span'
     style={{
       display: 'inline-flex',
       alignItems: 'center',
@@ -44,13 +44,13 @@ const LoadingDots = () => (
       boxSizing: 'border-box',
       width: '16px',
       height: '24px',
-      marginLeft: '4px',
+      marginLeft: '4px'
     }}
   >
     <LoadingDot delay={0} />
     <LoadingDot delay={0.15} />
     <LoadingDot delay={0.3} />
   </Box>
-);
+)
 
-export default LoadingDots;
+export default LoadingDots

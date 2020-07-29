@@ -1,6 +1,4 @@
-import React from 'react'
-import styles from './styles.module.css'
-
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { default as InputField } from './InputField'
+export { default as SelectField } from './SelectField'
+export { default as LoadingDots } from './LoadingDots'
+export { default as Loader } from './Loader'

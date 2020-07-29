@@ -1,91 +1,40 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import InputField from '../InputField';
+import React from 'react'
+import { action } from '@storybook/addon-actions'
+import InputField from '../src/InputField'
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs'
 
 export default {
   title: 'InputField',
   component: InputField,
-};
+  decorators: [withKnobs]
+}
 
 export const Default = () => (
   <InputField
-    isFirst
-    isMultiple={false}
-    name="default"
-    placeholder="placeholder"
-    value=""
-    defaultValue="test"
+    isFirst={boolean('isFirst', false)}
+    isMultiple={boolean('isMultiple', false)}
+    name={select('name', ['default', 'password', 'email'], 'default')}
+    placeholder={boolean('placeholder', 'placeholder')}
+    value={boolean('value', '')}
     updateUserDetail={action('updateUserDetail')}
     error={{}}
     updateError={action('updateError')}
   />
-);
+)
 
-export const Errored = () => (
+export const WithError = () => (
   <InputField
-    isFirst
-    isMultiple={false}
-    name="default"
-    placeholder="placeholder"
-    value=""
-    defaultValue="test"
+    isFirst={boolean('isFirst', false)}
+    isMultiple={boolean('isMultiple', false)}
+    name={select('name', ['default', 'password', 'email'], 'email')}
+    placeholder={boolean('placeholder', 'placeholder')}
+    value={text('value', '')}
     updateUserDetail={action('updateUserDetail')}
-    error={{ isError: true, hasInteracted: true, message: 'An error has occurred' }}
+    error={{
+      isError: true,
+      isInteracted: true,
+      message: 'An error happened'
+    }}
     updateError={action('updateError')}
   />
-);
-
-export const Password = () => (
-  <InputField
-    isFirst
-    isMultiple={false}
-    name="password"
-    placeholder="placeholder"
-    value=""
-    defaultValue="test"
-    updateUserDetail={action('updateUserDetail')}
-    error={{}}
-    updateError={action('updateError')}
-  />
-);
-
-export const Email = () => (
-  <InputField
-    isFirst
-    isMultiple={false}
-    name="email"
-    placeholder="placeholder"
-    value=""
-    defaultValue="test"
-    updateUserDetail={action('updateUserDetail')}
-    error={{}}
-    updateError={action('updateError')}
-  />
-);
-
-export const Muiltiple = () => (
-  <div style={{ display: 'grid', gridGap: 16, gridTemplateColumns: 'auto auto' }}>
-    <InputField
-      isFirst
-      isMultiple
-      name="default"
-      placeholder="placeholder"
-      value=""
-      defaultValue="test"
-      updateUserDetail={action('updateUserDetail')}
-      error={{}}
-      updateError={action('updateError')}
-    />
-    <InputField
-      isFirst={false}
-      isMultiple
-      name="default"
-      placeholder="placeholder"
-      value="Hello"
-      defaultValue="test"
-      updateUserDetail={action('updateUserDetail')}
-      error={{}}
-      updateError={action('updateError')}
-    />
-  </div>
-);
+)

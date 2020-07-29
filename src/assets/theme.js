@@ -9,7 +9,13 @@
 export default {
   breakpoints: ['40em', '52em', '75em', '100em'],
   fontSizes: [
-    '.75rem', '.875rem', '1rem', '1.25rem', '1.5rem', '2rem', '2.5rem',
+    '.75rem',
+    '.875rem',
+    '1rem',
+    '1.25rem',
+    '1.5rem',
+    '2rem',
+    '2.5rem'
   ],
   colors: {
     orange: '#ff6900',
@@ -30,30 +36,39 @@ export default {
     lightBlue: '#5879DA',
     shadow: '#141358',
     aqua: '#5ED7FB',
-    aquaHover: '#00a4d6',
+    aquaHover: '#00a4d6'
   },
   space: [
-    0, '.25rem', '.5rem', '1rem', '1.5rem', '2rem', '2.5rem', '4rem', '8rem', '11.875rem',
+    0,
+    '.25rem',
+    '.5rem',
+    '1rem',
+    '1.5rem',
+    '2rem',
+    '2.5rem',
+    '4rem',
+    '8rem',
+    '11.875rem'
   ],
   variants: {
     activeDot: {
       backgroundColor: 'orange',
       borderColor: 'orange',
       borderWidth: 1,
-      borderStyle: 'solid',
+      borderStyle: 'solid'
     },
     inactiveDot: {
       backgroundColor: 'transparent',
       borderColor: 'white',
       borderWidth: 1,
-      borderStyle: 'solid',
+      borderStyle: 'solid'
     },
     carousel: {
-      backgroundColor: 'darkBlue',
+      backgroundColor: 'darkBlue'
     },
     secondaryLink: {
       fontSize: 0,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: '20px',
       borderRadius: 32,
@@ -67,12 +82,12 @@ export default {
       textDecoration: 'none',
       '&:hover': {
         backgroundColor: 'lightGray',
-        color: 'darkerGray',
-      },
+        color: 'darkerGray'
+      }
     },
     primaryLink: {
       fontSize: 0,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: '20px',
       borderRadius: 32,
@@ -85,119 +100,143 @@ export default {
       WebkitFontSmoothing: 'antialiased',
       textDecoration: 'none',
       '&:hover': {
-        backgroundColor: 'electricBlueHover',
-      },
-    },
-
+        backgroundColor: 'electricBlueHover'
+      }
+    }
   },
   text: {
     dropdownSelected: {
       fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
-      color: 'navy',
+      color: 'navy'
     },
     carouselTitle: {
       color: 'white',
       fontFamily: '"Roboto Slab", sans-serif',
       fontSize: [2, 3, 4, 6],
-      lineHeight: ['24px', '32px', '40px', '56px'],
+      fontFamily: '"Roboto", sans-serif',
+      lineHeight: ['24px', '32px', '40px', '56px']
     },
     carouselText: {
       color: 'white',
       fontSize: [1, 1, 2, 4],
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: ['20px', '20px', '24px', '40px'],
       textAlign: 'center',
       letterSpacing: '0.008em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     carouselSubtitle: {
       color: 'white',
       fontSize: [1, 1, 2, 3],
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: ['20px', '20px', '24px', '32px'],
       letterSpacing: '0.008em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     carouselAuthorName: {
       color: 'white',
       fontSize: [1, 1, 2, 3],
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       textAlign: 'center',
       lineHeight: ['20px', '20px', '24px', '32px'],
       letterSpacing: '0.008em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     carouselAuthorRole: {
       color: 'white',
       fontSize: [0, 1],
+      fontFamily: '"Roboto", sans-serif',
       textAlign: 'center',
       lineHeight: ['20px', '24px'],
       letterSpacing: '0.01em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     header: {
       fontSize: [3, 4, 5],
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: ['28px', '36px', '44px'],
       color: 'navy',
       letterSpacing: '0.008em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     subheader: {
       fontSize: 2,
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 300,
       lineHeight: '24px',
       color: 'navy',
       letterSpacing: '0.01em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     privacyPolicy: {
       fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
       letterSpacing: '0.01em',
-      color: 'gray',
+      color: 'gray'
     },
     errorInformation: {
       fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
       color: 'navyGray',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     errorText: {
       fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
       color: 'red',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     errorMessage: {
       fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
       color: 'red',
       WebkitFontSmoothing: 'antialiased',
-      maxWidth: ['100%', '100%', 414],
+      maxWidth: ['100%', '100%', 414]
     },
     videoTitle: {
       color: 'white',
       fontSize: 3,
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: '32px',
       letterSpacing: '0.008em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
     videoDescription: {
       color: 'white',
       fontSize: 1,
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 400,
       lineHeight: '24px',
       letterSpacing: '0.01em',
-      WebkitFontSmoothing: 'antialiased',
+      WebkitFontSmoothing: 'antialiased'
     },
-    accountLabel: { display: 'inline', color: 'lightGrey', whiteSpace: 'nowrap' },
-    accountDetail: { display: 'inline', color: 'white', whiteSpace: 'nowrap' },
+    accountLabel: {
+      display: 'inline',
+      fontSize: 1,
+      fontFamily: '"Roboto", sans-serif',
+      color: 'lightGrey',
+      whiteSpace: 'nowrap'
+    },
+    accountDetail: {
+      fontFamily: '"Roboto", sans-serif',
+      display: 'inline',
+      color: 'white',
+      whiteSpace: 'nowrap'
+    }
   },
   buttons: {
     primary: {
       fontSize: 2,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: '20px',
       borderRadius: 32,
@@ -212,12 +251,12 @@ export default {
       whiteSpace: 'nowrap',
       width: '100%',
       '&:hover': {
-        backgroundColor: 'electricBlueHover',
-      },
+        backgroundColor: 'electricBlueHover'
+      }
     },
     compact: {
       fontSize: 1,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       lineHeight: '24px',
       borderRadius: 32,
@@ -228,14 +267,14 @@ export default {
       WebkitFontSmoothing: 'antialiased',
       whiteSpace: 'nowrap',
       '&:hover': {
-        backgroundColor: 'electricBlueHover',
-      },
-    },
+        backgroundColor: 'electricBlueHover'
+      }
+    }
   },
   forms: {
     textInputError: {
       fontSize: 1,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       color: 'navyGray',
       borderWidth: 1,
       borderStyle: 'solid',
@@ -250,14 +289,15 @@ export default {
       letterSpacing: '0.01em',
       WebkitFontSmoothing: 'antialiased',
       // HACK: colorize webkit autocomplete input fields
-      WebkitBoxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC',
+      WebkitBoxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC',
       '&::placeholder': {
-        color: 'darkGray',
-      },
+        color: 'darkGray'
+      }
     },
     textInputErrorDisabled: {
       fontSize: 1,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       color: 'darkGray',
       borderWidth: 1,
       borderStyle: 'solid',
@@ -272,14 +312,15 @@ export default {
       letterSpacing: '0.01em',
       WebkitFontSmoothing: 'antialiased',
       // HACK: colorize webkit autocomplete input fields
-      WebkitBoxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC',
+      WebkitBoxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC',
       '&::placeholder': {
-        color: 'darkGray',
-      },
+        color: 'darkGray'
+      }
     },
     textInputDisabled: {
       fontSize: 1,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       color: 'darkGray',
       borderWidth: 1,
       borderStyle: 'solid',
@@ -293,14 +334,15 @@ export default {
       letterSpacing: '0.01em',
       WebkitFontSmoothing: 'antialiased',
       // HACK: colorize webkit autocomplete input fields
-      boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
       '&::placeholder': {
-        color: 'darkGray',
-      },
+        color: 'darkGray'
+      }
     },
     textInput: {
       fontSize: 1,
-      fontFamily: 'Roboto',
+      fontFamily: '"Roboto", sans-serif',
       color: 'navyGray',
       borderWidth: 1,
       borderStyle: 'solid',
@@ -314,15 +356,16 @@ export default {
       letterSpacing: '0.01em',
       WebkitFontSmoothing: 'antialiased',
       // HACK: colorize webkit autocomplete input fields
-      boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
       '&::placeholder': {
-        color: 'darkGray',
-      },
+        color: 'darkGray'
+      }
     },
     errorText: {
       fontSize: 1,
-      fontFamily: 'Roboto',
-      color: 'red',
-    },
-  },
-};
+      fontFamily: '"Roboto", sans-serif',
+      color: 'red'
+    }
+  }
+}
