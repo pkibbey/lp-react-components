@@ -2,21 +2,119 @@ import React from 'react'
 import { Box } from 'rebass'
 import { Select, Label } from '@rebass/forms'
 import ErrorText from './ErrorText'
+import theme from './assets/theme'
+
+const getStyles = (variant) => {
+  switch (variant) {
+    case 'textInputError':
+      return {
+        fontSize: 1,
+        fontFamily: '"Roboto", sans-serif',
+        color: theme.colors.navyGray,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.colors.red,
+        backgroundColor: theme.colors.lightRed,
+        borderRadius: 8,
+        lineHeight: '40px',
+        paddingLeft: theme.space[3],
+        paddingRight: theme.space[3],
+        paddingTop: 0,
+        paddingBottom: 0,
+        letterSpacing: '0.01em',
+        WebkitFontSmoothing: 'antialiased',
+        // HACK: colorize webkit autocomplete input fields
+        WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${theme.colors.lightRed}`,
+        '&::placeholder': {
+          color: theme.colors.darkGray
+        }
+      }
+    case 'textInputErrorDisabled':
+      return {
+        fontSize: 1,
+        fontFamily: '"Roboto", sans-serif',
+        color: theme.colors.darkGray,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.colors.red,
+        backgroundColor: theme.colors.lightRed,
+        borderRadius: 8,
+        lineHeight: '40px',
+        paddingLeft: theme.space[3],
+        paddingRight: theme.space[3],
+        paddingTop: 0,
+        paddingBottom: 0,
+        letterSpacing: '0.01em',
+        WebkitFontSmoothing: 'antialiased',
+        // HACK: colorize webkit autocomplete input fields
+        WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${theme.colors.lightRed}`,
+        '&::placeholder': {
+          color: theme.colors.darkGray
+        }
+      }
+    case 'textInputDisabled':
+      return {
+        fontSize: 1,
+        fontFamily: '"Roboto", sans-serif',
+        color: theme.colors.darkGray,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.colors.gray,
+        borderRadius: 8,
+        lineHeight: '40px',
+        paddingLeft: theme.space[3],
+        paddingRight: theme.space[3],
+        paddingTop: 0,
+        paddingBottom: 0,
+        letterSpacing: '0.01em',
+        WebkitFontSmoothing: 'antialiased',
+        // HACK: colorize webkit autocomplete input fields
+        boxShadow:
+          'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+        '&::placeholder': {
+          color: theme.colors.darkGray
+        }
+      }
+    default:
+      return {
+        fontSize: 1,
+        fontFamily: '"Roboto", sans-serif',
+        color: theme.colors.navyGray,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.colors.gray,
+        borderRadius: 8,
+        lineHeight: '40px',
+        paddingLeft: theme.space[3],
+        paddingRight: theme.space[3],
+        paddingTop: 0,
+        paddingBottom: 0,
+        letterSpacing: '0.01em',
+        WebkitFontSmoothing: 'antialiased',
+        // HACK: colorize webkit autocomplete input fields
+        boxShadow:
+          'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+        '&::placeholder': {
+          color: theme.colors.darkGray
+        }
+      }
+  }
+}
 
 const SelectField = ({
   name,
   value,
   defaultValue,
-  updateUserDetail,
+  handleChange,
   error,
-  updateError,
-  countries
+  handleBlur,
+  options
 }) => {
   const getVariant = () => {
-    if (error.isError && value === '') {
+    if (error?.isError && value === '') {
       return 'textInputErrorDisabled'
     }
-    if (error.isError) {
+    if (error?.isError) {
       return 'textInputError'
     }
     if (value === '') {
@@ -31,26 +129,33 @@ const SelectField = ({
         sx={{
           position: 'relative',
           display: 'grid',
-          gridTemplateColumns: ['auto', '5fr 4fr']
+          gridTemplateColumns: ['auto', '0 5fr 4fr']
         }}
       >
-        <Label htmlFor={`select-field-${name}`} style={{ display: 'none' }}>
+        <Label
+          htmlFor={`select-field-${name}`}
+          style={{
+            // label required for a11y - hide in the UI
+            opacity: 0,
+            height: 0,
+            width: 0,
+            pointerEvents: 'none'
+          }}
+        >
           {name}
         </Label>
         <Select
           data-testid={`select-field-${name}`}
           autoComplete='off'
-          variant={getVariant()}
           defaultValue={defaultValue}
           onChange={(event) =>
-            updateUserDetail && updateUserDetail(name, event.target.value)
+            handleChange && handleChange(name, event.target.value)
           }
-          onBlur={() =>
-            updateError && updateError(name, { hasInteracted: true })
-          }
+          onBlur={() => handleBlur && handleBlur(name, { hasInteracted: true })}
           name='region'
-          mb={error.isError ? 2 : 4}
+          mb={error?.isError ? 2 : 4}
           sx={{
+            ...getStyles(getVariant()),
             '&:focus, &:hover': {
               outlineColor: 'navyGray',
               outlineWidth: 2,
@@ -58,10 +163,10 @@ const SelectField = ({
             }
           }}
         >
-          {countries.map((option) => (
+          {options.map((option) => (
             <option
               key={option.name}
-              value={option.value || 'z1'}
+              value={option.value}
               disabled={option.disabled}
             >
               {option.name}
@@ -69,7 +174,7 @@ const SelectField = ({
           ))}
         </Select>
       </Box>
-      {error && <ErrorText name={name} error={error} />}
+      {error && <ErrorText error={error} />}
     </Box>
   )
 }

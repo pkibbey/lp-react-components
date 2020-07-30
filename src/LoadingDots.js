@@ -42,7 +42,7 @@ const LoadingDots = () => (
       alignItems: 'center',
       justifyContent: 'space-between',
       boxSizing: 'border-box',
-      width: '16px',
+      width: '17px',
       height: '24px',
       marginLeft: '4px'
     }}

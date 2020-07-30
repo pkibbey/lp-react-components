@@ -13,7 +13,7 @@ test('renders an input field', () => {
       updateError={mockFunction}
       placeholder='test placeholder'
       error={{}}
-      isFirst={false}
+      shouldFocusOnLoad
     />
   )
   expect(mockFunction).not.toHaveBeenCalled()
@@ -34,7 +34,6 @@ test('renders an input field with errors', () => {
           { name: 'test', isError: false }
         ]
       }}
-      isFirst={false}
     />
   )
   expect(mockFunction).not.toHaveBeenCalled()
@@ -49,7 +48,6 @@ test('input field blur event is fired', () => {
       updateError={mockFunction}
       placeholder='test placeholder'
       error={{}}
-      isFirst={false}
     />
   )
   fireEvent.blur(getByTestId('input-field-test-name'))
@@ -65,7 +63,6 @@ test('input field change event is fired', () => {
       updateError={mockFunction}
       placeholder='test placeholder'
       error={{}}
-      isFirst={false}
     />
   )
   fireEvent.change(getByTestId('input-field-test-name'), {
@@ -83,7 +80,6 @@ test('renders a password field and shows the text when clicking the icon', () =>
       updateError={mockFunction}
       placeholder='test placeholder'
       error={{}}
-      isFirst={false}
     />
   )
   getByTestId('password-icon').click()

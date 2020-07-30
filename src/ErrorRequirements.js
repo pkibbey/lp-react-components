@@ -1,5 +1,27 @@
 import React from 'react'
 import { Text } from 'rebass'
+import theme from './assets/theme'
+
+const getStyles = (variant) => {
+  switch (variant) {
+    case 'errorText':
+      return {
+        fontSize: theme.fontSizes[0],
+        fontFamily: '"Roboto", sans-serif',
+        lineHeight: '20px',
+        color: theme.colors.red,
+        WebkitFontSmoothing: 'antialiased'
+      }
+    default:
+      return {
+        fontSize: theme.fontSizes[0],
+        fontFamily: '"Roboto", sans-serif',
+        lineHeight: '20px',
+        color: theme.colors.navyGray,
+        WebkitFontSmoothing: 'antialiased'
+      }
+  }
+}
 
 const ErrorRequirementsItem = ({ items }) =>
   Object.keys(items).map((item) => {
@@ -8,7 +30,7 @@ const ErrorRequirementsItem = ({ items }) =>
         return items.data.map((d) => (
           <Text
             key={d.name}
-            variant={d.isError ? 'errorText' : 'errorInformation'}
+            sx={getStyles(d.isError ? 'errorText' : 'errorInformation')}
             ml={d.shouldIndent ? 2 : 0}
           >
             {`${d.name}`}
@@ -18,7 +40,7 @@ const ErrorRequirementsItem = ({ items }) =>
         return (
           <Text
             key={items.name}
-            variant='errorInformation'
+            sx={getStyles('errorInformation')}
           >{`${items.name}:`}</Text>
         )
       default:
@@ -33,8 +55,8 @@ const ErrorRequirements = ({ focused, error }) => {
         data-testid='error-requirements'
         ml={6}
         mr={6}
-        variant='errorInformation'
         sx={{
+          ...getStyles('errorInformation'),
           overflow: 'visible',
           height: 0,
           display: ['none', 'block']
