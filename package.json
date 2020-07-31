@@ -1,6 +1,6 @@
 {
   "name": "lp-react-components",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "(Reusable React components)",
   "author": "pkibbey",
   "license": "MIT",
@@ -21,10 +21,13 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "test:coverage": "react-scripts test --watchAll=false --coverage --env=jsdom",
-    "predeploy": "build-storybook",
-    "deploy": "gh-pages -d storybook-static",
+    "predeploy": "build-storybook && build-styleguidist",
+    "help": "gh-pages --help",
+    "deploy": "gh-pages -d docs",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs/storybook",
+    "styleguidist": "npx styleguidist server",
+    "build-styleguidist": "npx styleguidist build"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
@@ -37,6 +40,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@rebass/forms": "^4.0.6",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-info": "^5.3.19",
@@ -85,6 +90,7 @@
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",
     "@testing-library/react": "^10.4.7",
+    "core-js": "^3.6.5",
     "emotion-theming": "^10.0.27",
     "rebass": "^4.0.6",
     "styled-components": "^5.1.1"

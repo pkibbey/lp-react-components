@@ -174,6 +174,8 @@ InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password']),
   /** The value for the input field */
   value: PropTypes.string.isRequired,
+  /** The default value for the input field */
+  defaultValue: PropTypes.string,
   /** The placeholder for the input field */
   placeholder: PropTypes.string,
   /** Input field label for accessibility */
@@ -191,7 +193,7 @@ InputField.propTypes = {
 }
 
 InputField.defaultProps = {
-  name: 'input-field',
+  name: 'input',
   defaultValue: '',
   error: {}
 }
