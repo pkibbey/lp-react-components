@@ -27,8 +27,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs/storybook",
     "styleguide": "npx styleguidist server",
-    "build-styleguide": "npx styleguidist build",
-    "publish": "npm version patch && npm publish"
+    "build-styleguide": "npx styleguidist build"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
