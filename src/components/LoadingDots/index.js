@@ -37,6 +37,8 @@ const LoadingDot = ({ delay, variant }) => (
 
 /**
  * Used to convey that another user or bot, is typing a message
+ *
+ * @visibleName Loading Dots
  */
 const LoadingDots = ({ variant }) => (
   <Box

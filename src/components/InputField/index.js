@@ -60,6 +60,8 @@ const getStyles = (variant) => {
 
 /**
  * Used to gather input from the user. The field type can be set via the *type* prop.
+ *
+ * @visibleName Input Field
  */
 const InputField = ({
   name,

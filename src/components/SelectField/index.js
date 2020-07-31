@@ -104,6 +104,8 @@ const getStyles = (variant) => {
 
 /**
  * Used for selecting a single option from a defined set
+ *
+ * @visibleName Select Field
  */
 const SelectField = ({
   name,

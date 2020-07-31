@@ -7,22 +7,17 @@
 ## Install
 
 ```bash
-npm install --save react-ui-components
+npm i react-ui-components
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import MyComponent from 'react-ui-components'
-import 'react-ui-components/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+const Component = () => <MyComponent someProperty="some-value"/>
 ```
 
 ## License

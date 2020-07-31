@@ -51,7 +51,7 @@ const getStyles = (variant) => {
 }
 
 /**
- * Used to provide clear call-to-action UI elements.
+ * Used to provide call-to-action elements
  */
 const Button = ({ isLoading, handleClick, label, variant, ...otherProps }) => (
   <RebassButton onClick={handleClick} sx={getStyles(variant)} {...otherProps}>

@@ -1,16 +1,16 @@
-Default loader:
+Default loader
 
 ```js
 <Loader variant="dark" />
 ```
 
-Small loader:
+Small loader
 
 ```js
 <Loader variant="dark" size="small" />
 ```
 
-Large loader:
+Large loader
 
 ```js
 <Loader variant="dark" size="large" />

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 /**
  * Used to render an error message.
+ *
+ * @visibleName Error Text
  */
 const ErrorText = ({ error, ...otherProps }) =>
   error.isError && error.hasInteracted ? (

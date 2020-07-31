@@ -1,20 +1,18 @@
-Text Input (auto-focused on load):
+Default text input
 
 ```js
 <InputField
   type="text"
   value="text input"
-  shouldFocusOnLoad
 />
 ```
 
-Errored Text Input:
+Errored text input
 
 ```js
 <InputField
   type="text"
   value="iofreykshdbfhjkvabfsdkjvgb"
-  shouldFocusOnLoad
   error={{
     isError: true,
     hasInteracted: true,
@@ -24,7 +22,7 @@ Errored Text Input:
 ```
 
 
-Email Input:
+Email input
 
 ```js
 <InputField
@@ -33,7 +31,7 @@ Email Input:
 />
 ```
 
-Password Input:
+Password input
 
 ```js
 <InputField

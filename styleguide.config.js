@@ -1,6 +1,26 @@
 module.exports = {
-  components: 'src/components/**/index.js',
-  usageMode: 'expand',
+  sections: [
+    {
+      name: 'Get started',
+      description:
+        'This guide will help you install and setup the React UI component library',
+      content: 'src/intro.md',
+      components: 'src/components/**/index.js',
+      usageMode: 'hide'
+    }
+  ],
+  ribbon: {
+    url: 'https://pkibbey.github.io/react-ui-components'
+  },
+  theme: {
+    color: {
+      ribbonBackground: '#005EF4'
+    },
+    fontSize: {
+      base: 13,
+      h4: 16
+    }
+  },
   exampleMode: 'expand',
   previewDelay: 300,
   styleguideDir: 'docs/styleguide',
