@@ -199,7 +199,11 @@ SelectField.propTypes = {
   /** A defaultValue for the select field */
   defaultValue: PropTypes.string,
   /** An object describing the error in the select field */
-  error: PropTypes.object
+  error: PropTypes.shape({
+    isError: PropTypes.bool,
+    hasInteracted: PropTypes.bool,
+    message: PropTypes.string
+  })
 }
 
 SelectField.defaultProps = {

@@ -25,7 +25,11 @@ const ErrorText = ({ error, ...otherProps }) =>
 
 ErrorText.propTypes = {
   /** An object describing the error */
-  error: PropTypes.object
+  error: PropTypes.shape({
+    isError: PropTypes.bool,
+    hasInteracted: PropTypes.bool,
+    message: PropTypes.string
+  })
 }
 
 ErrorText.defaultProps = {

@@ -56,7 +56,10 @@ const getStyles = (variant) => {
 const Button = ({ isLoading, handleClick, label, variant, ...otherProps }) => (
   <RebassButton onClick={handleClick} sx={getStyles(variant)} {...otherProps}>
     {isLoading ? (
-      <Loader size={variant === 'primary' ? 'default' : 'small'} />
+      <Loader
+        size={variant === 'primary' ? 'default' : 'small'}
+        variant={variant === 'secondary' ? 'dark' : 'light'}
+      />
     ) : (
       label
     )}

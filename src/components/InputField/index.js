@@ -189,7 +189,21 @@ InputField.propTypes = {
   /** When this is true, the input will render full width and ignore any requirement errors */
   isFullWidth: PropTypes.bool,
   /** An object describing the error */
-  error: PropTypes.object
+  error: PropTypes.shape({
+    isError: PropTypes.bool,
+    hasInteracted: PropTypes.bool,
+    message: PropTypes.string,
+    requirements: PropTypes.shape({
+      name: PropTypes.string,
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          isError: PropTypes.bool.isRequired,
+          shouldIndent: PropTypes.bool
+        })
+      )
+    })
+  })
 }
 
 InputField.defaultProps = {
