@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/pkibbey/lp-react-componentsbuild/main.843014f8.js",
+    "runtime-main.js": "/pkibbey/lp-react-componentsbuild/bundle.e4600816.js",
+    "build/2.4e7d368b.js": "/pkibbey/lp-react-componentsbuild/2.4e7d368b.js",
+    "build/2.4e7d368b.js.LICENSE.txt": "/pkibbey/lp-react-componentsbuild/2.4e7d368b.js.LICENSE.txt",
+    "index.html": "/pkibbey/lp-react-componentsindex.html",
+    "precache-manifest.a30620f97301ff351461be807e006e32.js": "/pkibbey/lp-react-componentsprecache-manifest.a30620f97301ff351461be807e006e32.js",
+    "service-worker.js": "/pkibbey/lp-react-componentsservice-worker.js"
+  },
+  "entrypoints": [
+    "build/bundle.e4600816.js",
+    "build/2.4e7d368b.js",
+    "build/main.843014f8.js"
+  ]
+}
