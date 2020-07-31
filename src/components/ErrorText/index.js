@@ -1,8 +1,12 @@
 import React from 'react'
 import { Text } from 'rebass'
-import theme from './assets/theme'
+import theme from '../../theme'
+import PropTypes from 'prop-types'
 
-const ErrorText = ({ error }) =>
+/**
+ * Used to render an error message.
+ */
+const ErrorText = ({ error, ...otherProps }) =>
   error.isError && error.hasInteracted ? (
     <Text
       sx={{
@@ -13,9 +17,19 @@ const ErrorText = ({ error }) =>
         WebkitFontSmoothing: 'antialiased',
         maxWidth: ['100%', '100%', 414]
       }}
-      mb={3}
+      {...otherProps}
     >
       {error.message}
     </Text>
   ) : null
+
+ErrorText.propTypes = {
+  /** An object describing the error */
+  error: PropTypes.object
+}
+
+ErrorText.defaultProps = {
+  error: {}
+}
+
 export default ErrorText

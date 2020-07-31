@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button as RebassButton } from 'rebass'
-import Loader from './Loader'
-import theme from './assets/theme'
+import Loader from '../Loader/'
+import theme from '../../theme'
+import PropTypes from 'prop-types'
 
 const getStyles = (variant) => {
   switch (variant) {
@@ -49,14 +50,35 @@ const getStyles = (variant) => {
   }
 }
 
+/**
+ * Used to provide clear call-to-action UI elements.
+ */
 const Button = ({ isLoading, handleClick, label, variant, ...otherProps }) => (
   <RebassButton onClick={handleClick} sx={getStyles(variant)} {...otherProps}>
     {isLoading ? (
-      <Loader size={variant !== 'default' ? 'small' : 'default'} />
+      <Loader size={variant === 'primary' ? 'default' : 'small'} />
     ) : (
       label
     )}
   </RebassButton>
 )
+
+Button.propTypes = {
+  /** The button label */
+  label: PropTypes.string,
+  /** A callback to fire when the button is clicked */
+  handleClick: PropTypes.func,
+  /** A variant for the button */
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+  /** if this is true, it shows a loading animation in the button */
+  isLoading: PropTypes.bool
+}
+
+Button.defaultProps = {
+  label: '',
+  handleClick: () => {},
+  variant: 'primary',
+  isLoading: false
+}
 
 export default Button

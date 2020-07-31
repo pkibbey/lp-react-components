@@ -1,12 +1,12 @@
 import React from 'react'
-import theme from './theme'
+import theme from '../../theme'
 
-function LoadingIcon({ variant }) {
+function LoadingIcon({ variant, width, height }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='38'
-      height='38'
+      width={width}
+      height={height}
       stroke={variant === 'dark' ? theme.colors.darkGray : 'white'}
       viewBox='0 0 38 38'
     >

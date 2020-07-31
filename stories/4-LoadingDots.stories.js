@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadingDots from '../src/LoadingDots'
+import LoadingDots from '../src/components/LoadingDots'
 
 export default {
   title: 'LoadingDots',

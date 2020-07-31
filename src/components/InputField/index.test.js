@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import InputField from './InputField'
+import InputField from './'
 
 const mockFunction = jest.fn()
 
@@ -9,8 +9,8 @@ test('renders an input field', () => {
     <InputField
       name='test-name'
       value='test value'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       placeholder='test placeholder'
       error={{}}
       shouldFocusOnLoad
@@ -24,8 +24,8 @@ test('renders an input field with errors', () => {
     <InputField
       name='test-name'
       value='test value'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       placeholder='test placeholder'
       error={{
         isError: true,
@@ -44,8 +44,8 @@ test('input field blur event is fired', () => {
     <InputField
       name='test-name'
       value='test value'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       placeholder='test placeholder'
       error={{}}
     />
@@ -59,8 +59,8 @@ test('input field change event is fired', () => {
     <InputField
       name='test-name'
       value='test value'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       placeholder='test placeholder'
       error={{}}
     />
@@ -75,9 +75,10 @@ test('renders a password field and shows the text when clicking the icon', () =>
   const { getByTestId } = render(
     <InputField
       name='password'
+      type='password'
       value='test value'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       placeholder='test placeholder'
       error={{}}
     />

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box } from 'rebass'
 import { keyframes } from '@emotion/core'
+import PropTypes from 'prop-types'
+import theme from '../../theme'
 
 const bounce = keyframes`
   from, 10%, 27%, 40%, to {
@@ -16,12 +18,11 @@ const bounce = keyframes`
     transform: translate3d(0,-1px,0);
   }
 `
-
-const LoadingDot = ({ delay }) => (
+const LoadingDot = ({ delay, variant }) => (
   <Box
     as='span'
     sx={{
-      backgroundColor: 'white',
+      backgroundColor: variant === 'light' ? 'white' : theme.colors.darkerGray,
       width: '3px',
       height: '3px',
       borderRadius: '50%',
@@ -34,7 +35,10 @@ const LoadingDot = ({ delay }) => (
   />
 )
 
-const LoadingDots = () => (
+/**
+ * Used to convey that another user or bot, is typing a message
+ */
+const LoadingDots = ({ variant }) => (
   <Box
     as='span'
     style={{
@@ -47,10 +51,19 @@ const LoadingDots = () => (
       marginLeft: '4px'
     }}
   >
-    <LoadingDot delay={0} />
-    <LoadingDot delay={0.15} />
-    <LoadingDot delay={0.3} />
+    <LoadingDot delay={0} variant={variant} />
+    <LoadingDot delay={0.15} variant={variant} />
+    <LoadingDot delay={0.3} variant={variant} />
   </Box>
 )
+
+LoadingDots.propTypes = {
+  /** A variant for the loading dots */
+  variant: PropTypes.oneOf(['light', 'dark'])
+}
+
+LoadingDots.defaultProps = {
+  variant: 'light'
+}
 
 export default LoadingDots

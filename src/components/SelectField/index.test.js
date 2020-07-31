@@ -1,8 +1,12 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import SelectField from './SelectField'
-import { getCountries } from '../utils'
+import SelectField from './'
 
+const OPTIONS = [
+  { name: 'Select country', value: 'choose-country', disabled: true },
+  { name: 'Country 1', value: 'country-1' },
+  { name: 'Country 2', value: 'country-2' }
+]
 const mockFunction = jest.fn()
 
 test('renders a select field', () => {
@@ -10,10 +14,10 @@ test('renders a select field', () => {
     <SelectField
       name='test'
       value='test'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       error={{}}
-      countries={getCountries()}
+      options={OPTIONS}
     />
   )
   expect(mockFunction).not.toHaveBeenCalled()
@@ -24,10 +28,10 @@ test('renders a select field with an error', () => {
     <SelectField
       name='test'
       value='test'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       error={{ isError: true }}
-      countries={getCountries()}
+      options={OPTIONS}
     />
   )
   expect(mockFunction).not.toHaveBeenCalled()
@@ -38,10 +42,10 @@ test('select field change event is fired', () => {
     <SelectField
       name='test'
       value='test'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       error={{}}
-      countries={getCountries()}
+      options={OPTIONS}
     />
   )
   fireEvent.change(getByTestId('select-field-test'), {
@@ -55,10 +59,10 @@ test('select field blur event is fired', () => {
     <SelectField
       name='test'
       value='test'
-      updateUserDetail={mockFunction}
-      updateError={mockFunction}
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
       error={{}}
-      countries={getCountries()}
+      options={OPTIONS}
     />
   )
   fireEvent.blur(getByTestId('select-field-test'))

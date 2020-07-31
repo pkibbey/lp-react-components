@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import ErrorText from './ErrorText'
+import ErrorText from './'
 
 // TODO: add expects to the tests
 

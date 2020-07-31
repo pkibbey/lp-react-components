@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Flex, Box } from 'rebass'
 import { Input, Label } from '@rebass/forms'
-import ErrorText from './ErrorText'
+import ErrorText from '../ErrorText'
 import ErrorRequirements from './ErrorRequirements'
-import PasswordIcon from './assets/PasswordIcon'
-import theme from './assets/theme'
+import PasswordIcon from './PasswordIcon'
+import theme from '../../theme'
+import PropTypes from 'prop-types'
 
 const getStyles = (variant) => {
   switch (variant) {
@@ -57,6 +58,9 @@ const getStyles = (variant) => {
   }
 }
 
+/**
+ * Used to gather input from the user. The field type can be set via the *type* prop.
+ */
 const InputField = ({
   name,
   type,
@@ -73,9 +77,11 @@ const InputField = ({
   const inputRef = useRef()
 
   const isPassword = type === 'password'
+  const isErrored = error.isError
 
   const getAutoCompleteType = () => {
-    // NOTE: Disabling autoComplete by using a randomized name since it interferes with hotJar forms
+    // NOTE: This disables the input autoComplete by using a randomized name
+    // This was done to resolve an issue with hotJar forms
     return Math.random().toString(36).substring(2, 15)
   }
 
@@ -135,7 +141,7 @@ const InputField = ({
             ref={inputRef}
             type={isPassword && !isPasswordVisible ? 'password' : 'text'}
             placeholder={placeholder}
-            mb={error.isError ? 2 : 4}
+            mb={isErrored ? 2 : 4}
             value={value}
             onFocus={() => setIsFocused(true)}
             onBlur={() => {
@@ -147,7 +153,7 @@ const InputField = ({
               handleChange && handleChange(name, event.target.value)
             }
             sx={{
-              ...getStyles(error.isError ? 'textInputError' : 'textInput'),
+              ...getStyles(isErrored ? 'textInputError' : 'textInput'),
               '&:focus, &:hover': {
                 outlineColor: 'navyGray',
                 outlineWidth: 2,
@@ -158,9 +164,36 @@ const InputField = ({
         </Box>
         <ErrorRequirements focused={isFocused} error={error} />
       </Box>
-      {error && <ErrorText error={error} />}
+      {isErrored && <ErrorText error={error} mb={3} />}
     </Box>
   )
+}
+
+InputField.propTypes = {
+  /** The type of input field */
+  type: PropTypes.oneOf(['text', 'email', 'password']),
+  /** The value for the input field */
+  value: PropTypes.string.isRequired,
+  /** The placeholder for the input field */
+  placeholder: PropTypes.string,
+  /** Input field label for accessibility */
+  name: PropTypes.string,
+  /** A callback to fire when the input field changes */
+  handleChange: PropTypes.func,
+  /** A callback to fire when the input field loses focus */
+  handleBlur: PropTypes.func,
+  /** When this is true, the input will focus on component load */
+  shouldFocusOnLoad: PropTypes.bool,
+  /** When this is true, the input will render full width and ignore any requirement errors */
+  isFullWidth: PropTypes.bool,
+  /** An object describing the error */
+  error: PropTypes.object
+}
+
+InputField.defaultProps = {
+  name: 'input-field',
+  defaultValue: '',
+  error: {}
 }
 
 export default InputField

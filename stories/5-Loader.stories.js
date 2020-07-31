@@ -1,7 +1,7 @@
 import React from 'react'
-import Loader from '../src/Loader'
+import Loader from '../src/components/Loader'
 import { withKnobs, select } from '@storybook/addon-knobs'
-import theme from '../src/assets/theme'
+import theme from '../src/theme'
 
 export default {
   title: 'Loader',

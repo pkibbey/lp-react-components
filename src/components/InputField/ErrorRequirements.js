@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from 'rebass'
-import theme from './assets/theme'
+import theme from '../../theme'
+import PropTypes from 'prop-types'
 
 const getStyles = (variant) => {
   switch (variant) {
@@ -67,6 +68,18 @@ const ErrorRequirements = ({ focused, error }) => {
     )
   }
   return null
+}
+
+ErrorRequirements.propTypes = {
+  /** When this is true, the input has focus */
+  focused: PropTypes.bool,
+  /** An object describing the error */
+  error: PropTypes.object
+}
+
+ErrorRequirements.defaultProps = {
+  focused: false,
+  error: {}
 }
 
 export default ErrorRequirements

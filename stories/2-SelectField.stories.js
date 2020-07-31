@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import SelectField from '../src/SelectField'
+import SelectField from '../src/components/SelectField'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 export default {

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box } from 'rebass'
 import { Select, Label } from '@rebass/forms'
-import ErrorText from './ErrorText'
-import theme from './assets/theme'
+import ErrorText from '../ErrorText'
+import theme from '../../theme'
+import PropTypes from 'prop-types'
 
 const getStyles = (variant) => {
   switch (variant) {
@@ -101,6 +102,9 @@ const getStyles = (variant) => {
   }
 }
 
+/**
+ * Used for selecting a single option from a defined set
+ */
 const SelectField = ({
   name,
   value,
@@ -110,11 +114,13 @@ const SelectField = ({
   handleBlur,
   options
 }) => {
+  const isErrored = error.isError
+
   const getVariant = () => {
-    if (error?.isError && value === '') {
+    if (isErrored && value === '') {
       return 'textInputErrorDisabled'
     }
-    if (error?.isError) {
+    if (isErrored) {
       return 'textInputError'
     }
     if (value === '') {
@@ -153,7 +159,7 @@ const SelectField = ({
           }
           onBlur={() => handleBlur && handleBlur(name, { hasInteracted: true })}
           name='region'
-          mb={error?.isError ? 2 : 4}
+          mb={isErrored ? 2 : 4}
           sx={{
             ...getStyles(getVariant()),
             '&:focus, &:hover': {
@@ -174,9 +180,33 @@ const SelectField = ({
           ))}
         </Select>
       </Box>
-      {error && <ErrorText error={error} />}
+      <ErrorText error={error} mb={3} />
     </Box>
   )
+}
+
+SelectField.propTypes = {
+  /** The value for the select field */
+  value: PropTypes.string.isRequired,
+  /** An array of options for the select field  */
+  options: PropTypes.array,
+  /** Select field label for accessibility */
+  name: PropTypes.string,
+  /** A callback to fire when the select field changes */
+  handleChange: PropTypes.func,
+  /** A callback to fire when the select field loses focus */
+  handleBlur: PropTypes.func,
+  /** A defaultValue for the select field */
+  defaultValue: PropTypes.string,
+  /** An object describing the error in the select field */
+  error: PropTypes.object
+}
+
+SelectField.defaultProps = {
+  name: 'select-field',
+  defaultValue: '',
+  options: [],
+  error: {}
 }
 
 export default SelectField
