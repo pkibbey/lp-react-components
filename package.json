@@ -91,6 +91,7 @@
     "@testing-library/react": "^10.4.7",
     "core-js": "^3.6.5",
     "emotion-theming": "^10.0.27",
+    "react-app-polyfill": "^1.0.6",
     "rebass": "^4.0.6",
     "styled-components": "^5.1.1"
   },
