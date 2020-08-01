@@ -116,7 +116,7 @@ const SelectField = ({
   handleBlur,
   options
 }) => {
-  const isErrored = error.isError
+  const isErrored = error && error.isError
 
   const getVariant = () => {
     if (isErrored && value === '') {

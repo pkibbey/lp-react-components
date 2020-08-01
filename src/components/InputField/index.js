@@ -79,7 +79,7 @@ const InputField = ({
   const inputRef = useRef()
 
   const isPassword = type === 'password'
-  const isErrored = error.isError
+  const isErrored = error && error.isError
 
   const getAutoCompleteType = () => {
     // NOTE: This disables the input autoComplete by using a randomized name
@@ -175,7 +175,7 @@ InputField.propTypes = {
   /** The type of input field */
   type: PropTypes.oneOf(['text', 'email', 'password']),
   /** The value for the input field */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   /** The default value for the input field */
   defaultValue: PropTypes.string,
   /** The placeholder for the input field */
@@ -195,23 +195,25 @@ InputField.propTypes = {
     isError: PropTypes.bool,
     hasInteracted: PropTypes.bool,
     message: PropTypes.string,
-    requirements: PropTypes.shape({
-      name: PropTypes.string,
-      data: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          isError: PropTypes.bool.isRequired,
-          shouldIndent: PropTypes.bool
-        })
-      )
-    })
+    requirements: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        name: PropTypes.string,
+        data: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string,
+            isError: PropTypes.bool,
+            shouldIndent: PropTypes.bool
+          })
+        )
+      })
+    ])
   })
 }
 
 InputField.defaultProps = {
   name: 'input',
-  defaultValue: '',
-  error: {}
+  defaultValue: ''
 }
 
 export default InputField
