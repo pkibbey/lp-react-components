@@ -4,7 +4,7 @@
 
 ## Install in your own project
 
-To add this set of components to your project, run this
+To add this set of components to your project
 
 ```bash
 npm i lp-react-components
@@ -22,7 +22,7 @@ const Component = () => <MyComponent someProperty="some-value"/>
 
 ## Development on this repo
 
-To make change to this repo, or test it locally, first clone this repo and then run
+To make change to this repo, or test it locally, first clone this repo and then
 
 ```bash
 npm i
@@ -30,7 +30,7 @@ npm i
 
 ### Running the styleguide
 
-To run the styleguide locally, clone this repo and run
+To run the styleguide locally
 
 ```bash
 npm run styleguide
@@ -38,7 +38,7 @@ npm run styleguide
 
 ### Running the storybook
 
-To run the storybook locally, clone this repo and run
+To test the storybook locally
 
 ```bash
 npm run storybook
@@ -46,13 +46,13 @@ npm run storybook
 
 ### Testing the project
 
-You can run the set of tests by running
+You can run the unit tests by running
 
 ```bash
 npm run test
 ```
 
-or this, if you want to see code coverage for the project
+or if you want to see code coverage for the project
 
 ```bash
 npm run coverage
@@ -66,7 +66,7 @@ npm run coverage
 
 ## Deploying documentation
 
-To deploy the documentation ([styleguidist](https://react-styleguidist.js.org/) and [storybook](https://storybook.js.org/)) to [github pages](https://pkibbey.github.io/lp-react-components/), run
+To deploy the documentation ([styleguide](https://pkibbey.github.io/lp-react-components/styleguide) and [storybook](https://pkibbey.github.io/lp-react-components/storybook)) to github pages
 
 ```bash
   npm run deploy
@@ -80,7 +80,7 @@ If any changes are made to the components, we will need to update the version. M
 npm version patch
 ```
 
-To publish the package to npm to make it available for other repos, run this
+To publish the package to npm to make it available for other projects
 ```bash
 npm publish
 ```
