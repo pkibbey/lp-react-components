@@ -24,7 +24,7 @@ const getStyles = (variant) => {
   }
 }
 
-const ErrorRequirementsItem = ({ items }) =>
+const ErrorRequirementsItems = ({ items }) =>
   Object.keys(items).map((item) => {
     switch (item) {
       case 'data':
@@ -63,7 +63,7 @@ const ErrorRequirements = ({ focused, error }) => {
           display: ['none', 'block']
         }}
       >
-        <ErrorRequirementsItem items={error.requirements} />
+        <ErrorRequirementsItems items={error.requirements} />
       </Text>
     )
   }
@@ -78,16 +78,19 @@ ErrorRequirements.propTypes = {
     isError: PropTypes.bool,
     hasInteracted: PropTypes.bool,
     message: PropTypes.string,
-    requirements: PropTypes.shape({
-      name: PropTypes.string,
-      data: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          isError: PropTypes.bool.isRequired,
-          shouldIndent: PropTypes.bool
-        })
-      )
-    })
+    requirements: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        name: PropTypes.string,
+        data: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string,
+            isError: PropTypes.bool,
+            shouldIndent: PropTypes.bool
+          })
+        )
+      })
+    ])
   })
 }
 

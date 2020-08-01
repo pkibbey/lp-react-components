@@ -12,7 +12,7 @@ const mockFunction = jest.fn()
 test('renders a select field', () => {
   render(
     <SelectField
-      name='test'
+      name='select1'
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
@@ -26,7 +26,7 @@ test('renders a select field', () => {
 test('renders a select field with an error', () => {
   render(
     <SelectField
-      name='test'
+      name='select2'
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
@@ -40,7 +40,7 @@ test('renders a select field with an error', () => {
 test('select field change event is fired', () => {
   const { getByTestId } = render(
     <SelectField
-      name='test'
+      name='select3'
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
@@ -48,7 +48,7 @@ test('select field change event is fired', () => {
       options={OPTIONS}
     />
   )
-  fireEvent.change(getByTestId('select-field-test'), {
+  fireEvent.change(getByTestId('select-field-select3'), {
     target: { value: 'new-value' }
   })
   expect(mockFunction).toHaveBeenCalled()
@@ -57,7 +57,7 @@ test('select field change event is fired', () => {
 test('select field blur event is fired', () => {
   const { getByTestId } = render(
     <SelectField
-      name='test'
+      name='select5'
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
@@ -65,6 +65,6 @@ test('select field blur event is fired', () => {
       options={OPTIONS}
     />
   )
-  fireEvent.blur(getByTestId('select-field-test'))
+  fireEvent.blur(getByTestId('select-field-select5'))
   expect(mockFunction).toHaveBeenCalled()
 })
