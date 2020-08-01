@@ -4,9 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-ui-components.svg)](https://www.npmjs.com/package/react-ui-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## Install in your own project
 
-To add this set of React components, run this in your project
+To add this set of components to your project, run this
 
 ```bash
 npm i react-ui-components
@@ -22,21 +22,37 @@ import MyComponent from 'react-ui-components'
 const Component = () => <MyComponent someProperty="some-value"/>
 ```
 
-## Development
+## Development on this repo
 
-To run this locally, clone this repo and run this in the root
+### Running the styleguide
+
+To run the styleguide locally, clone this repo and run
 
 ```bash
-npm run start
+npm i
+npm run styleguide
 ```
 
-Here are some more useful commands
+### Running the storybook
+
+To run the storybook locally, clone this repo and run
 
 ```bash
-npm run test
-npm run test:coverage
-npm run styleguide
+npm i
 npm run storybook
+```
+
+### Testing the project
+
+You can run the set of tests by running
+```bash
+npm run test
+```
+
+or this, if you want to see code coverage for the project
+
+```bash
+npm run coverage
 ```
 
 ## Branching strategy
