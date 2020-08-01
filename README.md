@@ -22,12 +22,17 @@ const Component = () => <MyComponent someProperty="some-value"/>
 
 ## Development on this repo
 
+To make change to this repo, or test it locally, first clone this repo and then run
+
+```bash
+npm i
+```
+
 ### Running the styleguide
 
 To run the styleguide locally, clone this repo and run
 
 ```bash
-npm i
 npm run styleguide
 ```
 
@@ -36,13 +41,13 @@ npm run styleguide
 To run the storybook locally, clone this repo and run
 
 ```bash
-npm i
 npm run storybook
 ```
 
 ### Testing the project
 
 You can run the set of tests by running
+
 ```bash
 npm run test
 ```
