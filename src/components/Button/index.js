@@ -19,7 +19,7 @@ const getStyles = (variant) => {
         color: 'darkGray',
         WebkitFontSmoothing: 'antialiased',
         textDecoration: 'none',
-        transition: 'all 2s',
+        transition: 'all .2s',
         '&:hover': {
           backgroundColor: theme.colors.lightGray,
           color: 'darkerGray'
@@ -42,7 +42,7 @@ const getStyles = (variant) => {
         maxWidth: '100%',
         whiteSpace: 'nowrap',
         width: '100%',
-        transition: 'all 2s',
+        transition: 'all .2s',
         '&:hover': {
           backgroundColor: theme.colors.electricBlueHover
         }
