@@ -1,4 +1,4 @@
-import 'react-app-polyfill/ie11'
+import 'airbnb-js-shims'
 
 export { default as Button } from './components/Button'
 export { default as InputField } from './components/InputField'
