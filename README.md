@@ -6,11 +6,13 @@
 
 ## Install
 
+To add this set of React components, run this in your project
+
 ```bash
 npm i react-ui-components
 ```
 
-## Usage
+Then you can import the components like this
 
 ```jsx
 import React from 'react'
@@ -22,13 +24,13 @@ const Component = () => <MyComponent someProperty="some-value"/>
 
 ## Development
 
-To run this locally, clone this repo and run this in the root...
+To run this locally, clone this repo and run this in the root
 
 ```bash
 npm run start
 ```
 
-Here are some more useful commands...
+Here are some more useful commands
 
 ```bash
 npm run test
@@ -45,7 +47,7 @@ npm run storybook
 
 ## Deploying documentation
 
-To deploy the documentation ([https://react-styleguidist.js.org/](styleguidist) and [https://storybook.js.org/](storybook)) to [https://pkibbey.github.io/react-ui-components/](github pages), run...
+To deploy the documentation ([https://react-styleguidist.js.org/](styleguidist) and [https://storybook.js.org/](storybook)) to [https://pkibbey.github.io/react-ui-components/](github pages), run
 
 ```bash
   npm run deploy
@@ -53,13 +55,13 @@ To deploy the documentation ([https://react-styleguidist.js.org/](styleguidist) 
 
 ## Updating the npm package
 
-If any changes are made to the components, we will need to update the version. Make sure all your changes have been committed to the repo before running...
+If any changes are made to the components, we will need to update the version. Make sure all your changes have been committed to the repo before running
 
 ```bash
 npm version patch
 ```
 
-To publish the package to npm to make it available for other repos, run this...
+To publish the package to npm to make it available for other repos, run this
 ```bash
 npm publish
 ```
