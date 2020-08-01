@@ -22,13 +22,13 @@ const Component = () => <MyComponent someProperty="some-value"/>
 
 ## Development
 
-To run this locally, clone this repo and run this in the root
+To run this locally, clone this repo and run this in the root...
 
 ```bash
 npm run start
 ```
 
-Here are some more useful commands
+Here are some more useful commands...
 
 ```bash
 npm run test
@@ -37,29 +37,32 @@ npm run styleguide
 npm run storybook
 ```
 
-## Deploying documentation
-
-To deploy the documentation to github pages, run this
-
-```
-  npm run deploy
-```
-
-## Updating the npm module
-
-First of all we need to update the version. Make sure all your changes have been committed to the repo
-
-```
-  npm run deploy
-```
-
 ## Branching strategy
 
-Branch off master (prefixing the repo with either **feature/** or **bug/** )
-Create a PR back to master
-Get PR approved
+1. Branch off master (prefix the repo with either **feature/** or **bug/** )
+2. Create a PR back to master
+3. Get PR approved then merge it
 
+## Deploying documentation
+
+To deploy the documentation ([https://react-styleguidist.js.org/](styleguidist) and [https://storybook.js.org/](storybook)) to [https://pkibbey.github.io/react-ui-components/](github pages), run...
+
+```bash
+  npm run deploy
+```
+
+## Updating the npm package
+
+If any changes are made to the components, we will need to update the version. Make sure all your changes have been committed to the repo before running...
+
+```bash
 npm version patch
+```
+
+To publish the package to npm to make it available for other repos, run this...
+```bash
+npm publish
+```
 
 ## License
 
