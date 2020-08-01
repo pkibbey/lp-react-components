@@ -15,10 +15,12 @@ Then you can import the components like this
 ```jsx
 import React from 'react'
 
-import MyComponent from 'lp-react-components'
+import { MyComponent }  from 'lp-react-components'
 
 const Component = () => <MyComponent someProperty="some-value"/>
 ```
+
+See the [styleguide](https://pkibbey.github.io/lp-react-components/styleguide) or [storybook](https://pkibbey.github.io/lp-react-components/storybook) for all the components
 
 ## Development on this repo
 
