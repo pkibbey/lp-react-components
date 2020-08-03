@@ -12,6 +12,7 @@ export default {
 export const Default = () => (
   <SelectField
     name={text('name', 'select-field')}
+    value='value 1'
     defaultValue='value 1'
     handleChange={action('handleChange')}
     handleBlur={action('handleBlur')}
@@ -25,6 +26,7 @@ export const Default = () => (
 export const DefaultWithErrors = () => (
   <SelectField
     name={text('name', 'select-field')}
+    value='value 1'
     defaultValue='value 1'
     handleChange={action('handleChange')}
     error={{
