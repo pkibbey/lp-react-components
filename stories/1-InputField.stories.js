@@ -14,7 +14,7 @@ const INPUT_OPTIONS = ['default', 'password', 'email', 'firstName', 'lastName']
 export const Default = () => (
   <InputField
     shouldFocusOnLoad={boolean('shouldFocusOnLoad', true)}
-    isFullWidth={boolean('isFullWidth', true)}
+    isFullWidth={boolean('isFullWidth', false)}
     name='default'
     type={select('type', INPUT_OPTIONS, 'default')}
     placeholder={text('placeholder', 'default input field')}

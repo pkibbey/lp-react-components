@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from 'rebass'
-import { Select, Label } from '@rebass/forms'
+import { Select } from '@rebass/forms'
 import ErrorText from '../ErrorText'
 import PropTypes from 'prop-types'
 import ThemeWrapper from '../ThemeWrapper'
@@ -42,7 +42,7 @@ const SelectField = ({
           sx={{
             position: 'relative',
             display: isFullWidth ? 'block' : 'grid',
-            gridTemplateColumns: ['auto', '0 5fr 4fr'],
+            gridTemplateColumns: ['auto', '5fr 4fr'],
             gridTemplateAreas: "'input spacer'",
             '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
               display: isFullWidth ? 'block' : '-ms-grid',
@@ -50,18 +50,6 @@ const SelectField = ({
             }
           }}
         >
-          <Label
-            htmlFor={`select-field-${name}`}
-            style={{
-              // label required for a11y - hide in the UI
-              opacity: 0,
-              height: 0,
-              width: 0,
-              pointerEvents: 'none'
-            }}
-          >
-            {name}
-          </Label>
           <Select
             data-testid={`select-field-${name}`}
             autoComplete='off'

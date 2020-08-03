@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Flex, Box } from 'rebass'
-import { Input, Label } from '@rebass/forms'
+import { Input } from '@rebass/forms'
 import ErrorText from '../ErrorText'
 import ErrorRequirements from './ErrorRequirements'
 import PasswordIcon from './PasswordIcon'
@@ -85,18 +85,6 @@ const InputField = ({
               msGridColumn: '1'
             }}
           >
-            <Label
-              htmlFor={`input-field-${name}`}
-              style={{
-                // label required for a11y - hide in the UI
-                opacity: 0,
-                height: 0,
-                width: 0,
-                pointerEvents: 'none'
-              }}
-            >
-              {name}
-            </Label>
             {isPassword && <VisibilityIcon />}
             <Input
               autoComplete={getAutoCompleteType()}
