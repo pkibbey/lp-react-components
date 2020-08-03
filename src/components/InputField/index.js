@@ -74,7 +74,7 @@ const InputField = ({
             gridTemplateAreas: `'input requirements'`,
             '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
               display: isFullWidth ? 'block' : '-ms-grid',
-              '-ms-grid-columns': '5fr 4fr'
+              msGridColumns: '5fr 4fr'
             }
           }}
         >
@@ -115,8 +115,8 @@ const InputField = ({
               variant={isErrored ? 'textInputError' : 'textInput'}
               sx={{
                 gridArea: 'input',
-                '-ms-grid-row': '1',
-                '-ms-grid-column': '1'
+                msGridRow: '1',
+                msGridColumn: '1'
               }}
             />
           </Box>

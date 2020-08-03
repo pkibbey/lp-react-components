@@ -37,8 +37,8 @@ const ErrorRequirements = ({ focused, error }) => {
         variant='errorInformation'
         sx={{
           gridArea: 'requirements',
-          '-ms-grid-row': '1',
-          '-ms-grid-column': '2',
+          msGridRow: '1',
+          msGridColumn: '2',
           overflow: 'visible',
           height: 0,
           display: ['none', 'block']

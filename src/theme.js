@@ -58,7 +58,8 @@ export default {
       fontFamily: '"Roboto", sans-serif',
       lineHeight: '20px',
       color: 'red',
-      WebkitFontSmoothing: 'antialiased'
+      WebkitFontSmoothing: 'antialiased',
+      maxWidth: ['100%', '100%', 414]
     }
   },
   buttons: {
