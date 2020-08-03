@@ -63,9 +63,14 @@ export default {
   },
   buttons: {
     secondary: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       fontSize: 0,
       fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
+      py: 0,
+      px: 4,
       padding: '0 24px',
       height: '32px',
       borderRadius: 32,
@@ -81,21 +86,22 @@ export default {
       }
     },
     primary: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       fontSize: 2,
       fontFamily: '"Roboto", sans-serif',
       fontWeight: 700,
       height: '62px',
-      paddingTop: 0,
-      paddingBottom: 0,
+      py: 0,
+      px: 7,
       borderRadius: 32,
       letterSpacing: '0.008em',
       cursor: 'pointer',
       backgroundColor: 'electricBlue',
       color: 'white',
       WebkitFontSmoothing: 'antialiased',
-      maxWidth: '100%',
       whiteSpace: 'nowrap',
-      width: '100%',
       transition: 'all .2s',
       '&:hover': {
         backgroundColor: 'electricBlueHover'

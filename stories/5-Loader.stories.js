@@ -9,8 +9,8 @@ export default {
   decorators: [withKnobs],
   parameters: {
     backgrounds: [
-      { name: 'light', value: '#FFF' },
-      { name: 'dark', value: theme.colors.darkNavy, default: true }
+      { name: 'light', value: 'white' },
+      { name: 'dark', value: theme.colors.navyGray, default: true }
     ]
   }
 }
@@ -28,3 +28,11 @@ export const Dark = () => (
     variant={select('style', ['light', 'dark'], 'dark')}
   />
 )
+Dark.story = {
+  parameters: {
+    backgrounds: [
+      { name: 'light', value: 'white', default: true },
+      { name: 'dark', value: theme.colors.navyGray }
+    ]
+  }
+}

@@ -7,9 +7,21 @@ import ThemeWrapper from '../ThemeWrapper'
 /**
  * Used to provide call-to-action elements
  */
-const Button = ({ isLoading, handleClick, label, variant, ...otherProps }) => (
+const Button = ({
+  isLoading,
+  handleClick,
+  label,
+  variant,
+  isFullWidth,
+  ...otherProps
+}) => (
   <ThemeWrapper>
-    <RebassButton onClick={handleClick} variant={variant} {...otherProps}>
+    <RebassButton
+      onClick={handleClick}
+      variant={variant}
+      sx={{ width: isFullWidth ? '100%' : 'auto' }}
+      {...otherProps}
+    >
       {isLoading ? (
         <Loader
           size={variant === 'primary' ? 'default' : 'small'}
@@ -30,14 +42,17 @@ Button.propTypes = {
   /** A variant for the button */
   variant: PropTypes.oneOf(['primary', 'secondary']),
   /** if this is true, it shows a loading animation in the button */
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  /** if this is true, it shows a loading animation in the button */
+  isFullWidth: PropTypes.bool
 }
 
 Button.defaultProps = {
   label: '',
   handleClick: () => {},
   variant: 'primary',
-  isLoading: false
+  isLoading: false,
+  isFullWidth: false
 }
 
 export default Button

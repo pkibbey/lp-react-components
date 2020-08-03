@@ -13,6 +13,7 @@ const BUTTON_OPTIONS = ['primary', 'secondary']
 
 export const Primary = () => (
   <Button
+    isFullWidth={boolean('isFullWidth', false)}
     isLoading={boolean('isLoading', false)}
     handleClick={action('handleClick')}
     label={text('label', 'button label')}
@@ -22,6 +23,7 @@ export const Primary = () => (
 
 export const Secondary = () => (
   <Button
+    isFullWidth={boolean('isFullWidth', false)}
     isLoading={boolean('isLoading', false)}
     handleClick={action('handleClick')}
     label={text('label', 'button label')}

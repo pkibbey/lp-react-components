@@ -1,6 +1,7 @@
 import React from 'react'
-import LoadingIcon from './LoadingIcon'
 import PropTypes from 'prop-types'
+import theme from '../../theme'
+import Spinner from 'react-spinner-material'
 
 const convertSizetoPx = (size) => {
   switch (size) {
@@ -16,12 +17,13 @@ const convertSizetoPx = (size) => {
 /**
  * Used to convey to the user that something is happening, usually an asyncronous network call
  */
-const Loader = ({ size, variant }) => (
-  <LoadingIcon
+const Loader = ({ size, variant, timeout }) => (
+  <Spinner
     data-testid='loader'
-    variant={variant}
-    height={convertSizetoPx(size)}
-    width={convertSizetoPx(size)}
+    type='Oval'
+    radius={convertSizetoPx(size)}
+    stroke={2}
+    color={variant === 'dark' ? theme.colors.darkGray : 'white'}
   />
 )
 
@@ -29,12 +31,15 @@ Loader.propTypes = {
   /** The size of the loader */
   size: PropTypes.oneOf(['small', 'large', 'default']),
   /** A variant for the loader */
-  variant: PropTypes.oneOf(['light', 'dark'])
+  variant: PropTypes.oneOf(['light', 'dark']),
+  /** A time in ms that the loader should run for ('undefined' repeats it forever) */
+  timeout: PropTypes.number
 }
 
 Loader.defaultProps = {
   size: 'default',
-  variant: 'light'
+  variant: 'light',
+  timeout: undefined
 }
 
 export default Loader
