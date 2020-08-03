@@ -78,7 +78,13 @@ const InputField = ({
             }
           }}
         >
-          <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              position: 'relative',
+              gridArea: 'input',
+              msGridColumn: '1'
+            }}
+          >
             <Label
               htmlFor={`input-field-${name}`}
               style={{
@@ -113,11 +119,6 @@ const InputField = ({
                 handleChange && handleChange(name, event.target.value)
               }
               variant={isErrored ? 'textInputError' : 'textInput'}
-              sx={{
-                gridArea: 'input',
-                msGridRow: '1',
-                msGridColumn: '1'
-              }}
             />
           </Box>
           {!isFullWidth && (

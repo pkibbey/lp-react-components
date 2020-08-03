@@ -14,6 +14,7 @@ const SelectField = ({
   name,
   value,
   defaultValue,
+  isFullWidth,
   handleChange,
   error,
   handleBlur,
@@ -40,8 +41,13 @@ const SelectField = ({
         <Box
           sx={{
             position: 'relative',
-            display: 'grid',
-            gridTemplateColumns: ['auto', '0 5fr 4fr']
+            display: isFullWidth ? 'block' : 'grid',
+            gridTemplateColumns: ['auto', '0 5fr 4fr'],
+            gridTemplateAreas: "'input spacer'",
+            '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
+              display: isFullWidth ? 'block' : '-ms-grid',
+              msGridColumns: '5fr 4fr'
+            }
           }}
         >
           <Label
@@ -71,6 +77,7 @@ const SelectField = ({
             py={0}
             px={3}
             variant={getVariant()}
+            sx={{ gridArea: 'input', msGridColumn: '1' }}
           >
             {options.map((option) => (
               <option
@@ -82,6 +89,7 @@ const SelectField = ({
               </option>
             ))}
           </Select>
+          <Box sx={{ gridArea: 'spacer', msGridColumn: '2' }} />
         </Box>
         <ErrorText error={error} mb={3} />
       </Box>
@@ -102,6 +110,8 @@ SelectField.propTypes = {
   handleBlur: PropTypes.func,
   /** A defaultValue for the select field */
   defaultValue: PropTypes.string,
+  /** When this is true, the select field will render full width */
+  isFullWidth: PropTypes.bool,
   /** An object describing the error in the select field */
   error: PropTypes.shape({
     isError: PropTypes.bool,
@@ -114,7 +124,8 @@ SelectField.defaultProps = {
   name: 'select-field',
   defaultValue: '',
   options: [],
-  error: {}
+  error: {},
+  isFullWidth: false
 }
 
 export default SelectField
