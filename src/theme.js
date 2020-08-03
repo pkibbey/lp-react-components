@@ -77,7 +77,7 @@ export default {
       borderRadius: 32,
       cursor: 'pointer',
       backgroundColor: 'lighterGray',
-      color: 'darkGray',
+      color: 'darkerGray',
       WebkitFontSmoothing: 'antialiased',
       textDecoration: 'none',
       transition: 'all .2s',
