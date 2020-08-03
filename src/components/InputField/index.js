@@ -69,7 +69,7 @@ const InputField = ({
       <Box>
         <Box
           sx={{
-            display: isFullWidth ? 'block' : 'grid',
+            display: isFullWidth ? 'block' : ['block', 'block', 'grid'],
             gridTemplateColumns: ['auto', '5fr 4fr'],
             gridTemplateAreas: `'input requirements'`,
             '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
