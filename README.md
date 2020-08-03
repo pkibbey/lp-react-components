@@ -1,13 +1,13 @@
-# lp-react-components
+# react-ui-components
 
-[![NPM](https://img.shields.io/npm/v/lp-react-components.svg)](https://www.npmjs.com/package/lp-react-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-ui-components.svg)](https://www.npmjs.com/package/react-ui-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install in your own project
 
 To add this set of components to your project
 
 ```bash
-npm i lp-react-components
+npm i react-ui-components
 ```
 
 Then you can import the components like this
@@ -15,12 +15,12 @@ Then you can import the components like this
 ```jsx
 import React from 'react'
 
-import { MyComponent }  from 'lp-react-components'
+import { MyComponent }  from 'react-ui-components'
 
 const Component = () => <MyComponent someProperty="some-value"/>
 ```
 
-See the [styleguide](https://pkibbey.github.io/lp-react-components/styleguide) or [storybook](https://pkibbey.github.io/lp-react-components/storybook) for all the components
+See the [styleguide](https://pkibbey.github.io/react-ui-components/styleguide) or [storybook](https://pkibbey.github.io/react-ui-components/storybook) for all the components
 
 ## Development on this repo
 
@@ -68,7 +68,7 @@ npm run coverage
 
 ## Deploying documentation
 
-To deploy the documentation ([styleguide](https://pkibbey.github.io/lp-react-components/styleguide) and [storybook](https://pkibbey.github.io/lp-react-components/storybook)) to github pages
+To deploy the documentation ([styleguide](https://pkibbey.github.io/react-ui-components/styleguide) and [storybook](https://pkibbey.github.io/react-ui-components/storybook)) to github pages
 
 ```bash
   npm run deploy
