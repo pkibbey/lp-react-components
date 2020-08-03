@@ -1,7 +1,7 @@
 To install, run this inside your project
 
 ```bash
-npm i lp-react-components
+npm i react-ui-components
 ```
 
 Then import and configure components like this
@@ -9,7 +9,7 @@ Then import and configure components like this
 ```html
 import React from 'react'
 
-import { MyComponent } from 'lp-react-components'
+import { MyComponent } from 'react-ui-components'
 
 const Component = () => <MyComponent value="some-value" bool="some-boolean" />
 ```

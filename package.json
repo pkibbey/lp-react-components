@@ -1,10 +1,10 @@
 {
-  "name": "lp-react-components",
+  "name": "react-ui-components",
   "version": "0.2.16",
   "description": "(Reusable React components)",
   "author": "pkibbey",
   "license": "MIT",
-  "repository": "pkibbey/lp-react-components",
+  "repository": "pkibbey/react-ui-components",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -111,7 +111,7 @@
     "styled-components": "^5.1.1"
   },
   "bugs": {
-    "url": "https://github.com/pkibbey/lp-react-components/issues"
+    "url": "https://github.com/pkibbey/react-ui-components/issues"
   },
-  "homepage": "https://github.com/pkibbey/lp-react-components#readme"
+  "homepage": "https://github.com/pkibbey/react-ui-components#readme"
 }
