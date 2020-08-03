@@ -44,5 +44,172 @@ export default {
     shadow: '#141358',
     aqua: '#5ED7FB',
     aquaHover: '#00a4d6'
+  },
+  text: {
+    errorInformation: {
+      fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
+      lineHeight: '20px',
+      color: 'navyGray',
+      WebkitFontSmoothing: 'antialiased'
+    },
+    errorText: {
+      fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
+      lineHeight: '20px',
+      color: 'red',
+      WebkitFontSmoothing: 'antialiased'
+    }
+  },
+  buttons: {
+    secondary: {
+      fontSize: 0,
+      fontFamily: '"Roboto", sans-serif',
+      fontWeight: 700,
+      padding: '0 24px',
+      height: '32px',
+      borderRadius: 32,
+      cursor: 'pointer',
+      backgroundColor: 'lighterGray',
+      color: 'darkGray',
+      WebkitFontSmoothing: 'antialiased',
+      textDecoration: 'none',
+      transition: 'all .2s',
+      '&:hover': {
+        backgroundColor: 'lightGray',
+        color: 'darkerGray'
+      }
+    },
+    primary: {
+      fontSize: 2,
+      fontFamily: '"Roboto", sans-serif',
+      fontWeight: 700,
+      height: '62px',
+      paddingTop: 0,
+      paddingBottom: 0,
+      borderRadius: 32,
+      letterSpacing: '0.008em',
+      cursor: 'pointer',
+      backgroundColor: 'electricBlue',
+      color: 'white',
+      WebkitFontSmoothing: 'antialiased',
+      maxWidth: '100%',
+      whiteSpace: 'nowrap',
+      width: '100%',
+      transition: 'all .2s',
+      '&:hover': {
+        backgroundColor: 'electricBlueHover'
+      }
+    }
+  },
+  forms: {
+    textInputError: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'navyGray',
+      borderColor: 'red',
+      backgroundColor: 'lightRed',
+      // HACK: colorize webkit autocomplete input fields
+      WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textInputErrorDisabled: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'darkGray',
+      borderColor: 'red',
+      backgroundColor: 'lightRed',
+      // HACK: colorize webkit autocomplete input fields
+      WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textInputDisabled: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'darkGray',
+      borderColor: 'gray',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textInput: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'navyGray',
+      borderColor: 'gray',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    }
   }
 }

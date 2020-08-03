@@ -1,28 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
-import theme from '../../theme'
 import PropTypes from 'prop-types'
-
-const getStyles = (variant) => {
-  switch (variant) {
-    case 'errorText':
-      return {
-        fontSize: theme.fontSizes[0],
-        fontFamily: '"Roboto", sans-serif',
-        lineHeight: '20px',
-        color: theme.colors.red,
-        WebkitFontSmoothing: 'antialiased'
-      }
-    default:
-      return {
-        fontSize: theme.fontSizes[0],
-        fontFamily: '"Roboto", sans-serif',
-        lineHeight: '20px',
-        color: theme.colors.navyGray,
-        WebkitFontSmoothing: 'antialiased'
-      }
-  }
-}
 
 const ErrorRequirementsItems = ({ items }) =>
   Object.keys(items).map((item) => {
@@ -31,7 +9,7 @@ const ErrorRequirementsItems = ({ items }) =>
         return items.data.map((d) => (
           <Text
             key={d.name}
-            sx={getStyles(d.isError ? 'errorText' : 'errorInformation')}
+            variant={d.isError ? 'errorText' : 'errorInformation'}
             ml={d.shouldIndent ? 2 : 0}
           >
             {`${d.name}`}
@@ -41,7 +19,7 @@ const ErrorRequirementsItems = ({ items }) =>
         return (
           <Text
             key={items.name}
-            sx={getStyles('errorInformation')}
+            variant='errorInformation'
           >{`${items.name}:`}</Text>
         )
       default:
@@ -56,8 +34,11 @@ const ErrorRequirements = ({ focused, error }) => {
         data-testid='error-requirements'
         ml={6}
         mr={6}
+        variant='errorInformation'
         sx={{
-          ...getStyles('errorInformation'),
+          gridArea: 'requirements',
+          '-ms-grid-row': '1',
+          '-ms-grid-column': '2',
           overflow: 'visible',
           height: 0,
           display: ['none', 'block']

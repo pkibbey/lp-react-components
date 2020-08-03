@@ -4,59 +4,9 @@ import { Input, Label } from '@rebass/forms'
 import ErrorText from '../ErrorText'
 import ErrorRequirements from './ErrorRequirements'
 import PasswordIcon from './PasswordIcon'
-import theme from '../../theme'
 import PropTypes from 'prop-types'
-
-const getStyles = (variant) => {
-  switch (variant) {
-    case 'textInputError':
-      return {
-        fontSize: 1,
-        fontFamily: '"Roboto", sans-serif',
-        color: theme.colors.navyGray,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: theme.colors.red,
-        backgroundColor: theme.colors.lightRed,
-        borderRadius: 8,
-        lineHeight: '40px',
-        paddingLeft: theme.space[3],
-        paddingRight: theme.space[3],
-        paddingTop: 0,
-        paddingBottom: 0,
-        letterSpacing: '0.01em',
-        WebkitFontSmoothing: 'antialiased',
-        // HACK: colorize webkit autocomplete input fields
-        boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${theme.colors.lightRed}`,
-        '&::placeholder': {
-          color: theme.colors.darkGray
-        }
-      }
-    default:
-      return {
-        fontSize: 1,
-        fontFamily: '"Roboto", sans-serif',
-        color: theme.colors.navyGray,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: theme.colors.gray,
-        borderRadius: 8,
-        lineHeight: '40px',
-        paddingLeft: theme.space[3],
-        paddingRight: theme.space[3],
-        paddingTop: 0,
-        paddingBottom: 0,
-        letterSpacing: '0.01em',
-        WebkitFontSmoothing: 'antialiased',
-        // HACK: colorize webkit autocomplete input fields
-        boxShadow:
-          'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
-        '&::placeholder': {
-          color: theme.colors.darkGray
-        }
-      }
-  }
-}
+import ThemeWrapper from '../ThemeWrapper'
+import theme from '../../theme'
 
 /**
  * Used to gather input from the user. The field type can be set via the *type* prop.
@@ -115,59 +65,68 @@ const InputField = ({
   )
 
   return (
-    <Box>
-      <Box
-        sx={{
-          display: isFullWidth ? 'block' : 'grid',
-          gridTemplateColumns: ['auto', '5fr 4fr']
-        }}
-      >
-        <Box sx={{ position: 'relative' }}>
-          <Label
-            htmlFor={`input-field-${name}`}
-            style={{
-              // label required for a11y - hide in the UI
-              opacity: 0,
-              height: 0,
-              width: 0,
-              pointerEvents: 'none'
-            }}
-          >
-            {name}
-          </Label>
-          {isPassword && <VisibilityIcon />}
-          <Input
-            autoComplete={getAutoCompleteType()}
-            data-testid={`input-field-${name}`}
-            id={`input-field-${name}`}
-            ref={inputRef}
-            type={isPassword && !isPasswordVisible ? 'password' : 'text'}
-            placeholder={placeholder}
-            mb={isErrored ? 2 : 4}
-            value={value}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => {
-              setIsFocused(false)
-              handleBlur && handleBlur(name, { hasInteracted: true })
-            }}
-            pr={isPassword && !isPasswordVisible ? 6 : 3}
-            onChange={(event) =>
-              handleChange && handleChange(name, event.target.value)
+    <ThemeWrapper>
+      <Box>
+        <Box
+          sx={{
+            display: isFullWidth ? 'block' : 'grid',
+            gridTemplateColumns: ['auto', '5fr 4fr'],
+            gridTemplateAreas: `'input requirements'`,
+            '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
+              display: isFullWidth ? 'block' : '-ms-grid',
+              '-ms-grid-columns': '5fr 4fr'
             }
-            sx={{
-              ...getStyles(isErrored ? 'textInputError' : 'textInput'),
-              '&:focus, &:hover': {
-                outlineColor: 'navyGray',
-                outlineWidth: 2,
-                outlineStyle: 'auto'
+          }}
+        >
+          <Box sx={{ position: 'relative' }}>
+            <Label
+              htmlFor={`input-field-${name}`}
+              style={{
+                // label required for a11y - hide in the UI
+                opacity: 0,
+                height: 0,
+                width: 0,
+                pointerEvents: 'none'
+              }}
+            >
+              {name}
+            </Label>
+            {isPassword && <VisibilityIcon />}
+            <Input
+              autoComplete={getAutoCompleteType()}
+              data-testid={`input-field-${name}`}
+              id={`input-field-${name}`}
+              ref={inputRef}
+              type={isPassword && !isPasswordVisible ? 'password' : 'text'}
+              placeholder={placeholder}
+              mb={isErrored ? 2 : 4}
+              value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => {
+                setIsFocused(false)
+                handleBlur && handleBlur(name, { hasInteracted: true })
+              }}
+              pl={3}
+              py={0}
+              pr={isPassword && !isPasswordVisible ? 6 : 3}
+              onChange={(event) =>
+                handleChange && handleChange(name, event.target.value)
               }
-            }}
-          />
+              variant={isErrored ? 'textInputError' : 'textInput'}
+              sx={{
+                gridArea: 'input',
+                '-ms-grid-row': '1',
+                '-ms-grid-column': '1'
+              }}
+            />
+          </Box>
+          {!isFullWidth && (
+            <ErrorRequirements focused={isFocused} error={error} />
+          )}
         </Box>
-        <ErrorRequirements focused={isFocused} error={error} />
+        {isErrored && <ErrorText error={error} mb={3} />}
       </Box>
-      {isErrored && <ErrorText error={error} mb={3} />}
-    </Box>
+    </ThemeWrapper>
   )
 }
 
