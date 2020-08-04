@@ -49,7 +49,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   label: '',
-  handleClick: () => {},
+  handleClick: undefined,
   variant: 'primary',
   isLoading: false,
   isFullWidth: false

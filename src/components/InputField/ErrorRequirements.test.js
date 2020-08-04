@@ -2,15 +2,15 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import ErrorRequirements from './ErrorRequirements'
 
-test('renders error requirements when input is focused', () => {
+it('renders error requirements when input is focused', () => {
   render(<ErrorRequirements focused />)
 })
 
-test('renders error requirements when input is not focused', () => {
+it('renders error requirements when input is not focused', () => {
   render(<ErrorRequirements focused={false} />)
 })
 
-test('renders error requirements when it has an object of requirements', () => {
+it('renders error requirements when it has an object of requirements', () => {
   render(
     <ErrorRequirements
       focused={false}
@@ -28,7 +28,7 @@ test('renders error requirements when it has an object of requirements', () => {
   )
 })
 
-test('renders error requirements when it is not valid and it has a string of requirements', () => {
+it('renders error requirements when it is not valid and it has a string of requirements', () => {
   render(
     <ErrorRequirements
       focused={false}

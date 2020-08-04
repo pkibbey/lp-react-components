@@ -20,7 +20,6 @@ export const Default = () => (
     placeholder={text('placeholder', 'default input field')}
     value={text('value', '')}
     handleChange={action('handleChange')}
-    error={{}}
     handleClick={action('handleClick')}
   />
 )

@@ -1,17 +1,28 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 import ErrorText from './'
 
-// TODO: add expects to the tests
-
-test('renders error text when there is no error', () => {
-  render(<ErrorText error={{ isError: false, message: 'test' }} />)
+it('renders error text when there is no error', () => {
+  const tree = renderer
+    .create(<ErrorText error={{ isError: false, message: 'test' }} />)
+    .toJSON()
+  expect(tree).toMatchSnapshot()
 })
 
-test('renders error text when there is an error', () => {
-  render(<ErrorText error={{ isError: true, message: 'test' }} />)
+it('renders error text when there is an error', () => {
+  const tree = renderer
+    .create(
+      <ErrorText
+        error={{ isError: true, hasInteracted: true, message: 'test' }}
+      />
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
 })
 
-test('renders recaptcha error text when there is an error', () => {
-  render(<ErrorText error={{ isError: true, message: 'test' }} />)
+it('renders recaptcha error text when there is an error', () => {
+  const tree = renderer
+    .create(<ErrorText error={{ isError: true, message: 'test' }} />)
+    .toJSON()
+  expect(tree).toMatchSnapshot()
 })

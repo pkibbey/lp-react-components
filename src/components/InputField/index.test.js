@@ -2,9 +2,12 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import InputField from './'
 
+// NOTE: cannot reliably use snapshot tests, since the input name is generated randomly
+// and will fail every time the test is run
+
 const mockFunction = jest.fn()
 
-test('renders an input field', () => {
+it('renders an input field', () => {
   render(
     <InputField
       name='test1'
@@ -13,12 +16,13 @@ test('renders an input field', () => {
       handleBlur={mockFunction}
       placeholder='test placeholder'
       shouldFocusOnLoad
+      isFullWidth
     />
   )
   expect(mockFunction).not.toHaveBeenCalled()
 })
 
-test('renders an input field with errors', () => {
+it('renders an input field with errors', () => {
   render(
     <InputField
       name='test2'
@@ -71,7 +75,7 @@ test('input field change event is fired', () => {
   expect(mockFunction).toHaveBeenCalledTimes(2)
 })
 
-test('renders a password field and shows the text when clicking the icon', () => {
+it('renders a password field and shows the text when clicking the icon', () => {
   const { getByTestId } = render(
     <InputField
       name='password'

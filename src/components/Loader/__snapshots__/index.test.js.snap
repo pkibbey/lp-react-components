@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a default loader 1`] = `
+<div
+  className="react-spinner-material"
+  data-testid="loader"
+  style={
+    Object {
+      "borderColor": "white",
+      "borderWidth": 2,
+      "height": 24,
+      "width": 24,
+    }
+  }
+  type="Oval"
+/>
+`;
+
+exports[`renders a large loader 1`] = `
+<div
+  className="react-spinner-material"
+  data-testid="loader"
+  style={
+    Object {
+      "borderColor": "white",
+      "borderWidth": 2,
+      "height": 40,
+      "width": 40,
+    }
+  }
+  type="Oval"
+/>
+`;
+
+exports[`renders a small loader 1`] = `
+<div
+  className="react-spinner-material"
+  data-testid="loader"
+  style={
+    Object {
+      "borderColor": "white",
+      "borderWidth": 2,
+      "height": 18,
+      "width": 18,
+    }
+  }
+  type="Oval"
+/>
+`;

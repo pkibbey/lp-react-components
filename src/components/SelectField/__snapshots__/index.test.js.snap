@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a select field 1`] = `
+<div
+  className="css-vurnku"
+>
+  <div
+    className="css-1765pcw"
+  >
+    <div
+      className="css-15s5z5b"
+    >
+      <select
+        autoComplete="off"
+        className="css-19ju6oh"
+        data-testid="select-field-select1"
+        defaultValue=""
+        name="region"
+        onBlur={[Function]}
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="choose-country"
+        >
+          Select country
+        </option>
+        <option
+          value="country-1"
+        >
+          Country 1
+        </option>
+        <option
+          value="country-2"
+        >
+          Country 2
+        </option>
+      </select>
+      <svg
+        className="css-6ibwe0"
+        fill="currentcolor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+    <div
+      className="css-1r4rh9s"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a select field with an error 1`] = `
+<div
+  className="css-vurnku"
+>
+  <div
+    className="css-12fz9l0"
+  >
+    <div
+      className="css-11gqdzc"
+    >
+      <select
+        autoComplete="off"
+        className="css-61exfo"
+        data-testid="select-field-select2"
+        defaultValue=""
+        name="region"
+        onBlur={[Function]}
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="choose-country"
+        >
+          Select country
+        </option>
+        <option
+          value="country-1"
+        >
+          Country 1
+        </option>
+        <option
+          value="country-2"
+        >
+          Country 2
+        </option>
+      </select>
+      <svg
+        className="css-6ibwe0"
+        fill="currentcolor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+    <div
+      className="css-1r4rh9s"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a select field with an error and no value 1`] = `
+<div
+  className="css-vurnku"
+>
+  <div
+    className="css-12fz9l0"
+  >
+    <div
+      className="css-11gqdzc"
+    >
+      <select
+        autoComplete="off"
+        className="css-77lhji"
+        data-testid="select-field-select2"
+        defaultValue=""
+        name="region"
+        onBlur={[Function]}
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="choose-country"
+        >
+          Select country
+        </option>
+        <option
+          value="country-1"
+        >
+          Country 1
+        </option>
+        <option
+          value="country-2"
+        >
+          Country 2
+        </option>
+      </select>
+      <svg
+        className="css-6ibwe0"
+        fill="currentcolor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+    <div
+      className="css-1r4rh9s"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a select field with no value 1`] = `
+<div
+  className="css-vurnku"
+>
+  <div
+    className="css-12fz9l0"
+  >
+    <div
+      className="css-15s5z5b"
+    >
+      <select
+        autoComplete="off"
+        className="css-13563nv"
+        data-testid="select-field-select2"
+        defaultValue=""
+        name="region"
+        onBlur={[Function]}
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="choose-country"
+        >
+          Select country
+        </option>
+        <option
+          value="country-1"
+        >
+          Country 1
+        </option>
+        <option
+          value="country-2"
+        >
+          Country 2
+        </option>
+      </select>
+      <svg
+        className="css-6ibwe0"
+        fill="currentcolor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+    <div
+      className="css-1r4rh9s"
+    />
+  </div>
+</div>
+`;

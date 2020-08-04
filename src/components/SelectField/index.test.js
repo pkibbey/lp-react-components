@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 import SelectField from './'
 
 const OPTIONS = [
@@ -9,31 +10,70 @@ const OPTIONS = [
 ]
 const mockFunction = jest.fn()
 
-test('renders a select field', () => {
-  render(
-    <SelectField
-      name='select1'
-      value='test'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      error={{}}
-      options={OPTIONS}
-    />
-  )
+it('renders a select field', () => {
+  const tree = renderer
+    .create(
+      <SelectField
+        name='select1'
+        value='test'
+        handleChange={mockFunction}
+        handleBlur={mockFunction}
+        options={OPTIONS}
+        isFullWidth
+      />
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
   expect(mockFunction).not.toHaveBeenCalled()
 })
 
-test('renders a select field with an error', () => {
-  render(
-    <SelectField
-      name='select2'
-      value='test'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      error={{ isError: true }}
-      options={OPTIONS}
-    />
-  )
+it('renders a select field with an error', () => {
+  const tree = renderer
+    .create(
+      <SelectField
+        name='select2'
+        value='test'
+        handleChange={mockFunction}
+        handleBlur={mockFunction}
+        error={{ isError: true }}
+        options={OPTIONS}
+      />
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+  expect(mockFunction).not.toHaveBeenCalled()
+})
+
+it('renders a select field with no value', () => {
+  const tree = renderer
+    .create(
+      <SelectField
+        name='select2'
+        value=''
+        handleChange={mockFunction}
+        handleBlur={mockFunction}
+        options={OPTIONS}
+      />
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
+  expect(mockFunction).not.toHaveBeenCalled()
+})
+
+it('renders a select field with an error and no value', () => {
+  const tree = renderer
+    .create(
+      <SelectField
+        name='select2'
+        value=''
+        handleChange={mockFunction}
+        handleBlur={mockFunction}
+        error={{ isError: true }}
+        options={OPTIONS}
+      />
+    )
+    .toJSON()
+  expect(tree).toMatchSnapshot()
   expect(mockFunction).not.toHaveBeenCalled()
 })
 
@@ -44,7 +84,6 @@ test('select field change event is fired', () => {
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
-      error={{}}
       options={OPTIONS}
     />
   )
@@ -61,7 +100,6 @@ test('select field blur event is fired', () => {
       value='test'
       handleChange={mockFunction}
       handleBlur={mockFunction}
-      error={{}}
       options={OPTIONS}
     />
   )

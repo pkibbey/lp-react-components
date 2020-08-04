@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders dark loading dots 1`] = `
+<span
+  className="css-vurnku"
+  style={
+    Object {
+      "alignItems": "center",
+      "boxSizing": "border-box",
+      "display": "inline-flex",
+      "height": "24px",
+      "justifyContent": "space-between",
+      "marginLeft": "4px",
+      "width": "17px",
+    }
+  }
+>
+  <span
+    className="css-1m25c1c"
+  />
+  <span
+    className="css-1q9grkm"
+  />
+  <span
+    className="css-r0ir4z"
+  />
+</span>
+`;
+
+exports[`renders default loading dots 1`] = `
+<span
+  className="css-vurnku"
+  style={
+    Object {
+      "alignItems": "center",
+      "boxSizing": "border-box",
+      "display": "inline-flex",
+      "height": "24px",
+      "justifyContent": "space-between",
+      "marginLeft": "4px",
+      "width": "17px",
+    }
+  }
+>
+  <span
+    className="css-19s72f7"
+  />
+  <span
+    className="css-oj3lh1"
+  />
+  <span
+    className="css-t6ffo3"
+  />
+</span>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders error text when there is an error 1`] = `
+<div
+  className="css-14ff3hs"
+>
+  test
+</div>
+`;
+
+exports[`renders error text when there is no error 1`] = `null`;
+
+exports[`renders recaptcha error text when there is an error 1`] = `null`;
