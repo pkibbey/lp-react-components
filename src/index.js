@@ -1,5 +1,7 @@
 import 'react-app-polyfill/ie11'
 
+export { default as theme } from './theme'
+
 export { default as Button } from './components/Button'
 export { default as InputField } from './components/InputField'
 export { default as SelectField } from './components/SelectField'

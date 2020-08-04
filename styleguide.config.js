@@ -5,8 +5,7 @@ module.exports = {
       description:
         'This guide will help you install and setup the React UI component library',
       content: 'src/intro.md',
-      components: 'src/components/**/index.js',
-      usageMode: 'hide'
+      components: 'src/components/**/index.js'
     }
   ],
   ribbon: {
