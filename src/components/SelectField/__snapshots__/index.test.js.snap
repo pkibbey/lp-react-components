@@ -59,7 +59,7 @@ exports[`renders a select field with an error 1`] = `
   className="css-vurnku"
 >
   <div
-    className="css-12fz9l0"
+    className="css-16etn8k"
   >
     <div
       className="css-11gqdzc"
@@ -113,7 +113,7 @@ exports[`renders a select field with an error and no value 1`] = `
   className="css-vurnku"
 >
   <div
-    className="css-12fz9l0"
+    className="css-16etn8k"
   >
     <div
       className="css-11gqdzc"
@@ -167,7 +167,7 @@ exports[`renders a select field with no value 1`] = `
   className="css-vurnku"
 >
   <div
-    className="css-12fz9l0"
+    className="css-16etn8k"
   >
     <div
       className="css-15s5z5b"
