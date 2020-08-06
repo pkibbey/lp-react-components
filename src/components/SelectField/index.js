@@ -41,7 +41,7 @@ const SelectField = ({
         <Box
           sx={{
             position: 'relative',
-            display: isFullWidth ? 'block' : ['block', 'block', 'grid'],
+            display: isFullWidth ? 'block' : ['block', 'grid'],
             gridTemplateColumns: ['auto', '5fr 4fr'],
             gridTemplateAreas: "'input spacer'",
             '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {

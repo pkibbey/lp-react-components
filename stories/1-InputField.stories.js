@@ -9,15 +9,15 @@ export default {
   decorators: [withKnobs]
 }
 
-const INPUT_OPTIONS = ['default', 'password', 'email', 'firstName', 'lastName']
+const INPUT_OPTIONS = ['password', 'email', 'text']
 
 export const Default = () => (
   <InputField
     shouldFocusOnLoad={boolean('shouldFocusOnLoad', true)}
     isFullWidth={boolean('isFullWidth', false)}
     name='default'
-    type={select('type', INPUT_OPTIONS, 'default')}
-    placeholder={text('placeholder', 'default input field')}
+    type={select('type', INPUT_OPTIONS, 'text')}
+    placeholder={text('placeholder', 'text input field')}
     value={text('value', '')}
     handleChange={action('handleChange')}
     handleClick={action('handleClick')}
@@ -29,8 +29,8 @@ export const DefaultWithErrors = () => (
     shouldFocusOnLoad={boolean('shouldFocusOnLoad', false)}
     isFullWidth={boolean('isFullWidth', false)}
     name='input-with-errors'
-    type={select('type', INPUT_OPTIONS, 'default')}
-    placeholder={text('placeholder', 'input field with error')}
+    type={select('type', INPUT_OPTIONS, 'text')}
+    placeholder={text('placeholder', 'text input field with error')}
     value={text('value', '')}
     handleChange={action('handleChange')}
     error={{
