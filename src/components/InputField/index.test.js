@@ -45,6 +45,30 @@ it('renders an input field with errors', () => {
   expect(mockFunction).not.toHaveBeenCalled()
 })
 
+it('renders a disabled input field', () => {
+  render(
+    <InputField
+      name='test2'
+      value='test value'
+      disabled
+      handleChange={mockFunction}
+      handleBlur={mockFunction}
+      placeholder='test placeholder'
+      error={{
+        isError: true,
+        requirements: {
+          name: 'errors...',
+          data: [
+            { name: 'data1', isError: true },
+            { name: 'data2', isError: false }
+          ]
+        }
+      }}
+    />
+  )
+  expect(mockFunction).not.toHaveBeenCalled()
+})
+
 test('input field blur event is fired', () => {
   const { getByTestId } = render(
     <InputField

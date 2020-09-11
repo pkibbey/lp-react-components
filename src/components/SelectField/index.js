@@ -23,14 +23,8 @@ const SelectField = ({
   const isErrored = error && error.isError
 
   const getVariant = () => {
-    if (isErrored && value === '') {
-      return 'textInputErrorDisabled'
-    }
     if (isErrored) {
       return 'textInputError'
-    }
-    if (value === '') {
-      return 'textInputDisabled'
     }
     return 'textInput'
   }

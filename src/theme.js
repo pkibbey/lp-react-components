@@ -165,6 +165,7 @@ export default {
       }
     },
     textInputDisabled: {
+      opacity: 0.4,
       borderRadius: 8,
       borderStyle: 'solid',
       borderWidth: 1,
@@ -174,11 +175,6 @@ export default {
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
-      '&:focus, &:hover': {
-        outlineColor: 'navyGray',
-        outlineWidth: 2,
-        outlineStyle: 'auto'
-      },
       '::-ms-expand': {
         display: 'none'
       },

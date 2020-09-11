@@ -21,6 +21,16 @@ Errored text input
 />
 ```
 
+Disabled text input
+
+```js
+<InputField
+  type="text"
+  value="text input"
+  disabled
+/>
+```
+
 
 Email input
 

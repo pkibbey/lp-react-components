@@ -15,6 +15,7 @@ export const Default = () => (
   <InputField
     shouldFocusOnLoad={boolean('shouldFocusOnLoad', true)}
     isFullWidth={boolean('isFullWidth', false)}
+    disabled={boolean('disabled', false)}
     name='default'
     type={select('type', INPUT_OPTIONS, 'text')}
     placeholder={text('placeholder', 'text input field')}
@@ -28,6 +29,7 @@ export const DefaultWithErrors = () => (
   <InputField
     shouldFocusOnLoad={boolean('shouldFocusOnLoad', false)}
     isFullWidth={boolean('isFullWidth', false)}
+    disabled={boolean('disabled', false)}
     name='input-with-errors'
     type={select('type', INPUT_OPTIONS, 'text')}
     placeholder={text('placeholder', 'text input field with error')}

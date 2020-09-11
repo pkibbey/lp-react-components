@@ -22,7 +22,8 @@ const InputField = ({
   handleBlur,
   error,
   shouldFocusOnLoad,
-  isFullWidth
+  isFullWidth,
+  disabled
 }) => {
   const [isFocused, setIsFocused] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -63,6 +64,13 @@ const InputField = ({
       <PasswordIcon variant={isPasswordVisible ? 'show' : 'hide'} />
     </Flex>
   )
+
+  const getVariant = () => {
+    if (disabled) {
+      return 'textInputDisabled'
+    }
+    return isErrored ? 'textInputError' : 'textInput'
+  }
 
   return (
     <ThemeWrapper>
@@ -106,7 +114,8 @@ const InputField = ({
               onChange={(event) =>
                 handleChange && handleChange(name, event.target.value)
               }
-              variant={isErrored ? 'textInputError' : 'textInput'}
+              variant={getVariant()}
+              disabled={disabled}
             />
           </Box>
           {!isFullWidth && (
@@ -138,6 +147,8 @@ InputField.propTypes = {
   shouldFocusOnLoad: PropTypes.bool,
   /** When this is true, the input will render full width and ignore any requirement errors */
   isFullWidth: PropTypes.bool,
+  /** When this is true, the input will render in a disabled state and be unresponsive to user input */
+  disabled: PropTypes.bool,
   /** An object describing the error */
   error: PropTypes.shape({
     isError: PropTypes.bool,

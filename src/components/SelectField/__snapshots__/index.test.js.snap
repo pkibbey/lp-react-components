@@ -120,7 +120,7 @@ exports[`renders a select field with an error and no value 1`] = `
     >
       <select
         autoComplete="off"
-        className="css-77lhji"
+        className="css-61exfo"
         data-testid="select-field-select2"
         defaultValue=""
         name="region"
@@ -174,7 +174,7 @@ exports[`renders a select field with no value 1`] = `
     >
       <select
         autoComplete="off"
-        className="css-13563nv"
+        className="css-19ju6oh"
         data-testid="select-field-select2"
         defaultValue=""
         name="region"

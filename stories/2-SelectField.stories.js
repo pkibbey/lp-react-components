@@ -13,7 +13,7 @@ export const Default = () => (
   <SelectField
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
-    value='value 1'
+    value={text('value', 'value 1')}
     defaultValue='value 1'
     handleChange={action('handleChange')}
     handleBlur={action('handleBlur')}
@@ -28,7 +28,7 @@ export const DefaultWithErrors = () => (
   <SelectField
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
-    value='value 1'
+    value={text('value', 'value 1')}
     defaultValue='value 1'
     handleChange={action('handleChange')}
     error={{
