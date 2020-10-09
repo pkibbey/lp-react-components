@@ -2,6 +2,11 @@ import React from 'react'
 import { action } from '@storybook/addon-actions'
 import SelectField from '../src/components/SelectField'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
+import countries from './countries.json'
+
+const sortByLabel = (a, b) => (a.label < b.label ? -1 : 1)
+
+const getCountries = () => countries.sort(sortByLabel)
 
 export default {
   title: 'SelectField',
@@ -16,10 +21,7 @@ export const Default = () => (
     defaultValue={text('value', 'value 1')}
     handleChange={action('handleChange')}
     handleBlur={action('handleBlur')}
-    options={[
-      { label: 'option 1', value: 'value 1' },
-      { label: 'option 2', value: 'value 2' }
-    ]}
+    options={getCountries()}
   />
 )
 
@@ -35,9 +37,6 @@ export const DefaultWithErrors = () => (
       message: 'Invalid value'
     }}
     handleBlur={action('handleBlur')}
-    options={[
-      { label: 'option 1', value: 'value 1' },
-      { label: 'option 2', value: 'value 2' }
-    ]}
+    options={getCountries()}
   />
 )

@@ -7,6 +7,7 @@ const OPTIONS = [
   { label: 'Country 1', value: 'country-1' },
   { label: 'Country 2', value: 'country-2' }
 ]
+
 const mockFunction = jest.fn()
 
 it('renders a select field', () => {

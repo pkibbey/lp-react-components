@@ -4,6 +4,7 @@ import ErrorText from '../ErrorText'
 import PropTypes from 'prop-types'
 import ThemeWrapper from '../ThemeWrapper'
 import Select from 'react-select'
+import theme from '../../theme'
 
 /**
  * Used for selecting a single option from a defined set
@@ -24,25 +25,29 @@ const SelectField = ({
 
   const getStyle = () => {
     const basicStyle = {
+      display: 'flex',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      position: 'relative',
       borderRadius: 8,
       borderStyle: 'solid',
       borderWidth: 1,
       fontFamily: '"Roboto", sans-serif',
-      fontSize: 1,
+      fontSize: theme.fontSizes[1],
       height: '40px',
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
-      '&:focus, &:hover': {
-        outlineColor: 'navyGray',
-        outlineWidth: 2,
-        outlineStyle: 'auto'
+      outlineStyle: 'auto',
+      outlineColor: 'navyGray',
+      '&:hover': {
+        outlineWidth: 2
       },
       '::-ms-expand': {
         display: 'none'
       },
       color: 'navyGray',
-      padding: '0 16px',
       gridArea: 'input',
       msGridColumn: '1',
       '&::placeholder': {
@@ -52,24 +57,45 @@ const SelectField = ({
 
     if (isErrored) {
       return {
-        control: (provided) => ({
-          ...provided,
+        control: (provided, state) => ({
           ...basicStyle,
+          outlineWidth: state.isFocused ? 2 : 0,
           borderColor: 'red',
           backgroundColor: 'lightRed',
           // HACK: colorize webkit autocomplete input fields
           WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC`
+        }),
+        valueContainer: (provided) => ({
+          ...provided,
+          height: '100%',
+          padding: '0 16px'
+        }),
+        input: (provided) => ({
+          ...provided,
+          margin: 0,
+          paddingBottom: 0,
+          paddingTop: 0
         })
       }
     }
     return {
-      control: (provided) => ({
-        ...provided,
+      control: (provided, state) => ({
         ...basicStyle,
+        outlineWidth: state.isFocused ? 2 : 0,
         borderColor: 'gray',
         // HACK: colorize webkit autocomplete input fields
         boxShadow:
           'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white'
+      }),
+      valueContainer: (provided) => ({
+        ...provided,
+        height: '100%',
+        padding: '0 16px'
+      }),
+      input: (provided) => ({
+        ...provided,
+        margin: 0,
+        padding: 0
       })
     }
   }
@@ -99,7 +125,7 @@ const SelectField = ({
               handleChange && handleChange(name, inputValue)
               handleBlur && handleBlur(name, { hasInteracted: true })
             }}
-            style={getStyle()}
+            styles={getStyle()}
             placeholder={placeholder}
           >
             {options.map((option) => (
