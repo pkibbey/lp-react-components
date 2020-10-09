@@ -13,13 +13,12 @@ export const Default = () => (
   <SelectField
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
-    value={text('value', 'value 1')}
-    defaultValue='value 1'
+    defaultValue={text('value', 'value 1')}
     handleChange={action('handleChange')}
     handleBlur={action('handleBlur')}
     options={[
-      { name: 'option 1', value: 'value 1' },
-      { name: 'option 2', value: 'value 2' }
+      { label: 'option 1', value: 'value 1' },
+      { label: 'option 2', value: 'value 2' }
     ]}
   />
 )
@@ -28,8 +27,7 @@ export const DefaultWithErrors = () => (
   <SelectField
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
-    value={text('value', 'value 1')}
-    defaultValue='value 1'
+    defaultValue={text('value', 'value 1')}
     handleChange={action('handleChange')}
     error={{
       isError: true,
@@ -38,8 +36,8 @@ export const DefaultWithErrors = () => (
     }}
     handleBlur={action('handleBlur')}
     options={[
-      { name: 'option 1', value: 'value 1' },
-      { name: 'option 2', value: 'value 2' }
+      { label: 'option 1', value: 'value 1' },
+      { label: 'option 2', value: 'value 2' }
     ]}
   />
 )

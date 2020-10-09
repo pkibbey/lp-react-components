@@ -4,9 +4,8 @@ import renderer from 'react-test-renderer'
 import SelectField from './'
 
 const OPTIONS = [
-  { name: 'Select country', value: 'choose-country', disabled: true },
-  { name: 'Country 1', value: 'country-1' },
-  { name: 'Country 2', value: 'country-2' }
+  { label: 'Country 1', value: 'country-1' },
+  { label: 'Country 2', value: 'country-2' }
 ]
 const mockFunction = jest.fn()
 
@@ -15,7 +14,7 @@ it('renders a select field', () => {
     .create(
       <SelectField
         name='select1'
-        value='test'
+        defaultValue='test'
         handleChange={mockFunction}
         handleBlur={mockFunction}
         options={OPTIONS}
@@ -32,7 +31,7 @@ it('renders a select field with an error', () => {
     .create(
       <SelectField
         name='select2'
-        value='test'
+        defaultValue='test'
         handleChange={mockFunction}
         handleBlur={mockFunction}
         error={{ isError: true }}

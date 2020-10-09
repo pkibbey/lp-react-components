@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from 'rebass'
-import { Select } from '@rebass/forms'
 import ErrorText from '../ErrorText'
 import PropTypes from 'prop-types'
 import ThemeWrapper from '../ThemeWrapper'
+import Select from 'react-select'
 
 /**
  * Used for selecting a single option from a defined set
@@ -12,21 +12,66 @@ import ThemeWrapper from '../ThemeWrapper'
  */
 const SelectField = ({
   name,
-  value,
   defaultValue,
   isFullWidth,
   handleChange,
   error,
   handleBlur,
-  options
+  options,
+  placeholder
 }) => {
   const isErrored = error && error.isError
 
-  const getVariant = () => {
-    if (isErrored) {
-      return 'textInputError'
+  const getStyle = () => {
+    const basicStyle = {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'navyGray',
+      padding: '0 16px',
+      gridArea: 'input',
+      msGridColumn: '1',
+      '&::placeholder': {
+        color: 'darkGray'
+      }
     }
-    return 'textInput'
+
+    if (isErrored) {
+      return {
+        control: (provided) => ({
+          ...provided,
+          ...basicStyle,
+          borderColor: 'red',
+          backgroundColor: 'lightRed',
+          // HACK: colorize webkit autocomplete input fields
+          WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC`
+        })
+      }
+    }
+    return {
+      control: (provided) => ({
+        ...provided,
+        ...basicStyle,
+        borderColor: 'gray',
+        // HACK: colorize webkit autocomplete input fields
+        boxShadow:
+          'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white'
+      })
+    }
   }
 
   return (
@@ -43,23 +88,19 @@ const SelectField = ({
               msGridColumns: '5fr 4fr'
             }
           }}
+          mb={isErrored ? 2 : 4}
         >
           <Select
-            data-testid={`select-field-${name}`}
-            autoComplete='off'
+            name={`select-field-${name}`}
+            isSearchable
+            options={options}
             defaultValue={defaultValue}
-            onChange={(event) =>
-              handleChange && handleChange(name, event.target.value)
-            }
-            onBlur={() =>
+            onInputChange={(inputValue) => {
+              handleChange && handleChange(name, inputValue)
               handleBlur && handleBlur(name, { hasInteracted: true })
-            }
-            name='region'
-            mb={isErrored ? 2 : 4}
-            py={0}
-            px={3}
-            variant={getVariant()}
-            sx={{ gridArea: 'input', msGridColumn: '1' }}
+            }}
+            style={getStyle()}
+            placeholder={placeholder}
           >
             {options.map((option) => (
               <option
@@ -80,8 +121,10 @@ const SelectField = ({
 }
 
 SelectField.propTypes = {
+  /** The  placeholder for the select field */
+  placeholder: PropTypes.string,
   /** The value for the select field */
-  value: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string.isRequired,
   /** An array of options for the select field  */
   options: PropTypes.array,
   /** Select field label for accessibility */
@@ -90,8 +133,6 @@ SelectField.propTypes = {
   handleChange: PropTypes.func,
   /** A callback to fire when the select field loses focus */
   handleBlur: PropTypes.func,
-  /** A defaultValue for the select field */
-  defaultValue: PropTypes.string,
   /** When this is true, the select field will render full width */
   isFullWidth: PropTypes.bool,
   /** An object describing the error in the select field */
@@ -103,8 +144,8 @@ SelectField.propTypes = {
 }
 
 SelectField.defaultProps = {
+  placeholder: '',
   name: 'select-field',
-  defaultValue: '',
   options: [],
   error: {},
   isFullWidth: false
