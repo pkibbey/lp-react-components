@@ -15,12 +15,10 @@ const convertSizetoPx = (size) => {
 }
 
 /**
- * Used to convey to the user that something is happening, usually an asyncronous network call
+ * Used to convey to the user that something is happening, usually an asynchronous network call
  */
 const Loader = ({ size, variant, timeout }) => (
   <Spinner
-    data-testid='loader'
-    type='Oval'
     radius={convertSizetoPx(size)}
     stroke={2}
     color={variant === 'dark' ? theme.colors.darkGray : 'white'}

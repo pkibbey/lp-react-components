@@ -6,5 +6,6 @@ module.exports = {
     '@storybook/addon-knobs/register',
     '@storybook/addon-viewport',
     '@storybook/addon-a11y/register',
-  ],
+    '@storybook/preset-create-react-app'
+  ]
 };
