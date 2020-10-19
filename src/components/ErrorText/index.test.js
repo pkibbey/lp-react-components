@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import ErrorText from './'
 
 const NO_ERROR = { isError: false, hasInteracted: true, message: 'test' }
@@ -26,10 +26,10 @@ it('renders no error text when there is no error and it has not been interacted 
 })
 
 it('renders error text when there is an error', () => {
-  const { container } = render(<ErrorText error={IS_ERROR} />)
-  expect(container).toHaveTextContent(IS_ERROR.message)
-  expect(container).toHaveStyle({
-    color: 'rgb(223, 42, 49);'
+  render(<ErrorText error={IS_ERROR} />)
+  const error = screen.getByText(IS_ERROR.message)
+  expect(error).toHaveStyle({
+    color: 'rgb(223, 42, 49)'
   })
 })
 
