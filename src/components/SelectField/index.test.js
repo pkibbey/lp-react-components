@@ -12,6 +12,10 @@ const mockChange = jest.fn()
 const SELECT_NAME = 'select1'
 const ERROR_MESSAGE = 'error message'
 
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 it('renders a select field', () => {
   render(
     <SelectField
@@ -139,6 +143,6 @@ test('select field blur event is fired', () => {
   fireEvent.blur(combobox)
 
   expect(combobox).toHaveValue(OPTIONS[0].value)
-  expect(mockChange).toHaveBeenCalledTimes(1)
+  expect(mockChange).toHaveBeenCalledTimes(0)
   expect(mockBlur).toHaveBeenCalledTimes(1)
 })

@@ -47,7 +47,6 @@ const InputField = ({
 
   const VisibilityIcon = () => (
     <Flex
-      data-testid='password-icon'
       title='toggle password visibility'
       alignItems='center'
       onClick={() => setIsPasswordVisible(!isPasswordVisible)}
@@ -96,7 +95,6 @@ const InputField = ({
             {isPassword && <VisibilityIcon />}
             <Input
               autoComplete={getAutoCompleteType()}
-              data-testid={`input-field-${name}`}
               id={`input-field-${name}`}
               ref={inputRef}
               type={isPassword && !isPasswordVisible ? 'password' : 'text'}

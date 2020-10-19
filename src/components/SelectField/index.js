@@ -44,7 +44,6 @@ const SelectField = ({
           }}
         >
           <Select
-            data-testid={`select-field-${name}`}
             defaultValue={defaultValue}
             onChange={(event) =>
               handleChange && handleChange(name, event.target.value)
