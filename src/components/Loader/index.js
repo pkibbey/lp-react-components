@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import theme from '../../theme'
 import Spinner from 'react-spinner-material'
 
-const convertSizetoPx = (size) => {
+const convertSizeToPx = (size) => {
   switch (size) {
     case 'small':
       return 18
@@ -19,7 +19,7 @@ const convertSizetoPx = (size) => {
  */
 const Loader = ({ size, variant, timeout }) => (
   <Spinner
-    radius={convertSizetoPx(size)}
+    radius={convertSizeToPx(size)}
     stroke={2}
     color={variant === 'dark' ? theme.colors.darkGray : 'white'}
   />

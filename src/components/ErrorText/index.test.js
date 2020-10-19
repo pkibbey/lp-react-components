@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import ErrorText from './'
 
 const NO_ERROR = { isError: false, hasInteracted: true, message: 'test' }
