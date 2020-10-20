@@ -36,7 +36,7 @@
     "test:watch": "react-scripts test --watchAll=true --env=jsdom",
     "test:update": "react-scripts test --watchAll=false -u --env=jsdom",
     "test:coverage": "react-scripts test --coverage --watchAll=false --env=jsdom && rm -rf docs/coverage && mv coverage docs/coverage",
-    "predeploy": "build-storybook && npm run build-styleguide && npm run coverage",
+    "predeploy": "build-storybook && npm run build-styleguide && npm run test:coverage",
     "deploy": "gh-pages -d docs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs/storybook",
