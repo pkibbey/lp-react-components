@@ -1,6 +1,6 @@
 {
   "name": "lp-react-components",
-  "version": "0.2.28",
+  "version": "0.2.29",
   "description": "(Reusable React components)",
   "author": "pkibbey",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "test:watch": "react-scripts test --watchAll=true --env=jsdom",
     "test:update": "react-scripts test --watchAll=false -u --env=jsdom",
     "test:coverage": "react-scripts test --coverage --watchAll=false --env=jsdom && rm -rf docs/coverage && mv coverage docs/coverage",
-    "predeploy": "build-storybook && npm run build-styleguide && npm run coverage",
+    "predeploy": "build-storybook && npm run build-styleguide && npm run test:coverage",
     "deploy": "gh-pages -d docs",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs/storybook",
@@ -46,7 +46,12 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
-      "<rootDir>/src/theme.js"
+      "<rootDir>/src/theme.js",
+      "<rootDir>/src/stories/0-Button.stories.js",
+      "<rootDir>/src/stories/1-InputField.stories.js",
+      "<rootDir>/src/stories/2-SelectField.stories.js",
+      "<rootDir>/src/stories/3-LoadingDots.stories.js",
+      "<rootDir>/src/stories/4-Loader.stories.js"
     ]
   },
   "peerDependencies": {
