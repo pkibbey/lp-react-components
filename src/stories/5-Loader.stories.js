@@ -1,11 +1,11 @@
 import React from 'react'
-import LoadingDots from '../src/components/LoadingDots'
-import theme from '../src/theme'
+import Loader from '../components/Loader'
 import { withKnobs, select } from '@storybook/addon-knobs'
+import theme from '../theme'
 
 export default {
-  title: 'LoadingDots',
-  component: LoadingDots,
+  title: 'Loader',
+  component: Loader,
   decorators: [withKnobs],
   parameters: {
     backgrounds: [
@@ -16,11 +16,17 @@ export default {
 }
 
 export const Light = () => (
-  <LoadingDots variant={select('variant', ['light', 'dark'], 'light')} />
+  <Loader
+    size={select('size', ['default', 'small', 'large'], 'default')}
+    variant={select('style', ['light', 'dark'], 'light')}
+  />
 )
 
 export const Dark = () => (
-  <LoadingDots variant={select('variant', ['light', 'dark'], 'dark')} />
+  <Loader
+    size={select('size', ['default', 'small', 'large'], 'default')}
+    variant={select('style', ['light', 'dark'], 'dark')}
+  />
 )
 Dark.story = {
   parameters: {

@@ -1,115 +1,146 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import InputField from './'
 
-// NOTE: cannot reliably use snapshot tests, since the input name is generated randomly
-// and will fail every time the test is run
+const mockBlur = jest.fn()
+const mockChange = jest.fn()
+const INPUT_NAME = 'test1'
+const INPUT_VALUE = 'test value'
+const PLACEHOLDER = 'test placeholder'
+const ERROR = {
+  isError: true,
+  requirements: {
+    name: 'errors...',
+    data: [
+      { name: 'data1', isError: true },
+      { name: 'data2', isError: false }
+    ]
+  }
+}
 
-const mockFunction = jest.fn()
+beforeEach(() => {
+  jest.clearAllMocks()
+})
 
 it('renders an input field', () => {
   render(
     <InputField
-      name='test1'
-      value='test value'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
+      name={INPUT_NAME}
+      value={INPUT_VALUE}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
       shouldFocusOnLoad
       isFullWidth
     />
   )
-  expect(mockFunction).not.toHaveBeenCalled()
+  const input = screen.getByRole('textbox')
+
+  expect(mockChange).not.toHaveBeenCalled()
+  expect(mockBlur).not.toHaveBeenCalled()
+  expect(input).toHaveAttribute('placeholder', PLACEHOLDER)
+  expect(input).toHaveAttribute('type', 'text')
+  expect(input).toHaveValue(INPUT_VALUE)
+  expect(input).toHaveFocus()
 })
 
 it('renders an input field with errors', () => {
   render(
     <InputField
-      name='test2'
-      value='test value'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
-      error={{
-        isError: true,
-        requirements: {
-          name: 'errors...',
-          data: [
-            { name: 'data1', isError: true },
-            { name: 'data2', isError: false }
-          ]
-        }
-      }}
+      name={INPUT_NAME}
+      value={INPUT_VALUE}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
+      error={ERROR}
     />
   )
-  expect(mockFunction).not.toHaveBeenCalled()
+  const input = screen.getByRole('textbox')
+  const errorName = screen.getByText(`${ERROR.requirements.name}:`)
+  const errorData1 = screen.getByText(ERROR.requirements.data[0].name)
+  const errorData2 = screen.getByText(ERROR.requirements.data[1].name)
+
+  expect(errorName).toBeInTheDocument()
+  expect(errorData1).toBeInTheDocument()
+  expect(errorData2).toBeInTheDocument()
+  expect(mockChange).not.toHaveBeenCalled()
+  expect(mockBlur).not.toHaveBeenCalled()
+  expect(input).not.toHaveFocus()
 })
 
 it('renders a disabled input field', () => {
   render(
     <InputField
-      name='test2'
-      value='test value'
+      name={INPUT_NAME}
+      value={INPUT_VALUE}
       disabled
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
-      error={{
-        isError: true,
-        requirements: {
-          name: 'errors...',
-          data: [
-            { name: 'data1', isError: true },
-            { name: 'data2', isError: false }
-          ]
-        }
-      }}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
+      error={ERROR}
     />
   )
-  expect(mockFunction).not.toHaveBeenCalled()
+  const input = screen.getByRole('textbox')
+
+  expect(input).not.toHaveFocus()
+  expect(input).toBeDisabled()
 })
 
 test('input field blur event is fired', () => {
-  const { getByTestId } = render(
+  render(
     <InputField
-      name='test3'
-      value='test value'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
+      name={INPUT_NAME}
+      value={INPUT_VALUE}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
     />
   )
-  fireEvent.blur(getByTestId('input-field-test3'))
-  expect(mockFunction).toHaveBeenCalled()
+  const input = screen.getByRole('textbox')
+
+  fireEvent.blur(input)
+  expect(mockBlur).toHaveBeenCalledTimes(1)
+  expect(mockChange).toHaveBeenCalledTimes(0)
 })
 
 test('input field change event is fired', () => {
-  const { getByTestId } = render(
+  render(
     <InputField
-      name='test4'
-      value='test value'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
+      name={INPUT_NAME}
+      value={INPUT_VALUE}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
     />
   )
-  fireEvent.change(getByTestId('input-field-test4'), {
-    target: { value: 'new-value' }
-  })
-  expect(mockFunction).toHaveBeenCalledTimes(2)
+  const input = screen.getByRole('textbox')
+
+  fireEvent.change(input, { target: { value: 'new-value' } })
+  expect(mockBlur).toHaveBeenCalledTimes(0)
+  expect(mockChange).toHaveBeenCalledTimes(1)
 })
 
 it('renders a password field and shows the text when clicking the icon', () => {
-  const { getByTestId } = render(
+  render(
     <InputField
-      name='password'
+      name={INPUT_NAME}
       type='password'
-      value='test value'
-      handleChange={mockFunction}
-      handleBlur={mockFunction}
-      placeholder='test placeholder'
+      value={INPUT_VALUE}
+      handleChange={mockChange}
+      handleBlur={mockBlur}
+      placeholder={PLACEHOLDER}
     />
   )
-  getByTestId('password-icon').click()
-  expect(mockFunction).toHaveBeenCalledTimes(2)
+
+  const input = screen.getByPlaceholderText(PLACEHOLDER)
+  const icon = screen.getByTitle('toggle password visibility')
+  expect(input).toHaveAttribute('type', 'password')
+
+  icon.click()
+
+  expect(mockChange).not.toHaveBeenCalled()
+  expect(mockBlur).not.toHaveBeenCalled()
+  expect(input).toHaveAttribute('type', 'text')
+  expect(input).toHaveValue(INPUT_VALUE)
+  expect(input).not.toHaveFocus()
 })

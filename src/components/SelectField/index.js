@@ -12,7 +12,6 @@ import ThemeWrapper from '../ThemeWrapper'
  */
 const SelectField = ({
   name,
-  value,
   defaultValue,
   isFullWidth,
   handleChange,
@@ -45,8 +44,6 @@ const SelectField = ({
           }}
         >
           <Select
-            data-testid={`select-field-${name}`}
-            autoComplete='off'
             defaultValue={defaultValue}
             onChange={(event) =>
               handleChange && handleChange(name, event.target.value)
@@ -54,7 +51,7 @@ const SelectField = ({
             onBlur={() =>
               handleBlur && handleBlur(name, { hasInteracted: true })
             }
-            name='region'
+            name={name}
             mb={isErrored ? 2 : 4}
             py={0}
             px={3}
@@ -80,8 +77,6 @@ const SelectField = ({
 }
 
 SelectField.propTypes = {
-  /** The value for the select field */
-  value: PropTypes.string.isRequired,
   /** An array of options for the select field  */
   options: PropTypes.array,
   /** Select field label for accessibility */
