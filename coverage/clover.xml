@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1603153997153" clover="3.2.0">
-  <project timestamp="1603153997153" name="All files">
-    <metrics statements="102" coveredstatements="78" conditionals="80" coveredconditionals="80" methods="36" coveredmethods="26" elements="218" coveredelements="184" complexity="0" loc="102" ncloc="102" packages="8" files="14" classes="14"/>
+<coverage generated="1603154260967" clover="3.2.0">
+  <project timestamp="1603154260967" name="All files">
+    <metrics statements="78" coveredstatements="78" conditionals="80" coveredconditionals="80" methods="26" coveredmethods="26" elements="184" coveredelements="184" complexity="0" loc="78" ncloc="78" packages="7" files="9" classes="9"/>
     <package name="components">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ThemeWrapper.js" path="/Users/pkibbey/Sites/lp-react-components/src/components/ThemeWrapper.js">
@@ -126,48 +126,6 @@
         <line num="62" count="18" type="stmt"/>
         <line num="79" count="1" type="stmt"/>
         <line num="100" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="stories">
-      <metrics statements="24" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="0"/>
-      <file name="0-Button.stories.js" path="/Users/pkibbey/Sites/lp-react-components/src/stories/0-Button.stories.js">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-      </file>
-      <file name="1-InputField.stories.js" path="/Users/pkibbey/Sites/lp-react-components/src/stories/1-InputField.stories.js">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-      </file>
-      <file name="2-SelectField.stories.js" path="/Users/pkibbey/Sites/lp-react-components/src/stories/2-SelectField.stories.js">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-      </file>
-      <file name="4-LoadingDots.stories.js" path="/Users/pkibbey/Sites/lp-react-components/src/stories/4-LoadingDots.stories.js">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-      </file>
-      <file name="5-Loader.stories.js" path="/Users/pkibbey/Sites/lp-react-components/src/stories/5-Loader.stories.js">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
       </file>
     </package>
   </project>
