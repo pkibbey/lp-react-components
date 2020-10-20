@@ -46,7 +46,12 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
-      "<rootDir>/src/theme.js"
+      "<rootDir>/src/theme.js",
+      "<rootDir>/src/stories/0-Button.stories.js",
+      "<rootDir>/src/stories/1-InputField.stories.js",
+      "<rootDir>/src/stories/2-SelectField.stories.js",
+      "<rootDir>/src/stories/3-LoadingDots.stories.js",
+      "<rootDir>/src/stories/4-Loader.stories.js"
     ]
   },
   "peerDependencies": {
