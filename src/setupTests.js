@@ -1,4 +1,4 @@
-// Jet test setup
+// Jest test setup
 import '@testing-library/jest-dom/extend-expect'
 import { configure, act } from '@testing-library/react'
 
@@ -14,7 +14,7 @@ process.env.DEBUG_PRINT_LIMIT = 15000
 // run all the pending timers (in `act` because this can trigger state updates)
 // then we'll switch back to realTimers.
 // it's important this comes last here because jest runs afterEach callbacks
-// in rever`se order and we want this to be run first so we get back to real timers
+// in reverse order and we want this to be run first so we get back to real timers
 // before any other cleanup
 afterEach(async () => {
   if (setTimeout._isMockFunction) {
