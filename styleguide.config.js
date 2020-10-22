@@ -20,7 +20,8 @@ module.exports = {
       h4: 16
     }
   },
-  exampleMode: 'expand',
+  usageMode: 'expand',
+  exampleMode: 'collapse',
   previewDelay: 300,
   styleguideDir: 'docs/styleguide',
   webpackConfig: {
