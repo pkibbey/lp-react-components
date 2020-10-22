@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from '../components/Modal'
+import { Modal } from '../components'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text } from '@storybook/addon-knobs'
 

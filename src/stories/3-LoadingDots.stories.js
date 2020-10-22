@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadingDots from '../components/LoadingDots'
+import { LoadingDots } from '../components'
 import theme from '../theme'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
