@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputField } from '../components'
+import { InputField } from '..'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs'
 

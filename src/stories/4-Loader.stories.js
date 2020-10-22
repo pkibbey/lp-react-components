@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loader } from '../components'
+import { Loader } from '..'
 import { withKnobs, select } from '@storybook/addon-knobs'
 import theme from '../theme'
 
