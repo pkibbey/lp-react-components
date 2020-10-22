@@ -51,7 +51,8 @@
       "<rootDir>/src/stories/1-InputField.stories.js",
       "<rootDir>/src/stories/2-SelectField.stories.js",
       "<rootDir>/src/stories/3-LoadingDots.stories.js",
-      "<rootDir>/src/stories/4-Loader.stories.js"
+      "<rootDir>/src/stories/4-Loader.stories.js",
+      "<rootDir>/src/stories/5-Modal.stories.js"
     ]
   },
   "peerDependencies": {
