@@ -17,10 +17,9 @@ const ErrorRequirementsItems = ({ items }) =>
         ))
       default:
         return (
-          <Text
-            key={items.name}
-            variant='errorInformation'
-          >{`${items.name}:`}</Text>
+          <Text key={items.name} variant='errorInformation'>
+            {items.name}
+          </Text>
         )
     }
   })

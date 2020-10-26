@@ -28,7 +28,7 @@ it('renders no error requirements when input is not focused and there are no err
 it('renders error requirements when it has an object of requirements', () => {
   render(<ErrorRequirements focused={false} error={ERROR_OBJECT} />)
 
-  const errorName = screen.getByText(`${ERROR_OBJECT.requirements.name}:`)
+  const errorName = screen.getByText(ERROR_OBJECT.requirements.name)
   const errorData1 = screen.getByText(ERROR_OBJECT.requirements.data[0].name)
   const errorData2 = screen.getByText(ERROR_OBJECT.requirements.data[1].name)
 

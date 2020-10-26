@@ -56,7 +56,7 @@ it('renders an input field with errors', () => {
     />
   )
   const input = screen.getByRole('textbox')
-  const errorName = screen.getByText(`${ERROR.requirements.name}:`)
+  const errorName = screen.getByText(ERROR.requirements.name)
   const errorData1 = screen.getByText(ERROR.requirements.data[0].name)
   const errorData2 = screen.getByText(ERROR.requirements.data[1].name)
 
