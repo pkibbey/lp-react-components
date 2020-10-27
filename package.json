@@ -55,8 +55,17 @@
       "<rootDir>/src/stories/5-Modal.stories.js"
     ]
   },
+  "dependencies": {
+    "@rebass/forms": "^4.0.6",
+    "core-js": "^3.6.5",
+    "emotion-theming": "^10.0.27",
+    "react-app-polyfill": "^2.0.0",
+    "react-spinner-material": "^1.3.1",
+    "rebass": "^4.0.6",
+    "styled-components": "^5.2.0"
+  },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -71,9 +80,9 @@
     "@storybook/addon-viewport": "^6.0.26",
     "@storybook/addons": "^6.0.26",
     "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.26",
-    "@storybook/theming": "^6.0.26",
-    "@testing-library/jest-dom": "^5.11.4",
+    "@storybook/react": "^6.0.27",
+    "@storybook/theming": "^6.0.27",
+    "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
@@ -85,8 +94,8 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-standard": "^4.0.2",
     "gh-pages": "^3.1.0",
     "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
@@ -104,15 +113,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@rebass/forms": "^4.0.6",
-    "core-js": "^3.6.5",
-    "emotion-theming": "^10.0.27",
-    "react-app-polyfill": "^1.0.6",
-    "react-spinner-material": "^1.3.1",
-    "rebass": "^4.0.6",
-    "styled-components": "^5.2.0"
   },
   "bugs": {
     "url": "https://github.com/pkibbey/lp-react-components/issues"
