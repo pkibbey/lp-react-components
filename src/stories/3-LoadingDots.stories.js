@@ -8,10 +8,13 @@ export default {
   component: LoadingDots,
   decorators: [withKnobs],
   parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white' },
-      { name: 'dark', value: theme.colors.navyGray, default: true }
-    ]
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'light', value: 'white' },
+        { name: 'dark', value: theme.colors.navyGray }
+      ]
+    }
   }
 }
 
@@ -22,10 +25,12 @@ export const Light = () => (
 export const Dark = () => (
   <LoadingDots variant={select('variant', ['light', 'dark'], 'dark')} />
 )
-Dark.story = {
-  parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white', default: true },
+
+Dark.parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: 'white' },
       { name: 'dark', value: theme.colors.navyGray }
     ]
   }
