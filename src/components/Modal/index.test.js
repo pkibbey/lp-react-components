@@ -40,6 +40,5 @@ it('should prevent event propagation', () => {
 
   fireEvent.click(content)
 
-  // NOTE: THIS REALLY SHOULD NOT BE CALLED
-  expect(closeModal).toHaveBeenCalledTimes(1)
+  expect(closeModal).toHaveBeenCalledTimes(0)
 })

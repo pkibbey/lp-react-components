@@ -12,7 +12,7 @@ function Modal({ bgColor, closeModal, children }) {
       justifyContent='center'
       alignItems='center'
       sx={{
-        position: 'absolute',
+        position: 'fixed',
         backgroundColor: bgColor,
         top: 0,
         left: 0,
