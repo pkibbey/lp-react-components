@@ -28,7 +28,6 @@ function Modal({ bgColor, closeModal, children }) {
         onClick={(event) => event.stopPropagation()}
         sx={{
           display: 'flex',
-          width: '100%',
           cursor: 'default'
         }}
       >
