@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent, screen, act } from '@testing-library/react'
 import SelectField from './'
 
 const OPTIONS = [
@@ -20,7 +20,7 @@ it('renders a select field', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue={OPTIONS[1].value}
+      value={OPTIONS[1].value}
       handleChange={mockChange}
       handleBlur={mockBlur}
       options={OPTIONS}
@@ -43,7 +43,7 @@ it('renders a select field with an error', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue={OPTIONS[2].value}
+      value={OPTIONS[2].value}
       handleChange={mockChange}
       handleBlur={mockBlur}
       error={{ isError: true, message: ERROR_MESSAGE, hasInteracted: true }}
@@ -66,7 +66,7 @@ it('renders a select field with no value', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue={OPTIONS[2].value}
+      value={OPTIONS[2].value}
       handleChange={mockChange}
       handleBlur={mockBlur}
       options={OPTIONS}
@@ -88,7 +88,7 @@ it('renders a select field with an error and no value', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue=''
+      value=''
       handleChange={mockChange}
       handleBlur={mockBlur}
       error={{ isError: true }}
@@ -111,7 +111,7 @@ test('select field change event is fired', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue=''
+      value=''
       handleChange={mockChange}
       handleBlur={mockBlur}
       options={OPTIONS}
@@ -122,9 +122,7 @@ test('select field change event is fired', () => {
   fireEvent.change(combobox, {
     target: { value: OPTIONS[2].value }
   })
-
-  expect(combobox).toHaveValue(OPTIONS[2].value)
-  expect(mockChange).toHaveBeenCalledTimes(1)
+  expect(mockChange).toHaveBeenCalledWith(SELECT_NAME, OPTIONS[2].value)
   expect(mockBlur).not.toHaveBeenCalled()
 })
 
@@ -132,7 +130,7 @@ test('select field blur event is fired', () => {
   render(
     <SelectField
       name={SELECT_NAME}
-      defaultValue={OPTIONS[0].value}
+      value={OPTIONS[0].value}
       handleChange={mockChange}
       handleBlur={mockBlur}
       options={OPTIONS}
