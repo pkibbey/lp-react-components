@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604021834451" clover="3.2.0">
-  <project timestamp="1604021834451" name="All files">
+<coverage generated="1605561141698" clover="3.2.0">
+  <project timestamp="1605561141698" name="All files">
     <metrics statements="82" coveredstatements="82" conditionals="80" coveredconditionals="80" methods="28" coveredmethods="28" elements="190" coveredelements="190" complexity="0" loc="82" ncloc="82" packages="8" files="10" classes="10"/>
     <package name="components">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -79,7 +79,7 @@
         <line num="107" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="113" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="129" count="1" type="stmt"/>
-        <line num="171" count="1" type="stmt"/>
+        <line num="169" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Loader">
