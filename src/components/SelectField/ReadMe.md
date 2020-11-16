@@ -2,8 +2,7 @@ Default select field:
 
 ```js
 <SelectField
-  value=""
-  defaultValue="test2"
+  value="test2"
   options={[
     { name: 'select an option', value: '', disabled: true },
     { name: 'test 1', value: 'test1' },
