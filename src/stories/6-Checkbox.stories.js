@@ -9,10 +9,13 @@ export default {
   component: Checkbox,
   decorators: [withKnobs],
   parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white' },
-      { name: 'dark', value: theme.colors.navyGray, default: true }
-    ]
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'light', value: 'white' },
+        { name: 'dark', value: theme.colors.navyGray }
+      ]
+    }
   }
 }
 
@@ -33,10 +36,12 @@ export const Dark = () => (
     handleChange={action('handleChange')}
   />
 )
-Dark.story = {
-  parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white', default: true },
+
+Dark.parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: 'white' },
       { name: 'dark', value: theme.colors.navyGray }
     ]
   }
