@@ -1,7 +1,6 @@
 import React, { StrictMode } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from '@emotion/react'
-
+import { ThemeProvider } from 'emotion-theming'
 import theme from '../theme'
 
 /**
