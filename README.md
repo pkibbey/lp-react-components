@@ -84,6 +84,7 @@ npm version patch
 
 To publish the package to npm to make it available for other projects
 ```bash
+npm login
 npm publish
 ```
 

@@ -1,6 +1,6 @@
 import React from 'react'
+import { SelectField } from '..'
 import { action } from '@storybook/addon-actions'
-import SelectField from '../src/components/SelectField'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
 export default {
@@ -14,7 +14,6 @@ export const Default = () => (
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
     value={text('value', 'value 1')}
-    defaultValue='value 1'
     handleChange={action('handleChange')}
     handleBlur={action('handleBlur')}
     options={[
@@ -28,8 +27,7 @@ export const DefaultWithErrors = () => (
   <SelectField
     name={text('name', 'select-field')}
     isFullWidth={boolean('isFullWidth', false)}
-    value={text('value', 'value 1')}
-    defaultValue='value 1'
+    value={text('value', 'value 2')}
     handleChange={action('handleChange')}
     error={{
       isError: true,

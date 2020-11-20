@@ -47,7 +47,6 @@ const InputField = ({
 
   const VisibilityIcon = () => (
     <Flex
-      data-testid='password-icon'
       title='toggle password visibility'
       alignItems='center'
       onClick={() => setIsPasswordVisible(!isPasswordVisible)}
@@ -96,7 +95,6 @@ const InputField = ({
             {isPassword && <VisibilityIcon />}
             <Input
               autoComplete={getAutoCompleteType()}
-              data-testid={`input-field-${name}`}
               id={`input-field-${name}`}
               ref={inputRef}
               type={isPassword && !isPasswordVisible ? 'password' : 'text'}
@@ -133,8 +131,6 @@ InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password']),
   /** The value for the input field */
   value: PropTypes.string,
-  /** The default value for the input field */
-  defaultValue: PropTypes.string,
   /** The placeholder for the input field */
   placeholder: PropTypes.string,
   /** Input field label for accessibility */
@@ -171,8 +167,7 @@ InputField.propTypes = {
 }
 
 InputField.defaultProps = {
-  name: 'input',
-  defaultValue: ''
+  name: 'input'
 }
 
 export default InputField

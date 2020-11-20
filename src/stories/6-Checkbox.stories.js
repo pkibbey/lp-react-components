@@ -1,8 +1,8 @@
 import React from 'react'
-import Checkbox from '../src/components/Checkbox'
+import { Checkbox } from '..'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, select, text } from '@storybook/addon-knobs'
-import theme from '../src/theme'
+import theme from '../theme'
 
 export default {
   title: 'Checkbox',

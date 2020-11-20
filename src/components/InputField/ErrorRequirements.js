@@ -15,15 +15,12 @@ const ErrorRequirementsItems = ({ items }) =>
             {`${d.name}`}
           </Text>
         ))
-      case 'name':
-        return (
-          <Text
-            key={items.name}
-            variant='errorInformation'
-          >{`${items.name}:`}</Text>
-        )
       default:
-        return null
+        return (
+          <Text key={items.name} variant='errorInformation'>
+            {items.name}
+          </Text>
+        )
     }
   })
 
@@ -31,7 +28,6 @@ const ErrorRequirements = ({ focused, error }) => {
   if ((error.isError === true || focused) && error.requirements) {
     return (
       <Text
-        data-testid='error-requirements'
         ml={6}
         mr={6}
         variant='errorInformation'
@@ -58,19 +54,16 @@ ErrorRequirements.propTypes = {
     isError: PropTypes.bool,
     hasInteracted: PropTypes.bool,
     message: PropTypes.string,
-    requirements: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        name: PropTypes.string,
-        data: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string,
-            isError: PropTypes.bool,
-            shouldIndent: PropTypes.bool
-          })
-        )
-      })
-    ])
+    requirements: PropTypes.shape({
+      name: PropTypes.string,
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          isError: PropTypes.bool,
+          shouldIndent: PropTypes.bool
+        })
+      )
+    })
   })
 }
 

@@ -1,17 +1,20 @@
 import React from 'react'
-import Loader from '../src/components/Loader'
+import { Loader } from '..'
 import { withKnobs, select } from '@storybook/addon-knobs'
-import theme from '../src/theme'
+import theme from '../theme'
 
 export default {
   title: 'Loader',
   component: Loader,
   decorators: [withKnobs],
   parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white' },
-      { name: 'dark', value: theme.colors.navyGray, default: true }
-    ]
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'light', value: 'white' },
+        { name: 'dark', value: theme.colors.navyGray }
+      ]
+    }
   }
 }
 
@@ -28,10 +31,12 @@ export const Dark = () => (
     variant={select('style', ['light', 'dark'], 'dark')}
   />
 )
-Dark.story = {
-  parameters: {
-    backgrounds: [
-      { name: 'light', value: 'white', default: true },
+
+Dark.parameters = {
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: 'white' },
       { name: 'dark', value: theme.colors.navyGray }
     ]
   }

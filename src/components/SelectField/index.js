@@ -13,7 +13,6 @@ import ThemeWrapper from '../ThemeWrapper'
 const SelectField = ({
   name,
   value,
-  defaultValue,
   isFullWidth,
   handleChange,
   error,
@@ -45,16 +44,14 @@ const SelectField = ({
           }}
         >
           <Select
-            data-testid={`select-field-${name}`}
-            autoComplete='off'
-            defaultValue={defaultValue}
+            value={value}
             onChange={(event) =>
               handleChange && handleChange(name, event.target.value)
             }
             onBlur={() =>
               handleBlur && handleBlur(name, { hasInteracted: true })
             }
-            name='region'
+            name={name}
             mb={isErrored ? 2 : 4}
             py={0}
             px={3}
@@ -80,8 +77,6 @@ const SelectField = ({
 }
 
 SelectField.propTypes = {
-  /** The value for the select field */
-  value: PropTypes.string.isRequired,
   /** An array of options for the select field  */
   options: PropTypes.array,
   /** Select field label for accessibility */
@@ -90,8 +85,8 @@ SelectField.propTypes = {
   handleChange: PropTypes.func,
   /** A callback to fire when the select field loses focus */
   handleBlur: PropTypes.func,
-  /** A defaultValue for the select field */
-  defaultValue: PropTypes.string,
+  /** A value for the select field */
+  value: PropTypes.string,
   /** When this is true, the select field will render full width */
   isFullWidth: PropTypes.bool,
   /** An object describing the error in the select field */
@@ -104,7 +99,7 @@ SelectField.propTypes = {
 
 SelectField.defaultProps = {
   name: 'select-field',
-  defaultValue: '',
+  value: '',
   options: [],
   error: {},
   isFullWidth: false
