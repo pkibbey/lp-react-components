@@ -1,17 +1,25 @@
 Default loader
 
 ```js
-<Loader variant="dark" />
+<Loader
+  variant="dark"
+/>
 ```
 
 Small loader
 
 ```js
-<Loader variant="dark" size="small" />
+<Loader
+  variant="dark"
+  size="small"
+/>
 ```
 
 Large loader
 
 ```js
-<Loader variant="dark" size="large" />
+<Loader
+  variant="dark"
+  size="large"
+/>
 ```

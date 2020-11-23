@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from 'rebass'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import PropTypes from 'prop-types'
 import theme from '../../theme'
 

@@ -1,5 +1,7 @@
 Default LoadingDots:
 
 ```js
-<LoadingDots variant="dark" />
+<LoadingDots
+  variant="dark"
+/>
 ```
