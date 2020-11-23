@@ -1,3 +1,5 @@
 ```js
-<ErrorText error={{ isError: true, hasInteracted: true, message: 'This is an error' }} />
+<ErrorText
+  error={{ isError: true, hasInteracted: true, message: 'This is an error' }}
+/>
 ```

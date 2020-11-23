@@ -1,15 +1,27 @@
 ```js
-<Button label="Submit" />
+<Button
+  label="Submit"
+/>
 ```
 
 ```js
-<Button label="Label not shown" isLoading />
+<Button
+  label="Label not shown"
+  isLoading
+/>
 ```
 
 ```js
-<Button variant="secondary" label="Options" />
+<Button
+  variant="secondary"
+  label="Options"
+/>
 ```
 
 ```js
-<Button variant="secondary" label="Options" isLoading />
+<Button
+  variant="secondary"
+  label="Options"
+  isLoading
+/>
 ```

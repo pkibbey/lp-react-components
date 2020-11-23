@@ -1,12 +1,10 @@
 import React from 'react'
 import { Loader } from '..'
-import { withKnobs, select } from '@storybook/addon-knobs'
 import theme from '../theme'
 
 export default {
   title: 'Loader',
   component: Loader,
-  decorators: [withKnobs],
   parameters: {
     backgrounds: {
       default: 'dark',
@@ -15,24 +13,23 @@ export default {
         { name: 'dark', value: theme.colors.navyGray }
       ]
     }
+  },
+  argTypes: {
+    size: 'default',
+    variant: 'light'
   }
 }
 
-export const Light = () => (
-  <Loader
-    size={select('size', ['default', 'small', 'large'], 'default')}
-    variant={select('style', ['light', 'dark'], 'light')}
-  />
-)
+export const Default = (args) => <Loader {...args} />
 
-export const Dark = () => (
-  <Loader
-    size={select('size', ['default', 'small', 'large'], 'default')}
-    variant={select('style', ['light', 'dark'], 'dark')}
-  />
-)
+export const Large = (args) => <Loader {...args} />
 
-Dark.parameters = {
+Large.args = {
+  size: 'large',
+  variant: 'dark'
+}
+
+Large.parameters = {
   backgrounds: {
     default: 'light',
     values: [
@@ -40,4 +37,11 @@ Dark.parameters = {
       { name: 'dark', value: theme.colors.navyGray }
     ]
   }
+}
+
+export const Small = (args) => <Loader {...args} />
+
+Small.args = {
+  size: 'small',
+  variant: 'light'
 }

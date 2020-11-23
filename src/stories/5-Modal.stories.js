@@ -1,23 +1,36 @@
 import React from 'react'
 import { Modal } from '..'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, text } from '@storybook/addon-knobs'
 
 export default {
   title: 'Modal',
   component: Modal,
-  decorators: [withKnobs]
+  argTypes: {
+    closeModal: { table: { disable: true } },
+    bgColor: 'rgb(0,0,0,0.75)',
+    children: {
+      table: { disable: true },
+      defaultValue: (
+        <h3
+          style={{
+            color: 'white',
+            border: '1px solid white',
+            padding: '40px',
+            backgroundColor: 'rgba(255,255,255,0.2)'
+          }}
+        >
+          Modal content
+        </h3>
+      )
+    }
+  }
 }
 
-export const Default = () => (
-  <Modal
-    closeModal={action('closeModal')}
-    bgColor={text('bgColor', 'rgb(0,0,0,0.75)')}
-  >
+export const Default = (args) => (
+  <Modal {...args}>
     <h3
       style={{
         color: 'white',
-        border: '2px solid yellow',
+        border: '1px solid white',
         padding: '40px',
         backgroundColor: 'rgba(255,255,255,0.2)'
       }}

@@ -1,10 +1,10 @@
 import React from 'react'
-import { LoadingDots } from '..'
+import { Checkbox } from '..'
 import theme from '../theme'
 
 export default {
-  title: 'LoadingDots',
-  component: LoadingDots,
+  title: 'Checkbox',
+  component: Checkbox,
   parameters: {
     backgrounds: {
       default: 'dark',
@@ -15,13 +15,16 @@ export default {
     }
   },
   argTypes: {
-    variant: { defaultValue: 'light' }
+    label: { defaultValue: 'checkbox label' },
+    state: { defaultValue: 'default' },
+    variant: { defaultValue: 'light' },
+    handleChange: { action: 'changed', table: { disable: true } }
   }
 }
 
-export const Light = (args) => <LoadingDots {...args} />
+export const Light = (args) => <Checkbox {...args} />
 
-export const Dark = (args) => <LoadingDots {...args} />
+export const Dark = (args) => <Checkbox {...args} />
 
 Dark.args = {
   variant: 'dark'

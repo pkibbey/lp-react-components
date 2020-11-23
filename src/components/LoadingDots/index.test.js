@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import LoadingDots from './'
+import LoadingDots from '.'
 
 it('renders default LoadingDots', () => {
   const { container } = render(<LoadingDots />)

@@ -60,6 +60,14 @@ export default {
       color: 'red',
       WebkitFontSmoothing: 'antialiased',
       maxWidth: ['100%', '100%', 414]
+    },
+    checkboxLabel: {
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      height: '40px',
+      letterSpacing: '0.01em',
+      lineHeight: '40px',
+      WebkitFontSmoothing: 'antialiased'
     }
   },
   buttons: {

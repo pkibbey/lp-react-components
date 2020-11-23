@@ -1,32 +1,42 @@
 import React from 'react'
 import { Button } from '..'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs'
+import theme from '../theme'
 
 export default {
   title: 'Button',
   component: Button,
-  decorators: [withKnobs]
+  parameters: {
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: 'white' },
+        { name: 'dark', value: theme.colors.navyGray }
+      ]
+    }
+  },
+  argTypes: {
+    handleClick: { action: 'clicked', table: { disable: true } },
+    label: { defaultValue: 'button label' },
+    isLoading: { defaultValue: false },
+    isFullWidth: { defaultValue: false },
+    variant: { defaultValue: 'primary' }
+  }
 }
 
-const BUTTON_OPTIONS = ['primary', 'secondary']
+export const Primary = (args) => <Button {...args} />
 
-export const Primary = () => (
-  <Button
-    isFullWidth={boolean('isFullWidth', false)}
-    isLoading={boolean('isLoading', false)}
-    handleClick={action('handleClick')}
-    label={text('label', 'button label')}
-    variant={select('variant', BUTTON_OPTIONS, 'primary')}
-  />
-)
+export const Secondary = (args) => <Button {...args} />
 
-export const Secondary = () => (
-  <Button
-    isFullWidth={boolean('isFullWidth', false)}
-    isLoading={boolean('isLoading', false)}
-    handleClick={action('handleClick')}
-    label={text('label', 'button label')}
-    variant={select('variant', BUTTON_OPTIONS, 'secondary')}
-  />
-)
+Secondary.args = {
+  variant: 'secondary'
+}
+
+Secondary.parameters = {
+  backgrounds: {
+    default: 'dark',
+    values: [
+      { name: 'light', value: 'white' },
+      { name: 'dark', value: theme.colors.navyGray }
+    ]
+  }
+}
