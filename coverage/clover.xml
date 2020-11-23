@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605561141698" clover="3.2.0">
-  <project timestamp="1605561141698" name="All files">
-    <metrics statements="82" coveredstatements="82" conditionals="80" coveredconditionals="80" methods="28" coveredmethods="28" elements="190" coveredelements="190" complexity="0" loc="82" ncloc="82" packages="8" files="10" classes="10"/>
+<coverage generated="1606160835485" clover="3.2.0">
+  <project timestamp="1606160835485" name="All files">
+    <metrics statements="98" coveredstatements="98" conditionals="91" coveredconditionals="91" methods="34" coveredmethods="34" elements="223" coveredelements="223" complexity="0" loc="98" ncloc="98" packages="9" files="11" classes="11"/>
     <package name="components">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ThemeWrapper.js" path="/Users/pkibbey/Sites/lp-react-components/src/components/ThemeWrapper.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="27" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="34" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
       </file>
     </package>
     <package name="components.Button">
@@ -20,6 +20,28 @@
         <line num="18" count="6" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Checkbox">
+      <metrics statements="16" coveredstatements="16" conditionals="11" coveredconditionals="11" methods="6" coveredmethods="6"/>
+      <file name="index.js" path="/Users/pkibbey/Sites/lp-react-components/src/components/Checkbox/index.js">
+        <metrics statements="16" coveredstatements="16" conditionals="11" coveredconditionals="11" methods="6" coveredmethods="6"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="34" count="7" type="stmt"/>
+        <line num="35" count="7" type="cond" truecount="3" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="71" count="5" type="stmt"/>
+        <line num="86" count="7" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.ErrorText">
@@ -94,7 +116,7 @@
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="7" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.LoadingDots">
