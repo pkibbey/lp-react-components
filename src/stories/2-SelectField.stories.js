@@ -1,43 +1,38 @@
 import React from 'react'
 import { SelectField } from '..'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
 export default {
   title: 'SelectField',
   component: SelectField,
-  decorators: [withKnobs]
+  argTypes: {
+    isFullWidth: { defaultValue: false },
+    name: 'select-field',
+    value: { defaultValue: '' },
+    handleChange: { action: 'changed', table: { disable: true } },
+    handleBlur: { action: 'blurred', table: { disable: true } },
+    options: [
+      { name: 'option 1', value: 'value 1' },
+      { name: 'option 2', value: 'value 2' }
+    ]
+  }
 }
 
-export const Default = () => (
-  <SelectField
-    name={text('name', 'select-field')}
-    isFullWidth={boolean('isFullWidth', false)}
-    value={text('value', 'value 1')}
-    handleChange={action('handleChange')}
-    handleBlur={action('handleBlur')}
-    options={[
-      { name: 'option 1', value: 'value 1' },
-      { name: 'option 2', value: 'value 2' }
-    ]}
-  />
-)
+export const Default = (args) => <SelectField {...args} />
 
-export const DefaultWithErrors = () => (
-  <SelectField
-    name={text('name', 'select-field')}
-    isFullWidth={boolean('isFullWidth', false)}
-    value={text('value', 'value 2')}
-    handleChange={action('handleChange')}
-    error={{
-      isError: true,
-      hasInteracted: true,
-      message: 'Invalid value'
-    }}
-    handleBlur={action('handleBlur')}
-    options={[
-      { name: 'option 1', value: 'value 1' },
-      { name: 'option 2', value: 'value 2' }
-    ]}
-  />
-)
+export const DefaultWithErrors = (args) => <SelectField {...args} />
+
+DefaultWithErrors.args = {
+  name: 'select-field-with-errors',
+  value: 'value 2',
+  error: {
+    isError: true,
+    hasInteracted: true,
+    message: 'Invalid value'
+  },
+  handleChange: { action: 'changed', table: { disable: true } },
+  handleBlur: { action: 'blurred', table: { disable: true } },
+  options: [
+    { name: 'option 1', value: 'value 1' },
+    { name: 'option 2', value: 'value 2' }
+  ]
+}

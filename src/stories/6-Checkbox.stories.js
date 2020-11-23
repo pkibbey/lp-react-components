@@ -1,13 +1,10 @@
 import React from 'react'
 import { Checkbox } from '..'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, select, text } from '@storybook/addon-knobs'
 import theme from '../theme'
 
 export default {
   title: 'Checkbox',
   component: Checkbox,
-  decorators: [withKnobs],
   parameters: {
     backgrounds: {
       default: 'dark',
@@ -16,26 +13,22 @@ export default {
         { name: 'dark', value: theme.colors.navyGray }
       ]
     }
+  },
+  argTypes: {
+    label: { defaultValue: 'checkbox label' },
+    state: { defaultValue: 'default' },
+    variant: { defaultValue: 'light' },
+    handleChange: { action: 'changed', table: { disable: true } }
   }
 }
 
-export const Light = () => (
-  <Checkbox
-    label={text('label', 'Default label')}
-    state={select('state', ['default', 'checked', 'error'], 'default')}
-    variant={select('style', ['light', 'dark'], 'light')}
-    handleChange={action('handleChange')}
-  />
-)
+export const Light = (args) => <Checkbox {...args} />
 
-export const Dark = () => (
-  <Checkbox
-    label={text('label', 'Default label')}
-    state={select('state', ['default', 'checked', 'error'], 'default')}
-    variant={select('style', ['light', 'dark'], 'dark')}
-    handleChange={action('handleChange')}
-  />
-)
+export const Dark = (args) => <Checkbox {...args} />
+
+Dark.args = {
+  variant: 'dark'
+}
 
 Dark.parameters = {
   backgrounds: {

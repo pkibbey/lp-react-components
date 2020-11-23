@@ -15,18 +15,15 @@ export default {
     }
   },
   argTypes: {
-    handleClick: { action: 'clicked' },
+    handleClick: { action: 'clicked', table: { disable: true } },
     label: { defaultValue: 'button label' },
     isLoading: { defaultValue: false },
-    isFullWidth: { defaultValue: false }
+    isFullWidth: { defaultValue: false },
+    variant: { defaultValue: 'primary' }
   }
 }
 
 export const Primary = (args) => <Button {...args} />
-
-Primary.args = {
-  variant: 'primary'
-}
 
 export const Secondary = (args) => <Button {...args} />
 

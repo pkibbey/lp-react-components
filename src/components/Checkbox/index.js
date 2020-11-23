@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, Box } from 'rebass'
 import PropTypes from 'prop-types'
 import theme from '../../theme'
 import ThemeWrapper from '../ThemeWrapper'
+import styled from '@emotion/styled'
 
-// TODO: Add a real checkbox input in here, but invisible, for accessibility
+const Input = styled.input`
+  border: 0;
+  clip: rect(0 0 0 0);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`
+
+const Image = styled.svg`
+  box-shadow: 0 0 0 ${({ hasFocus }) => (hasFocus ? 2 : 0)}px
+    ${({ variant }) => (variant === 'dark' ? theme.colors.darkGray : 'white')};
+`
 
 /**
  * Used to render a checkbox
@@ -12,6 +29,8 @@ import ThemeWrapper from '../ThemeWrapper'
  * @visibleName Checkbox
  */
 const Checkbox = ({ variant, label, state, handleChange, ...otherProps }) => {
+  const [hasFocus, setHasFocus] = useState(false)
+
   const getSVG = () => {
     switch (state) {
       case 'error':
@@ -79,7 +98,15 @@ const Checkbox = ({ variant, label, state, handleChange, ...otherProps }) => {
         }}
         onClick={handleChange}
       >
-        <svg
+        <Input
+          type='checkbox'
+          defaultChecked={state === 'checked'}
+          onFocus={() => setHasFocus(true)}
+          onBlur={() => setHasFocus(false)}
+        />
+        <Image
+          variant={variant}
+          hasFocus={hasFocus}
           width='20'
           height='20'
           viewBox='0 0 20 20'
@@ -87,27 +114,31 @@ const Checkbox = ({ variant, label, state, handleChange, ...otherProps }) => {
           xmlns='http://www.w3.org/2000/svg'
         >
           {getSVG()}
-        </svg>
-        <Text ml={2} variant='checkboxLabel'>
-          {label}
-        </Text>
+        </Image>
+        {label && (
+          <Text ml={2} variant='checkboxLabel'>
+            {label}
+          </Text>
+        )}
       </Box>
     </ThemeWrapper>
   )
 }
 
 Checkbox.propTypes = {
+  /** A variant for the button */
+  variant: PropTypes.oneOf(['dark', 'light']),
   /** An string describing the state of the checkbox */
-  state: PropTypes.string.isRequired,
+  state: PropTypes.oneOf(['error', 'checked', 'default']),
   /** An string to display as the checkbox label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   /** A callback to fire when the input field changes */
   handleChange: PropTypes.func
 }
 
 Checkbox.defaultProps = {
   state: 'default',
-  label: 'Hello World!'
+  label: ''
 }
 
 export default Checkbox

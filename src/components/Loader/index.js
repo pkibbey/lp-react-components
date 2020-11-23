@@ -17,7 +17,7 @@ const convertSizeToPx = (size) => {
 /**
  * Used to convey to the user that something is happening, usually an asynchronous network call
  */
-const Loader = ({ size, variant, timeout }) => (
+const Loader = ({ size, variant }) => (
   <Spinner
     radius={convertSizeToPx(size)}
     stroke={2}
@@ -29,9 +29,7 @@ Loader.propTypes = {
   /** The size of the loader */
   size: PropTypes.oneOf(['small', 'large', 'default']),
   /** A variant for the loader */
-  variant: PropTypes.oneOf(['light', 'dark']),
-  /** A time in ms that the loader should run for ('undefined' repeats it forever) */
-  timeout: PropTypes.number
+  variant: PropTypes.oneOf(['light', 'dark'])
 }
 
 Loader.defaultProps = {

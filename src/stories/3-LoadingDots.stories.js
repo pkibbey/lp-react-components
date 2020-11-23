@@ -1,12 +1,10 @@
 import React from 'react'
 import { LoadingDots } from '..'
 import theme from '../theme'
-import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
   title: 'LoadingDots',
   component: LoadingDots,
-  decorators: [withKnobs],
   parameters: {
     backgrounds: {
       default: 'dark',
@@ -15,16 +13,19 @@ export default {
         { name: 'dark', value: theme.colors.navyGray }
       ]
     }
+  },
+  argTypes: {
+    variant: { defaultValue: 'light' }
   }
 }
 
-export const Light = () => (
-  <LoadingDots variant={select('variant', ['light', 'dark'], 'light')} />
-)
+export const Light = (args) => <LoadingDots {...args} />
 
-export const Dark = () => (
-  <LoadingDots variant={select('variant', ['light', 'dark'], 'dark')} />
-)
+export const Dark = (args) => <LoadingDots {...args} />
+
+Dark.args = {
+  variant: 'dark'
+}
 
 Dark.parameters = {
   backgrounds: {
