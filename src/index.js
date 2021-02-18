@@ -23,8 +23,8 @@ customElements.define(
 )
 customElements.define(
   'lp-loading-dots',
-  reactToWeb(LoadingDots, React, ReacDOM)
+  reactToWeb(LoadingDots, React, ReactDOM)
 )
-customElements.define('lp-error-text', reactToWeb(ErrorText, React, eactDOM))
+customElements.define('lp-error-text', reactToWeb(ErrorText, React, ReactDOM))
 customElements.define('lp-modal', reactToWeb(Modal, React, ReactDOM))
 customElements.define('lp-checkbox', reactToWeb(Checkbox, React, ReactDOM))
