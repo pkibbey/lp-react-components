@@ -9,7 +9,7 @@ module.exports = {
     }
   ],
   ribbon: {
-    url: 'https://pkibbey.github.io/lp-react-components'
+    url: 'https://pkibbey.github.io/lp-web-components'
   },
   theme: {
     color: {

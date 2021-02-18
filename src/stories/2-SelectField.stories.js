@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectField } from '..'
+import SelectField from '../components/SelectField'
 
 export default {
   title: 'SelectField',

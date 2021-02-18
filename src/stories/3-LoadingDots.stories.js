@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoadingDots } from '..'
+import LoadingDots from '../components/LoadingDots'
 import theme from '../theme'
 
 export default {
