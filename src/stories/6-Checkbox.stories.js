@@ -1,5 +1,6 @@
 import React from 'react'
 import Checkbox from '../components/Checkbox'
+import ThemeWrapper from '../components/ThemeWrapper'
 import theme from '../theme'
 
 export default {
@@ -22,9 +23,17 @@ export default {
   }
 }
 
-export const Light = (args) => <Checkbox {...args} />
+export const Light = (args) => (
+  <ThemeWrapper>
+    <Checkbox {...args} />
+  </ThemeWrapper>
+)
 
-export const Dark = (args) => <Checkbox {...args} />
+export const Dark = (args) => (
+  <ThemeWrapper>
+    <Checkbox {...args} />
+  </ThemeWrapper>
+)
 
 Dark.args = {
   variant: 'dark'

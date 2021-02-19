@@ -1,5 +1,6 @@
 import React from 'react'
 import SelectField from '../components/SelectField'
+import ThemeWrapper from '../components/ThemeWrapper'
 
 export default {
   title: 'SelectField',
@@ -17,9 +18,17 @@ export default {
   }
 }
 
-export const Default = (args) => <SelectField {...args} />
+export const Default = (args) => (
+  <ThemeWrapper>
+    <SelectField {...args} />
+  </ThemeWrapper>
+)
 
-export const DefaultWithErrors = (args) => <SelectField {...args} />
+export const DefaultWithErrors = (args) => (
+  <ThemeWrapper>
+    <SelectField {...args} />
+  </ThemeWrapper>
+)
 
 DefaultWithErrors.args = {
   name: 'select-field-with-errors',

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Text, Box } from 'rebass'
 import PropTypes from 'prop-types'
 import theme from '../../theme'
-import ThemeWrapper from '../ThemeWrapper'
 import styled from '@emotion/styled'
 
 const Input = styled.input`
@@ -84,44 +83,42 @@ const Checkbox = ({ variant, label, state, handleChange, ...otherProps }) => {
   }
 
   return (
-    <ThemeWrapper>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 2,
-          height: '40px',
-          cursor: 'pointer',
-          color: variant === 'dark' ? theme.colors.darkGray : 'white'
-        }}
-        onClick={handleChange}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 2,
+        height: '40px',
+        cursor: 'pointer',
+        color: variant === 'dark' ? theme.colors.darkGray : 'white'
+      }}
+      onClick={handleChange}
+    >
+      <Input
+        type='checkbox'
+        defaultChecked={state === 'checked'}
+        onFocus={() => setHasFocus(true)}
+        onBlur={() => setHasFocus(false)}
+      />
+      <Image
+        variant={variant}
+        hasFocus={hasFocus}
+        width='20'
+        height='20'
+        viewBox='0 0 20 20'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
       >
-        <Input
-          type='checkbox'
-          defaultChecked={state === 'checked'}
-          onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
-        />
-        <Image
-          variant={variant}
-          hasFocus={hasFocus}
-          width='20'
-          height='20'
-          viewBox='0 0 20 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          {getSVG()}
-        </Image>
-        {label && (
-          <Text ml={2} variant='checkboxLabel'>
-            {label}
-          </Text>
-        )}
-      </Box>
-    </ThemeWrapper>
+        {getSVG()}
+      </Image>
+      {label && (
+        <Text ml={2} variant='checkboxLabel'>
+          {label}
+        </Text>
+      )}
+    </Box>
   )
 }
 

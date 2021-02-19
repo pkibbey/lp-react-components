@@ -3,7 +3,6 @@ import { Box } from 'rebass'
 import { Select } from '@rebass/forms'
 import ErrorText from '../ErrorText'
 import PropTypes from 'prop-types'
-import ThemeWrapper from '../ThemeWrapper'
 
 /**
  * Used for selecting a single option from a defined set
@@ -29,50 +28,46 @@ const SelectField = ({
   }
 
   return (
-    <ThemeWrapper>
-      <Box>
-        <Box
-          sx={{
-            position: 'relative',
-            display: isFullWidth ? 'block' : ['block', 'grid'],
-            gridTemplateColumns: ['auto', '5fr 4fr'],
-            gridTemplateAreas: "'input spacer'",
-            '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
-              display: isFullWidth ? 'block' : '-ms-grid',
-              msGridColumns: '5fr 4fr'
-            }
-          }}
+    <Box>
+      <Box
+        sx={{
+          position: 'relative',
+          display: isFullWidth ? 'block' : ['block', 'grid'],
+          gridTemplateColumns: ['auto', '5fr 4fr'],
+          gridTemplateAreas: "'input spacer'",
+          '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
+            display: isFullWidth ? 'block' : '-ms-grid',
+            msGridColumns: '5fr 4fr'
+          }
+        }}
+      >
+        <Select
+          value={value}
+          onChange={(event) =>
+            handleChange && handleChange(name, event.target.value)
+          }
+          onBlur={() => handleBlur && handleBlur(name, { hasInteracted: true })}
+          name={name}
+          mb={isErrored ? 2 : 4}
+          py={0}
+          px={3}
+          variant={getVariant()}
+          sx={{ gridArea: 'input', msGridColumn: '1' }}
         >
-          <Select
-            value={value}
-            onChange={(event) =>
-              handleChange && handleChange(name, event.target.value)
-            }
-            onBlur={() =>
-              handleBlur && handleBlur(name, { hasInteracted: true })
-            }
-            name={name}
-            mb={isErrored ? 2 : 4}
-            py={0}
-            px={3}
-            variant={getVariant()}
-            sx={{ gridArea: 'input', msGridColumn: '1' }}
-          >
-            {options.map((option) => (
-              <option
-                key={option.name}
-                value={option.value}
-                disabled={option.disabled}
-              >
-                {option.name}
-              </option>
-            ))}
-          </Select>
-          <Box sx={{ gridArea: 'spacer', msGridColumn: '2' }} />
-        </Box>
-        <ErrorText error={error} mb={3} />
+          {options.map((option) => (
+            <option
+              key={option.name}
+              value={option.value}
+              disabled={option.disabled}
+            >
+              {option.name}
+            </option>
+          ))}
+        </Select>
+        <Box sx={{ gridArea: 'spacer', msGridColumn: '2' }} />
       </Box>
-    </ThemeWrapper>
+      <ErrorText error={error} mb={3} />
+    </Box>
   )
 }
 

@@ -5,7 +5,6 @@ import ErrorText from '../ErrorText'
 import ErrorRequirements from './ErrorRequirements'
 import PasswordIcon from './PasswordIcon'
 import PropTypes from 'prop-types'
-import ThemeWrapper from '../ThemeWrapper'
 import theme from '../../theme'
 
 /**
@@ -72,57 +71,55 @@ const InputField = ({
   }
 
   return (
-    <ThemeWrapper>
-      <Box>
+    <Box>
+      <Box
+        sx={{
+          display: isFullWidth ? 'block' : ['block', 'grid'],
+          gridTemplateColumns: ['auto', '5fr 4fr'],
+          gridTemplateAreas: `'input requirements'`,
+          '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
+            display: isFullWidth ? 'block' : '-ms-grid',
+            msGridColumns: '5fr 4fr'
+          }
+        }}
+      >
         <Box
           sx={{
-            display: isFullWidth ? 'block' : ['block', 'grid'],
-            gridTemplateColumns: ['auto', '5fr 4fr'],
-            gridTemplateAreas: `'input requirements'`,
-            '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
-              display: isFullWidth ? 'block' : '-ms-grid',
-              msGridColumns: '5fr 4fr'
-            }
+            position: 'relative',
+            gridArea: 'input',
+            msGridColumn: '1'
           }}
         >
-          <Box
-            sx={{
-              position: 'relative',
-              gridArea: 'input',
-              msGridColumn: '1'
+          {isPassword && <VisibilityIcon />}
+          <Input
+            autoComplete={getAutoCompleteType()}
+            id={`input-field-${name}`}
+            ref={inputRef}
+            type={isPassword && !isPasswordVisible ? 'password' : 'text'}
+            placeholder={placeholder}
+            mb={isErrored ? 2 : 4}
+            value={value}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => {
+              setIsFocused(false)
+              handleBlur && handleBlur(name, { hasInteracted: true })
             }}
-          >
-            {isPassword && <VisibilityIcon />}
-            <Input
-              autoComplete={getAutoCompleteType()}
-              id={`input-field-${name}`}
-              ref={inputRef}
-              type={isPassword && !isPasswordVisible ? 'password' : 'text'}
-              placeholder={placeholder}
-              mb={isErrored ? 2 : 4}
-              value={value}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => {
-                setIsFocused(false)
-                handleBlur && handleBlur(name, { hasInteracted: true })
-              }}
-              pl={3}
-              py={0}
-              pr={isPassword && !isPasswordVisible ? 6 : 3}
-              onChange={(event) =>
-                handleChange && handleChange(name, event.target.value)
-              }
-              variant={getVariant()}
-              disabled={disabled}
-            />
-          </Box>
-          {!isFullWidth && (
-            <ErrorRequirements focused={isFocused} error={error} />
-          )}
+            pl={3}
+            py={0}
+            pr={isPassword && !isPasswordVisible ? 6 : 3}
+            onChange={(event) =>
+              handleChange && handleChange(name, event.target.value)
+            }
+            variant={getVariant()}
+            disabled={disabled}
+          />
         </Box>
-        {isErrored && <ErrorText error={error} mb={3} />}
+        {!isFullWidth && (
+          <ErrorRequirements focused={isFocused} error={error} />
+        )}
       </Box>
-    </ThemeWrapper>
+      {isErrored && <ErrorText error={error} mb={3} />}
+    </Box>
   )
 }
 

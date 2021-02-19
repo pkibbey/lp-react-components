@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text } from 'rebass'
 import PropTypes from 'prop-types'
-import ThemeWrapper from '../ThemeWrapper'
 
 /**
  * Used to render an error message.
@@ -10,11 +9,9 @@ import ThemeWrapper from '../ThemeWrapper'
  */
 const ErrorText = ({ error, ...otherProps }) =>
   error.isError && error.hasInteracted ? (
-    <ThemeWrapper>
-      <Text variant='errorText' {...otherProps}>
-        {error.message}
-      </Text>
-    </ThemeWrapper>
+    <Text variant='errorText' {...otherProps}>
+      {error.message}
+    </Text>
   ) : null
 
 ErrorText.propTypes = {

@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from '../components/Loader'
+import ThemeWrapper from '../components/ThemeWrapper'
 import theme from '../theme'
 
 export default {
@@ -20,9 +21,17 @@ export default {
   }
 }
 
-export const Default = (args) => <Loader {...args} />
+export const Default = (args) => (
+  <ThemeWrapper>
+    <Loader {...args} />
+  </ThemeWrapper>
+)
 
-export const Large = (args) => <Loader {...args} />
+export const Large = (args) => (
+  <ThemeWrapper>
+    <Loader {...args} />
+  </ThemeWrapper>
+)
 
 Large.args = {
   size: 'large',

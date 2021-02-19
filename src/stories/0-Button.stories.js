@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../components/Button'
 import theme from '../theme'
+import ThemeWrapper from '../components/ThemeWrapper'
 
 export default {
   title: 'Button',
@@ -23,9 +24,20 @@ export default {
   }
 }
 
-export const Primary = (args) => <Button {...args} />
+// TODO: move the theme wrapper out of the components and into the stories.
+// This should probably help resolve the bundle size
 
-export const Secondary = (args) => <Button {...args} />
+export const Primary = (args) => (
+  <ThemeWrapper>
+    <Button {...args} />{' '}
+  </ThemeWrapper>
+)
+
+export const Secondary = (args) => (
+  <ThemeWrapper>
+    <Button {...args} />{' '}
+  </ThemeWrapper>
+)
 
 Secondary.args = {
   variant: 'secondary'

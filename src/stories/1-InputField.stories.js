@@ -1,5 +1,6 @@
 import React from 'react'
 import InputField from '../components/InputField'
+import ThemeWrapper from '../components/ThemeWrapper'
 
 export default {
   title: 'InputField',
@@ -16,9 +17,17 @@ export default {
   }
 }
 
-export const Default = (args) => <InputField {...args} />
+export const Default = (args) => (
+  <ThemeWrapper>
+    <InputField {...args} />
+  </ThemeWrapper>
+)
 
-export const DefaultWithErrors = (args) => <InputField {...args} />
+export const DefaultWithErrors = (args) => (
+  <ThemeWrapper>
+    <InputField {...args} />
+  </ThemeWrapper>
+)
 
 DefaultWithErrors.args = {
   shouldFocusOnLoad: false,

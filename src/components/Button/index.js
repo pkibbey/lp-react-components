@@ -2,7 +2,6 @@ import React from 'react'
 import { Button as RebassButton } from 'rebass'
 import Loader from '../Loader/'
 import PropTypes from 'prop-types'
-import ThemeWrapper from '../ThemeWrapper'
 
 /**
  * Used to provide call-to-action elements
@@ -15,23 +14,21 @@ const Button = ({
   isFullWidth,
   ...otherProps
 }) => (
-  <ThemeWrapper>
-    <RebassButton
-      onClick={handleClick}
-      variant={variant}
-      sx={{ width: isFullWidth ? '100%' : 'auto' }}
-      {...otherProps}
-    >
-      {isLoading ? (
-        <Loader
-          size={variant === 'primary' ? 'default' : 'small'}
-          variant={variant === 'secondary' ? 'dark' : 'light'}
-        />
-      ) : (
-        label
-      )}
-    </RebassButton>
-  </ThemeWrapper>
+  <RebassButton
+    onClick={handleClick}
+    variant={variant}
+    sx={{ width: isFullWidth ? '100%' : 'auto' }}
+    {...otherProps}
+  >
+    {isLoading ? (
+      <Loader
+        size={variant === 'primary' ? 'default' : 'small'}
+        variant={variant === 'secondary' ? 'dark' : 'light'}
+      />
+    ) : (
+      label
+    )}
+  </RebassButton>
 )
 
 Button.propTypes = {

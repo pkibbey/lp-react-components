@@ -1,5 +1,6 @@
 import React from 'react'
 import LoadingDots from '../components/LoadingDots'
+import ThemeWrapper from '../components/ThemeWrapper'
 import theme from '../theme'
 
 export default {
@@ -19,9 +20,17 @@ export default {
   }
 }
 
-export const Light = (args) => <LoadingDots {...args} />
+export const Light = (args) => (
+  <ThemeWrapper>
+    <LoadingDots {...args} />
+  </ThemeWrapper>
+)
 
-export const Dark = (args) => <LoadingDots {...args} />
+export const Dark = (args) => (
+  <ThemeWrapper>
+    <LoadingDots {...args} />
+  </ThemeWrapper>
+)
 
 Dark.args = {
   variant: 'dark'
