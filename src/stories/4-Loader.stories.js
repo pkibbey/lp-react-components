@@ -1,6 +1,6 @@
 import React from 'react'
 import Loader from '../components/Loader'
-import ThemeWrapper from '../components/ThemeWrapper'
+import ThemeWrapper from './ThemeWrapper'
 import theme from '../theme'
 
 export default {

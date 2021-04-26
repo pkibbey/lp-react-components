@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../components/Button'
 import theme from '../theme'
-import ThemeWrapper from '../components/ThemeWrapper'
+import ThemeWrapper from './ThemeWrapper'
 
 export default {
   title: 'Button',
@@ -29,13 +29,13 @@ export default {
 
 export const Primary = (args) => (
   <ThemeWrapper>
-    <Button {...args} />{' '}
+    <Button {...args} />
   </ThemeWrapper>
 )
 
 export const Secondary = (args) => (
   <ThemeWrapper>
-    <Button {...args} />{' '}
+    <Button {...args} />
   </ThemeWrapper>
 )
 

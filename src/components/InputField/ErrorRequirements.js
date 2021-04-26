@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'rebass'
+import { Text } from 'theme-ui'
 import PropTypes from 'prop-types'
 
 const ErrorRequirementsItems = ({ items }) =>
@@ -11,13 +11,18 @@ const ErrorRequirementsItems = ({ items }) =>
             key={d.name}
             variant={d.isError ? 'errorText' : 'errorInformation'}
             ml={d.shouldIndent ? 2 : 0}
+            sx={{ display: 'block' }}
           >
             {`${d.name}`}
           </Text>
         ))
       default:
         return (
-          <Text key={items.name} variant='errorInformation'>
+          <Text
+            key={items.name}
+            variant='errorInformation'
+            sx={{ display: 'block' }}
+          >
             {items.name}
           </Text>
         )

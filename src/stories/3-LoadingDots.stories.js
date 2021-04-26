@@ -1,6 +1,6 @@
 import React from 'react'
 import LoadingDots from '../components/LoadingDots'
-import ThemeWrapper from '../components/ThemeWrapper'
+import ThemeWrapper from './ThemeWrapper'
 import theme from '../theme'
 
 export default {

@@ -28,9 +28,6 @@ it('renders no error text when there is no error and it has not been interacted 
 it('renders error text when there is an error', () => {
   render(<ErrorText error={IS_ERROR} />)
   const error = screen.getByText(IS_ERROR.message)
-  expect(error).toHaveStyle({
-    color: 'rgb(223, 42, 49)'
-  })
 })
 
 it('renders no error text when there is an error and it has not been interacted with', () => {

@@ -1,30 +1,17 @@
 import 'react-app-polyfill/ie11'
-import '@webcomponents/custom-elements'
-
-import reactToWeb from 'react-to-webcomponent'
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-import Button from './components/Button'
-import InputField from './components/InputField'
-import SelectField from './components/SelectField'
-import LoadingDots from './components/LoadingDots'
-import ErrorText from './components/ErrorText'
-import Modal from './components/Modal'
-import Checkbox from './components/Checkbox'
 
 export { default as theme } from './theme'
 
-customElements.define('lp-button', reactToWeb(Button, React, ReactDOM))
-customElements.define('lp-input-field', reactToWeb(InputField, React, ReactDOM))
-customElements.define(
-  'lp-select-field',
-  reactToWeb(SelectField, React, ReactDOM)
-)
-customElements.define(
-  'lp-loading-dots',
-  reactToWeb(LoadingDots, React, ReactDOM)
-)
-customElements.define('lp-error-text', reactToWeb(ErrorText, React, ReactDOM))
-customElements.define('lp-modal', reactToWeb(Modal, React, ReactDOM))
-customElements.define('lp-checkbox', reactToWeb(Checkbox, React, ReactDOM))
+export { default as Button } from './components/Button'
+export { default as Input } from './components/Input'
+export { default as InputField } from './components/InputField'
+export { default as TextField } from './components/TextField'
+export { default as SelectField } from './components/SelectField'
+export { default as CompactSelectField } from './components/CompactSelectField'
+export { default as LoadingDots } from './components/LoadingDots'
+export { default as Loader } from './components/Loader'
+export { default as ErrorText } from './components/ErrorText'
+export { default as Modal } from './components/Modal'
+export { default as Checkbox } from './components/Checkbox'
+
+// TODO: figure out why this bundle size is so big

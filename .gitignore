@@ -11,7 +11,6 @@ storybook-static
 .rpt2_cache
 coverage
 docs/storybook/
-docs/styleguide/
 
 # misc
 .DS_Store

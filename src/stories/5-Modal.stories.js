@@ -10,16 +10,14 @@ export default {
     children: {
       table: { disable: true },
       defaultValue: (
-        <h3
+        <div
           style={{
             color: 'white',
             border: '1px solid white',
             padding: '40px',
             backgroundColor: 'rgba(255,255,255,0.2)'
           }}
-        >
-          Modal content
-        </h3>
+        />
       )
     }
   }
@@ -27,15 +25,13 @@ export default {
 
 export const Default = (args) => (
   <Modal {...args}>
-    <h3
+    <div
       style={{
         color: 'white',
         border: '1px solid white',
         padding: '40px',
         backgroundColor: 'rgba(255,255,255,0.2)'
       }}
-    >
-      Modal content
-    </h3>
+    />
   </Modal>
 )

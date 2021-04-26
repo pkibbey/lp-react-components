@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button as RebassButton } from 'rebass'
+import { Box, Text, Button as ThemeUIButton } from 'theme-ui'
 import Loader from '../Loader/'
 import PropTypes from 'prop-types'
 
@@ -14,21 +14,36 @@ const Button = ({
   isFullWidth,
   ...otherProps
 }) => (
-  <RebassButton
+  <ThemeUIButton
     onClick={handleClick}
-    variant={variant}
-    sx={{ width: isFullWidth ? '100%' : 'auto' }}
+    sx={{
+      width: isFullWidth ? '100%' : 'auto',
+      position: 'relative',
+      variant: variant
+    }}
     {...otherProps}
   >
-    {isLoading ? (
-      <Loader
-        size={variant === 'primary' ? 'default' : 'small'}
-        variant={variant === 'secondary' ? 'dark' : 'light'}
-      />
-    ) : (
-      label
+    {isLoading && (
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <Loader
+          size={variant === 'primary' ? 'default' : 'small'}
+          variant={variant === 'secondary' ? 'dark' : 'light'}
+        />
+      </Box>
     )}
-  </RebassButton>
+    <Text sx={{ opacity: isLoading ? 0 : 1 }}>{label}</Text>
+  </ThemeUIButton>
 )
 
 Button.propTypes = {
