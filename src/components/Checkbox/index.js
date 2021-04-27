@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Box } from 'rebass'
+import { Text, Box } from 'theme-ui'
 import PropTypes from 'prop-types'
 import theme from '../../theme'
 import styled from '@emotion/styled'
@@ -90,7 +90,7 @@ const Checkbox = ({ variant, label, state, handleChange, ...otherProps }) => {
         justifyContent: 'center',
         alignItems: 'center',
         margin: 2,
-        height: '40px',
+        height: theme.rowHeight,
         cursor: 'pointer',
         color: variant === 'dark' ? theme.colors.darkGray : 'white'
       }}

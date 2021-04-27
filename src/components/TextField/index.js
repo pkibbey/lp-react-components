@@ -1,19 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Flex, Box, Input } from 'theme-ui'
+import { Box, Textarea } from 'theme-ui'
 import ErrorText from '../ErrorText'
-import ErrorRequirements from './ErrorRequirements'
-import PasswordIcon from './PasswordIcon'
 import PropTypes from 'prop-types'
-import theme from '../../theme'
 
 /**
  * Used to gather input from the user. The field type can be set via the *type* prop.
  *
- * @visibleName Input Field
+ * @visibleName Text Field
  */
-const InputField = ({
+const TextField = ({
   name,
-  type,
   placeholder,
   value,
   handleChange,
@@ -21,13 +17,12 @@ const InputField = ({
   error,
   shouldFocusOnLoad,
   isFullWidth,
+  rows,
   disabled
 }) => {
   const [isFocused, setIsFocused] = useState(false)
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const inputRef = useRef()
 
-  const isPassword = type === 'password'
   const isErrored = error && error.isError
 
   const getAutoCompleteType = () => {
@@ -43,30 +38,11 @@ const InputField = ({
     }
   }, [shouldFocusOnLoad])
 
-  const VisibilityIcon = () => (
-    <Flex
-      title='toggle password visibility'
-      alignItems='center'
-      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-      sx={{
-        padding: '13px',
-        position: 'absolute',
-        right: 0,
-        top: 0,
-        cursor: 'pointer',
-        color: theme.colors.gray,
-        zIndex: 1
-      }}
-    >
-      <PasswordIcon variant={isPasswordVisible ? 'show' : 'hide'} />
-    </Flex>
-  )
-
   const getVariant = () => {
     if (disabled) {
-      return 'textInputDisabled'
+      return 'textFieldDisabled'
     }
-    return isErrored ? 'textInputError' : 'textInput'
+    return isErrored ? 'textFieldError' : 'textField'
   }
 
   const hasRequirements =
@@ -78,7 +54,7 @@ const InputField = ({
         sx={{
           display: isFullWidth ? 'block' : ['block', 'grid'],
           gridTemplateColumns: ['auto', '5fr 4fr'],
-          gridTemplateAreas: `'input requirements'`,
+          gridTemplateAreas: `'input'`,
           '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
             display: isFullWidth ? 'block' : '-ms-grid',
             msGridColumns: '5fr 4fr'
@@ -92,13 +68,11 @@ const InputField = ({
             msGridColumn: '1'
           }}
         >
-          {isPassword && <VisibilityIcon />}
-          <Input
+          <Textarea
+            rows={rows}
             autoComplete={getAutoCompleteType()}
             id={`input-field-${name}`}
-            name={`input-field-${name}`}
             ref={inputRef}
-            type={isPassword && !isPasswordVisible ? 'password' : 'text'}
             placeholder={placeholder}
             mb={isErrored ? 2 : 0}
             value={value}
@@ -107,9 +81,8 @@ const InputField = ({
               setIsFocused(false)
               handleBlur && handleBlur(name, { hasInteracted: true })
             }}
-            pl={3}
-            py={0}
-            pr={isPassword && !isPasswordVisible ? 6 : 3}
+            px={3}
+            py={2}
             onChange={(event) =>
               handleChange && handleChange(name, event.target.value)
             }
@@ -117,18 +90,13 @@ const InputField = ({
             disabled={disabled}
           />
         </Box>
-        {!isFullWidth && (
-          <ErrorRequirements focused={isFocused} error={error} />
-        )}
       </Box>
       {isErrored && <ErrorText error={error} mb={3} />}
     </Box>
   )
 }
 
-InputField.propTypes = {
-  /** The type of input field */
-  type: PropTypes.oneOf(['text', 'email', 'password']),
+TextField.propTypes = {
   /** The value for the input field */
   value: PropTypes.string,
   /** The placeholder for the input field */
@@ -145,29 +113,19 @@ InputField.propTypes = {
   isFullWidth: PropTypes.bool,
   /** When this is true, the input will render in a disabled state and be unresponsive to user input */
   disabled: PropTypes.bool,
+  /** The number of rows to display in the textarea */
+  rows: PropTypes.number,
   /** An object describing the error */
   error: PropTypes.shape({
     isError: PropTypes.bool,
     hasInteracted: PropTypes.bool,
-    message: PropTypes.string,
-    requirements: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        name: PropTypes.string,
-        data: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string,
-            isError: PropTypes.bool,
-            shouldIndent: PropTypes.bool
-          })
-        )
-      })
-    ])
+    message: PropTypes.string
   })
 }
 
-InputField.defaultProps = {
-  name: 'input'
+TextField.defaultProps = {
+  name: 'text-field',
+  rows: 2
 }
 
-export default InputField
+export default TextField

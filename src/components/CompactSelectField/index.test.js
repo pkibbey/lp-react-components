@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
-import SelectField from './'
+import SelectField from '.'
 
 const OPTIONS = [
   { name: 'Country 1', value: 'country-1' },

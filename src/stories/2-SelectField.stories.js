@@ -1,47 +1,74 @@
+import { Box } from '@theme-ui/components'
 import React from 'react'
 import SelectField from '../components/SelectField'
-import ThemeWrapper from '../components/ThemeWrapper'
+import ThemeWrapper from './ThemeWrapper'
 
 export default {
   title: 'SelectField',
   component: SelectField,
-  argTypes: {
-    isFullWidth: { defaultValue: false },
-    name: 'select-field',
-    value: { defaultValue: '' },
-    handleChange: { action: 'changed', table: { disable: true } },
-    handleBlur: { action: 'blurred', table: { disable: true } },
+  args: {
     options: [
-      { name: 'option 1', value: 'value 1' },
-      { name: 'option 2', value: 'value 2' }
-    ]
+      { label: 'Option 1', value: 'value 1' },
+      {
+        label:
+          'Option 2 - Ultra long option that extends past the available space and therefore truncates the text with ellipsis',
+        value: 'value 2'
+      },
+      { label: 'Option 3', value: 'value 3' },
+      { label: 'Option 4', value: 'value 4' },
+      { label: 'Option 5', value: 'value 5' },
+      { label: 'Option 6', value: 'value 6' }
+    ],
+    placeholder: 'test placeholder',
+    defaultValue: null,
+    maxOptions: 5,
+    autoFocus: true,
+    optionsAbove: false,
+    isSearchable: true,
+    allowCreateOptions: true,
+    isFullWidth: true
   }
 }
 
-export const Default = (args) => (
+const Template = (args) => (
   <ThemeWrapper>
-    <SelectField {...args} />
+    <div
+      style={{
+        margin: args.optionsAbove ? '200px 0' : '0',
+        width: '100%'
+      }}
+    >
+      <SelectField {...args} />
+    </div>
   </ThemeWrapper>
 )
 
-export const DefaultWithErrors = (args) => (
-  <ThemeWrapper>
-    <SelectField {...args} />
-  </ThemeWrapper>
-)
+export const Default = Template.bind({})
+Default.args = {
+  name: 'select-field',
+  allowCreateOptions: false
+}
 
-DefaultWithErrors.args = {
+export const ForceFocus = Template.bind({})
+ForceFocus.args = {
+  name: 'select-field-force-focus',
+  forceFocus: true,
+  autoFocus: false
+}
+
+export const OptionsAbove = Template.bind({})
+OptionsAbove.args = {
+  name: 'select-field-above',
+  optionsAbove: true
+}
+
+export const WithErrors = Template.bind({})
+WithErrors.args = {
   name: 'select-field-with-errors',
-  value: 'value 2',
+  isFullWidth: true,
   error: {
     isError: true,
     hasInteracted: true,
     message: 'Invalid value'
-  },
-  handleChange: { action: 'changed', table: { disable: true } },
-  handleBlur: { action: 'blurred', table: { disable: true } },
-  options: [
-    { name: 'option 1', value: 'value 1' },
-    { name: 'option 2', value: 'value 2' }
-  ]
+  }
 }

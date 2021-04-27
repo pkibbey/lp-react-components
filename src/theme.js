@@ -2,7 +2,10 @@
   Base theme styles that should be aligned with the design guidelines tokens
 */
 
+const ROW_HEIGHT = 40
+
 export default {
+  rowHeight: ROW_HEIGHT,
   fontSizes: [
     '.75rem',
     '.875rem',
@@ -37,6 +40,7 @@ export default {
     gray: '#847970',
     lightGray: '#D9D4D0',
     lighterGray: '#F8F5F3',
+    midGrey: '#A39C96',
     lightGrey: '#A2A3B8',
     red: '#DF2A31',
     lightRed: '#FEECEC',
@@ -64,9 +68,9 @@ export default {
     checkboxLabel: {
       fontFamily: '"Roboto", sans-serif',
       fontSize: 1,
-      height: '40px',
+      height: ROW_HEIGHT,
       letterSpacing: '0.01em',
-      lineHeight: '40px',
+      lineHeight: `${ROW_HEIGHT}px`,
       WebkitFontSmoothing: 'antialiased'
     }
   },
@@ -124,7 +128,7 @@ export default {
       borderWidth: 1,
       fontFamily: '"Roboto", sans-serif',
       fontSize: 1,
-      height: '40px',
+      height: ROW_HEIGHT,
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
@@ -140,7 +144,7 @@ export default {
       borderColor: 'red',
       backgroundColor: 'lightRed',
       // HACK: colorize webkit autocomplete input fields
-      WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
       '&::placeholder': {
         color: 'darkGray'
       }
@@ -151,7 +155,7 @@ export default {
       borderWidth: 1,
       fontFamily: '"Roboto", sans-serif',
       fontSize: 1,
-      height: '40px',
+      height: ROW_HEIGHT,
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
@@ -167,7 +171,7 @@ export default {
       borderColor: 'red',
       backgroundColor: 'lightRed',
       // HACK: colorize webkit autocomplete input fields
-      WebkitBoxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
       '&::placeholder': {
         color: 'darkGray'
       }
@@ -179,7 +183,7 @@ export default {
       borderWidth: 1,
       fontFamily: '"Roboto", sans-serif',
       fontSize: 1,
-      height: '40px',
+      height: ROW_HEIGHT,
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
@@ -201,9 +205,109 @@ export default {
       borderWidth: 1,
       fontFamily: '"Roboto", sans-serif',
       fontSize: 1,
-      height: '40px',
+      height: ROW_HEIGHT,
       letterSpacing: '0.01em',
       lineHeight: '38px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'navyGray',
+      borderColor: 'gray',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textFieldError: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      letterSpacing: '0.01em',
+      lineHeight: '22px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'navyGray',
+      borderColor: 'red',
+      backgroundColor: 'lightRed',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textFieldErrorDisabled: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      letterSpacing: '0.01em',
+      lineHeight: '22px',
+      WebkitFontSmoothing: 'antialiased',
+      '&:focus, &:hover': {
+        outlineColor: 'navyGray',
+        outlineWidth: 2,
+        outlineStyle: 'auto'
+      },
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'darkGray',
+      borderColor: 'red',
+      backgroundColor: 'lightRed',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px ${'lightRed'}`,
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textFieldDisabled: {
+      opacity: 0.4,
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      letterSpacing: '0.01em',
+      lineHeight: '22px',
+      WebkitFontSmoothing: 'antialiased',
+      '::-ms-expand': {
+        display: 'none'
+      },
+      color: 'darkGray',
+      borderColor: 'gray',
+      // HACK: colorize webkit autocomplete input fields
+      boxShadow:
+        'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white',
+      '&::placeholder': {
+        color: 'darkGray'
+      }
+    },
+    textField: {
+      borderRadius: 8,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      fontFamily: '"Roboto", sans-serif',
+      fontSize: 1,
+      letterSpacing: '0.01em',
+      lineHeight: '22px',
       WebkitFontSmoothing: 'antialiased',
       '&:focus, &:hover': {
         outlineColor: 'navyGray',

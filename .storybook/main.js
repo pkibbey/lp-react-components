@@ -4,7 +4,7 @@ module.exports = {
   ],
   "addons": [
     '@storybook/preset-create-react-app',
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
   ]
 }

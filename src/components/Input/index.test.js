@@ -1,31 +1,21 @@
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
-import InputField from './'
+import Input from './'
 
 const mockBlur = jest.fn()
 const mockChange = jest.fn()
 const INPUT_NAME = 'test1'
 const INPUT_VALUE = 'test value'
 const PLACEHOLDER = 'test placeholder'
-const ERROR = {
-  isError: true,
-  requirements: {
-    name: 'errors...',
-    data: [
-      { name: 'data1', isError: true },
-      { name: 'data2', isError: false }
-    ]
-  }
-}
 
 beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('InputField', () => {
+describe('Input', () => {
   it('renders an input field', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         value={INPUT_VALUE}
         handleChange={mockChange}
@@ -33,6 +23,7 @@ describe('InputField', () => {
         placeholder={PLACEHOLDER}
         shouldFocusOnLoad
         isFullWidth
+        isErrored={false}
       />
     )
     const input = screen.getByRole('textbox')
@@ -47,23 +38,17 @@ describe('InputField', () => {
 
   it('renders an input field with errors', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         value={INPUT_VALUE}
         handleChange={mockChange}
         handleBlur={mockBlur}
         placeholder={PLACEHOLDER}
-        error={ERROR}
+        isErrored={true}
       />
     )
     const input = screen.getByRole('textbox')
-    const errorName = screen.getByText(ERROR.requirements.name)
-    const errorData1 = screen.getByText(ERROR.requirements.data[0].name)
-    const errorData2 = screen.getByText(ERROR.requirements.data[1].name)
-
-    expect(errorName).toBeInTheDocument()
-    expect(errorData1).toBeInTheDocument()
-    expect(errorData2).toBeInTheDocument()
+    // TODO: expect the style to be different
     expect(mockChange).not.toHaveBeenCalled()
     expect(mockBlur).not.toHaveBeenCalled()
     expect(input).not.toHaveFocus()
@@ -71,14 +56,14 @@ describe('InputField', () => {
 
   it('renders a disabled input field', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         value={INPUT_VALUE}
         disabled
         handleChange={mockChange}
         handleBlur={mockBlur}
         placeholder={PLACEHOLDER}
-        error={ERROR}
+        isErrored={true}
       />
     )
     const input = screen.getByRole('textbox')
@@ -89,7 +74,7 @@ describe('InputField', () => {
 
   test('input field blur event is fired', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         value={INPUT_VALUE}
         handleChange={mockChange}
@@ -106,7 +91,7 @@ describe('InputField', () => {
 
   test('input field change event is fired', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         value={INPUT_VALUE}
         handleChange={mockChange}
@@ -123,7 +108,7 @@ describe('InputField', () => {
 
   it('renders a password field and shows the text when clicking the icon', () => {
     render(
-      <InputField
+      <Input
         name={INPUT_NAME}
         type='password'
         value={INPUT_VALUE}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex } from 'rebass'
+import { Flex } from 'theme-ui'
 
 // TODO: Make modal height auto transition when changing content
 

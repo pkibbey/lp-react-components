@@ -1,54 +1,66 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Box, Flex } from 'theme-ui'
 import Select, { components } from 'react-select'
 import CreatableSelect from 'react-select/creatable'
-import ErrorText from '../ErrorText'
 import theme from '../../theme'
 import DropdownIndicator from '../utils/DropdownIndicator'
 import Option from '../utils/Option'
 import Input from '../utils/Input'
 
-const ValueContainer = (props) => (
-  <Box
-    data-testid='value-container'
-    style={{
-      color: props.selectProps?.value
-        ? theme.colors.navy
-        : theme.colors.darkGray,
-      flex: 1
-    }}
-  >
-    <components.ValueContainer {...props} />
-  </Box>
-)
+const ValueContainer = (props) => {
+  const value =
+    props.selectProps?.value?.label || props.selectProps?.placeholder || ''
+  const placeholderColor = props.selectProps.isAltVariant
+    ? theme.colors.lightGray
+    : theme.colors.darkGray
+  const textColor = props.selectProps.isAltVariant
+    ? theme.colors.lightGray
+    : theme.colors.darkGray
+
+  return (
+    <Box
+      data-testid='value-container'
+      pl={1}
+      style={{
+        color: props.selectProps?.value ? textColor : placeholderColor,
+        flex: 1,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }}
+    >
+      {value}
+    </Box>
+  )
+}
 
 /**
- * Used for selecting a single option from a defined set
+ * Used for selecting a single option from a defined set, but with a compact display
  *
- * @visibleName Select Field
+ * @visibleName Compact Select Field
  */
-const SelectField = ({
+const CompactSelectField = ({
   name,
   placeholder,
   value,
   defaultValue,
   isFullWidth,
   handleChange,
-  error,
   handleBlur,
   options,
   height,
   autoFocus,
   optionsAbove,
   allowCreateOptions,
-  isSearchable,
   handleCreateOption,
   forceFocus,
-  type
+  type,
+  alignRight,
+  justifyRight,
+  variant
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const isErrored = error && error.isError
   const node = useRef()
+  const isAltVariant = variant === 'alt'
 
   const detectOutsideClick = (e) => {
     if (!node.current.contains(e.target)) {
@@ -66,35 +78,23 @@ const SelectField = ({
 
   const getStyles = () => {
     const basicStyle = {
+      marginLeft: 13,
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
       position: 'relative',
-      borderRadius: 8,
-      borderStyle: 'solid',
-      borderWidth: 1,
+      borderWidth: 0,
       fontFamily: '"Roboto", sans-serif',
-      fontSize: theme.fontSizes[1],
+      fontSize: theme.fontSizes[0],
       height: theme.rowHeight,
       letterSpacing: '0.01em',
       lineHeight: '38px',
       WebkitFontSmoothing: 'antialiased',
-      outlineStyle: 'auto',
-      outlineColor: theme.colors.navyGray,
-      '&:hover': {
-        outlineWidth: 2
-      },
       '::-ms-expand': {
         display: 'none'
       },
-      color: theme.colors.navyGray,
-      gridArea: 'input',
-      msGridColumn: '1',
-      '&::placeholder': {
-        color: 'darkGray'
-      }
+      color: isAltVariant ? 'white' : theme.colors.navyGray,
+      gridArea: 'input'
     }
 
     const baseStyles = {
@@ -102,8 +102,8 @@ const SelectField = ({
         return {
           ...provided,
           height: '100%',
-          padding: '0 0 0 0',
-          margin: '0 0 0 16px'
+          padding: 0,
+          flex: 'none'
         }
       },
       input: (provided) => ({
@@ -115,7 +115,10 @@ const SelectField = ({
       }),
       dropdownIndicator: (provided) => ({
         ...provided,
-        color: '#675D55'
+        color: isAltVariant ? theme.colors.lightGray : theme.colors.navy,
+        '&:hover': {
+          color: isAltVariant ? 'white' : theme.colors.darkNavy
+        }
       }),
       indicatorSeparator: (provided) => ({
         ...provided,
@@ -130,7 +133,8 @@ const SelectField = ({
         overflow: 'hidden',
         bottom: state.selectProps.optionsAbove ? '100%' : provided.bottom,
         top: state.selectProps.optionsAbove ? 'auto' : provided.top,
-        color: 'red'
+        width: 200,
+        right: state.selectProps.alignRight ? 0 : provided.right
       }),
       menuList: (provided) => ({
         ...provided,
@@ -138,49 +142,53 @@ const SelectField = ({
         padding: 0,
         borderRadius: theme.space[2],
         overflow: 'hidden',
-        boxShadow: '0px 0px 16px rgba(132, 121, 112, 0.64)',
+        boxShadow: isAltVariant
+          ? 'none'
+          : '0px 0px 16px rgba(132, 121, 112, 0.64)',
         maxHeight: height && `${height}px`,
-        overflow: 'auto'
+        overflow: 'auto',
+        border: isAltVariant ? '1px solid #484B68' : 'none'
       }),
-      option: (provided, state) => ({
-        ...provided,
-        fontFamily: '"Roboto", sans-serif',
-        fontSize: theme.fontSizes[1],
-        paddingTop: (theme.rowHeight - 22) / 2,
-        paddingBottom: (theme.rowHeight - 22) / 2,
-        lineHeight: '22px',
-        margin: 0,
-        padding: '0 16px',
-        color: state.isSelected ? theme.colors.navy : theme.colors.darkGray,
-        backgroundColor: 'white',
-        '&:hover': {
-          backgroundColor: theme.colors.lighterGray
+      option: (provided, state) => {
+        const getOptionColor = () => {
+          if (isAltVariant) {
+            return state.isSelected ? 'white' : theme.colors.midGrey
+          }
+          return state.isSelected ? theme.colors.navy : theme.colors.darkGray
         }
-      }),
+
+        return {
+          ...provided,
+          fontFamily: '"Roboto", sans-serif',
+          fontSize: theme.fontSizes[1],
+          paddingTop: (theme.rowHeight - 22) / 2,
+          paddingBottom: (theme.rowHeight - 22) / 2,
+          lineHeight: '22px',
+          margin: 0,
+          padding: '0 16px',
+          color: getOptionColor(),
+          backgroundColor: isAltVariant ? theme.colors.navy : 'white',
+          textAlign: state.selectProps.justifyRight
+            ? 'right'
+            : provided.textAlign,
+          '&:hover': {
+            backgroundColor: isAltVariant ? '#313055' : theme.colors.lighterGray
+          }
+        }
+      },
       placeholder: (provided, state) => ({
         ...provided,
         fontFamily: '"Roboto", sans-serif',
         fontSize: theme.fontSizes[1],
-        color: theme.colors.darkGray,
+        color: isAltVariant ? theme.colors.lightGray : theme.colors.darkGray,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'auto',
+        transform: 'auto'
       })
     }
 
-    if (isErrored) {
-      return {
-        ...baseStyles,
-        control: (provided, state) => ({
-          ...basicStyle,
-          outlineWidth: state.selectProps.isFocused ? 2 : 0,
-          borderColor: 'red',
-          backgroundColor: 'lightRed',
-          // HACK: colorize webkit autocomplete input fields
-          boxShadow: `inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #FEECEC`
-        })
-      }
-    }
     return {
       ...baseStyles,
       control: (provided, state) => ({
@@ -188,8 +196,9 @@ const SelectField = ({
         outlineWidth: state.isFocused || forceFocus ? 2 : 0,
         borderColor: 'gray',
         // HACK: colorize webkit autocomplete input fields
-        boxShadow:
-          'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white'
+        boxShadow: isAltVariant
+          ? 'none'
+          : 'inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px white'
       })
     }
   }
@@ -199,29 +208,19 @@ const SelectField = ({
   return (
     <Box>
       <Box
-        sx={{
-          cursor: 'pointer',
-          position: 'relative',
-          display: isFullWidth ? 'block' : ['block', 'grid'],
-          gridTemplateColumns: ['auto', '5fr 4fr'],
-          gridTemplateAreas: "'input spacer'",
-          '@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)': {
-            display: isFullWidth ? 'block' : '-ms-grid',
-            msGridColumns: '5fr 4fr'
-          }
-        }}
+        sx={{ cursor: 'pointer' }}
         onClick={() => setMenuIsOpen((s) => !s)}
         ref={node}
       >
         <SelectComponent
           name={`select-field-${name}`}
-          isSearchable={isSearchable}
+          isSearchable={false}
           options={options}
           value={value}
           defaultValue={defaultValue}
           styles={getStyles()}
           onChange={(value) => {
-            handleChange && handleChange(name, value)
+            handleChange && handleChange(name, value.value)
             handleBlur && handleBlur(name, { hasInteracted: true })
           }}
           placeholder={placeholder}
@@ -231,25 +230,27 @@ const SelectField = ({
           components={{ Input, ValueContainer, DropdownIndicator, Option }}
           type={type}
           menuIsOpen={menuIsOpen}
+          alignRight={alignRight}
+          justifyRight={justifyRight}
+          isAltVariant={isAltVariant}
         />
-        <Box sx={{ gridArea: 'spacer', msGridColumn: '2' }} />
       </Box>
-      <ErrorText error={error} mb={3} />
     </Box>
   )
 }
 
-SelectField.defaultProps = {
+CompactSelectField.defaultProps = {
   name: 'select-field',
   value: undefined,
   defaultValue: undefined,
   maxOptions: 5,
   options: [],
-  error: {},
   isFullWidth: false,
   isSearchable: true,
   allowCreateOptions: false,
-  forceFocus: false
+  forceFocus: false,
+  alignRight: false,
+  justifyRight: false
 }
 
-export default SelectField
+export default CompactSelectField

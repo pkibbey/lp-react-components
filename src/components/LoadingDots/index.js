@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'rebass'
+import { Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import PropTypes from 'prop-types'
 import theme from '../../theme'
@@ -18,6 +18,7 @@ const bounce = keyframes`
     transform: translate3d(0,-1px,0);
   }
 `
+
 const LoadingDot = ({ delay, variant }) => (
   <Box
     as='span'
@@ -26,11 +27,7 @@ const LoadingDot = ({ delay, variant }) => (
       width: '3px',
       height: '3px',
       borderRadius: '50%',
-      animationName: bounce,
-      animationDuration: '1.5s',
-      animationTimingFunction: 'linear',
-      animationIterationCount: '3',
-      animationDelay: `${delay}s`
+      animation: `${bounce} 1.5s linear ${delay}s infinite`
     }}
   />
 )
@@ -43,14 +40,13 @@ const LoadingDot = ({ delay, variant }) => (
 const LoadingDots = ({ variant }) => (
   <Box
     as='span'
-    style={{
+    sx={{
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       boxSizing: 'border-box',
       width: '17px',
-      height: '24px',
-      marginLeft: '4px'
+      height: '24px'
     }}
   >
     <LoadingDot delay={0} variant={variant} />
